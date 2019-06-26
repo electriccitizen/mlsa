@@ -17,7 +17,6 @@ function IndexPage() {
           alt="Cat and human sitting on a couch"
         />
       </section>
-
     </Layout>
   );
 }
