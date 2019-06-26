@@ -16,7 +16,11 @@
     "prop-types": "^15.7.2",
     "react": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest"
+    "react-helmet": "latest",
+    "react-popper": "^1.3.3",
+    "react-responsive-modal": "^4.0.1",
+    "react-simple-tooltip": "^2.6.0",
+    "react-tippy": "^1.2.3"
   },
   "scripts": {
     "analyze:lint": "eslint --ext .jsx --ext .js .",
