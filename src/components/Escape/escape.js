@@ -1,5 +1,4 @@
 import React from 'react'
-//import Tooltip from "react-simple-tooltip"
 import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
@@ -10,23 +9,13 @@ class Escape extends React.Component {
 
 
   handleClick = () => {
+    let stateObj = {
+      foo: "bar",
+    };
+
+    window.history.pushState(stateObj, "Google.com", "redirect");
     window.location.href = 'https://google.com';
   }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      open: false
-    }
-  }
-
-  setIsOpen = (option) => {
-    this.setState({
-      open: option
-    });
-  }
-
 
   render() {
     // window.onload = function() {
@@ -50,7 +39,7 @@ class Escape extends React.Component {
             <div style={{ width: 200, textAlign: 'left' }}>
               <p>
               <strong>SAFE BROWSING:</strong> Click this button to escape this site.
-              See our <a style={{color: 'blue'}} href="#">safe browsing tips</a> here.
+              See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a> here.
               </p>
               </div>
           )}

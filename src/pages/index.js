@@ -10,7 +10,7 @@ function IndexPage() {
         title="Home"
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
-      <section className="text-center">
+      <section className="text-center  md:justify-center">
         <img
           src={catAndHumanIllustration}
           className="block mx-auto w-1/2"
