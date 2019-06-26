@@ -9,11 +9,11 @@ function Header({ siteTitle }) {
     <>
 
     <nav className="bg-gray-700">
-      <div className="mr-64 float-right">
+
+      <div className="clearFix float-right">
         <Escape />
       </div>
-
-      <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
+        <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link to="/" className="flex items-center no-underline text-white">
           <span className="font-bold text-xl tracking-tight">{siteTitle}</span>
         </Link>
