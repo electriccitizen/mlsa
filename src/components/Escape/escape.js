@@ -1,41 +1,48 @@
 import React from 'react'
 import 'react-tippy/dist/tippy.css'
-import {
-  Tooltip,
-} from 'react-tippy';
-
+import { Tooltip, } from 'react-tippy';
 
 class Escape extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      open: true
-    }
+      // check for session cookie
+      if (document.cookie.split(';').filter((item) => item.trim().startsWith('new=')).length) {
+        this.trigger = false
+      } else {
+        this.trigger = true
+      }
+
+      // set the initial state for tooltip
+      this.state = {
+        open: this.trigger,
+      }
+      this.setIsOpen = this.setIsOpen.bind(this)
+
+      // set a session cookie for new users
+      document.cookie = "new=1";
   }
 
   setIsOpen = (option) => {
-    console.log('fook')
     this.setState({
-      open: false
+      open: option
     });
   }
+
   handleClick = () => {
     let stateObj = {
       foo: "bar",
     };
 
-    window.history.pushState(stateObj, "Google.com", "redirect");
-    window.location.href = 'https://google.com';
+   // obfustacate the back button when a user hits escape
+   window.history.pushState(stateObj, "Google.com", "redirect")
+   window.location.href = 'https://google.com';
+
   }
 
   render() {
-    // window.onload = function() {
-    //   alert('foo')
-    // }
     return (
-      <>
         <Tooltip
           // options
           title="Safe Browsing"
@@ -47,31 +54,27 @@ class Escape extends React.Component {
           arrow="true"
           interactive="true"
           theme="light"
-          open={{option}}
+          open={this.state.open}
           html={(
             <div style={{ width: 200, textAlign: 'left' }}>
               <p>
               <strong>SAFE BROWSING:</strong> Click this button to escape this site.
-              See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a> here.
+              See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a>
+                here.
               </p>
-              <span className="close" onClick={() => {this.setIsOpen(false)}}>close me</span>
-
-              </div>
+              <button className="block bg-gray-800 border border-white flex items-center px-2 py-1 rounded text-white" onClick={() => {this.setIsOpen(false)}}>Got it</button>
+            </div>
           )}
         >
-
-
-          <button
-            onClick={this.handleClick}
-            className = "mr-16 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 inline-flex items-center" >
-            Escape
-            <svg className="fill-current text-white w-5 h-5 mr-2 ml-2"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0  20" enable-background="new 0 0 20 20" >
-                 <path d="M14,10L8,5v3H1v4h7v3L14,10z M17,17H9v2h8c1.1,0,2-0.9,2-2V3c0-1.1-0.9-2-2-2H9v2h8V17z"/>
-            </svg>
-          </button>
+        <button
+         onClick={this.handleClick}
+         className = "mr-16 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 inline-flex items-center" >
+          Escape
+          <svg className="fill-current text-white w-5 h-5 mr-2 ml-2"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 0 20" enableBackground="new 0 0 20 20" >
+            <path d="M14,10L8,5v3H1v4h7v3L14,10z M17,17H9v2h8c1.1,0,2-0.9,2-2V3c0-1.1-0.9-2-2-2H9v2h8V17z"/>
+          </svg>
+        </button>
         </Tooltip>
-
-        </>
     );
   }
 }
