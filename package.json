@@ -1,7 +1,6 @@
 {
   "name": "MLSA",
   "description": "Montana Legal Services Association",
-  "version": "1.0",
   "author": "Tim Broeker <tim@electriccitizen.com>",
   "dependencies": {
     "gatsby": "^2.10.5",
