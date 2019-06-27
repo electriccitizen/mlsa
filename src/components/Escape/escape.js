@@ -7,7 +7,20 @@ import {
 
 class Escape extends React.Component {
 
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      open: true
+    }
+  }
+
+  setIsOpen = (option) => {
+    console.log('fook')
+    this.setState({
+      open: false
+    });
+  }
   handleClick = () => {
     let stateObj = {
       foo: "bar",
@@ -32,15 +45,17 @@ class Escape extends React.Component {
           position="bottom"
           distance="30"
           arrow="true"
-          sticky="true"
           interactive="true"
           theme="light"
+          open={{option}}
           html={(
             <div style={{ width: 200, textAlign: 'left' }}>
               <p>
               <strong>SAFE BROWSING:</strong> Click this button to escape this site.
               See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a> here.
               </p>
+              <span className="close" onClick={() => {this.setIsOpen(false)}}>close me</span>
+
               </div>
           )}
         >
