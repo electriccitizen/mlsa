@@ -6,22 +6,25 @@ class Escape extends React.Component {
 
   constructor(props) {
     super(props);
-
+    if (typeof document !== `undefined`) {
       // check for session cookie
       if (document.cookie.split(';').filter((item) => item.trim().startsWith('new=')).length) {
         this.trigger = false
       } else {
         this.trigger = true
       }
-
+    } else {
+      this.trigger = false
+    }
       // set the initial state for tooltip
       this.state = {
         open: this.trigger,
       }
       this.setIsOpen = this.setIsOpen.bind(this)
-
+    if (typeof document !== `undefined`) {
       // set a session cookie for new users
       document.cookie = "new=1";
+    }
   }
 
   setIsOpen = (option) => {
@@ -35,10 +38,11 @@ class Escape extends React.Component {
       foo: "bar",
     };
 
-   // obfustacate the back button when a user hits escape
-   window.history.pushState(stateObj, "Google.com", "redirect")
-   window.location.href = 'https://google.com';
-
+    if (typeof window !== `undefined`) {
+      // obfustacate the back button when a user hits escape
+      window.history.pushState(stateObj, "Google.com", "redirect")
+      window.location.href = 'https://google.com';
+    }
   }
 
   render() {
