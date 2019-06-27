@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import Escape from '../Escape/escape'
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
 
@@ -9,10 +8,6 @@ function Header({ siteTitle }) {
     <>
 
     <nav className="bg-gray-700">
-
-      <div className="clearFix float-right">
-        <Escape />
-      </div>
         <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link to="/" className="flex items-center no-underline text-white">
           <span className="font-bold text-xl tracking-tight">{siteTitle}</span>
