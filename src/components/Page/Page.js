@@ -17,6 +17,7 @@ class Page extends React.Component {
     return (
       <>
         <h1>{this.props.header.field_title}</h1>
+        <h3>{this.props.header.field_subheader}</h3>
       </>
     )
   }
