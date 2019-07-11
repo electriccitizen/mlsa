@@ -21,7 +21,6 @@ const pageTemplate = (props) => {
     <Layout>
       <div>
         <Page
-          title={'foo'}
           header={page.relationships.field_header}
         />
       </div>
