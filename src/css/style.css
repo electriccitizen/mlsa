@@ -18,26 +18,23 @@
  *
  * @import "tailwindcss/components";
  */
-h1 {
-    @apply text-6xl font-header;
+html{
+	@apply text-base leading-normal antialiased font-normal;
 }
-h2 {
-    @apply text-4xl font-header;
+h1{
+	@apply font-header text-60 leading-tight font-black;
 }
-h3 {
-    @apply text-3xl font-header;
+h2{
+	@apply font-header text-28 leading-wide;
 }
-h4 {
-    @apply text-2xl font-header;
+h3{
+	@apply font-header text-23 font-bold;
 }
-h5 {
-    @apply text-xl font-header;
+h4{
+	@apply text-20 font-bold;
 }
-h6 {
-    @apply text-lg font-header;
-}
-a {
-    @apply text-blue;
+a{
+	@apply text-blue;
 }
 @tailwind components;
 

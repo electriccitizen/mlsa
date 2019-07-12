@@ -31,6 +31,24 @@ module.exports = {
   	fontFamily: {
   		'sans': ['pt-sans', 'Helvetica', 'sans-serif'],
   		'header': ['akagi-pro', 'Arial', 'sans-serif'],
+  	},
+  	fontSize: {
+  		base: '18px',
+  		'13': '13px',
+  		'15': '15px',
+  		'16': '16px',
+  		'20': '20px',
+  		'22': '22px',
+  		'23': '23px',
+  		'24': '24px',
+  		'28': '28px',
+  		'60': '60px',
+  	},
+  	lineHeight: {
+  		none: 1,
+  		tight: 1.06,
+  		normal: 1.25,
+  		wide: 1.29,
   	}
   },
   variants: {},
