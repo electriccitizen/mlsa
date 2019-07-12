@@ -15,6 +15,10 @@ function typeTest() {
         <h4><Link>Morbi lobortis, libero a rhoncus eleifend, arcu ipsum fringilla ligula?</Link></h4>
         <p>Donec condimentum, sapien vitae bibendum volutpat, enim mi ullamcorper risus, molestie elementum orci massa feugiat diam. Mauris vitae neque. Praesent at odio at diam lobortis rutrum. Quisque eget turpis. Aenean purus dui, cursus vitae, porta id, pretium a, turpis.</p>
       </section>
+      <section>
+        <div className="bg-pineWhite gradient-ex"></div>
+        <div className="bg-greenBlue gradient-ex"></div>
+      </section>
     </Layout>
   );
 }

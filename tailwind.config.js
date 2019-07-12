@@ -49,8 +49,17 @@ module.exports = {
   		tight: 1.06,
   		normal: 1.25,
   		wide: 1.29,
-  	}
+  	},
+    gradients: theme => ({
+      // Array definition (defaults to linear gradients).
+      'pineWhite': ['to bottom', theme('colors.white.pine'), theme('colors.white.default')],
+      'greenBlue': ['to bottom', theme('colors.green.trans6'), theme('colors.blue.trans0')],
+    }),
   },
-  variants: {},
-  plugins: []
+  variants: {
+    gradients: ['responsive'],
+  },
+  plugins: [
+    require('./theme-plugins/gradients'),
+  ],
 };

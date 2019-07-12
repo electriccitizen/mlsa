@@ -36,6 +36,12 @@ h4{
 a{
 	@apply text-blue;
 }
+.gradient-ex{
+	min-height: 200px;
+}
+.gradient-wtf{
+	background-image: linear-gradient(to bottom, #e4f0e2 , #ffffff);
+}
 @tailwind components;
 
 /**
