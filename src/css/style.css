@@ -19,16 +19,25 @@
  * @import "tailwindcss/components";
  */
 h1 {
-    @apply text-2xl;
+    @apply text-6xl font-header;
 }
 h2 {
-    @apply text-xl;
+    @apply text-4xl font-header;
 }
 h3 {
-    @apply text-lg;
+    @apply text-4xl;
+}
+h4 {
+    @apply text-2xl font-header;
+}
+h5 {
+    @apply text-xl font-header;
+}
+h6 {
+    @apply text-lg font-header;
 }
 a {
-    @apply text-blue-600 underline;
+    @apply text-blue;
 }
 @tailwind components;
 

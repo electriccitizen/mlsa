@@ -66,13 +66,13 @@ class Escape extends React.Component {
               See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a>
                 here.
               </p>
-              <button className="block bg-gray-800 border border-white flex items-center px-2 py-1 rounded text-white" onClick={() => {this.setIsOpen(false)}}>Got it</button>
+              <button className="block bg-blue border border-white flex items-center px-2 py-1 rounded text-white" onClick={() => {this.setIsOpen(false)}}>Got it</button>
             </div>
           )}
         >
         <button
          onClick={this.handleClick}
-         className = "mr-16 bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 inline-flex items-center" >
+         className = "mr-16 bg-blue-dark hover:bg-blue text-white font-bold py-2 px-4 inline-flex items-center" >
           Escape
 
           <svg className="fill-current text-white w-5 h-5 mr-2 ml-2"  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0  20" enableBackground="new 0 0 20 20" >
