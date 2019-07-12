@@ -26,6 +26,8 @@ module.exports = {
   		},
   		black: {
   			default: '#1f2225',
+        light: '#262626',
+        dark: '#000000',
   		}
   	},
   	fontFamily: {
