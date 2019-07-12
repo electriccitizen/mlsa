@@ -18,17 +18,43 @@
  *
  * @import "tailwindcss/components";
  */
-h1 {
-    @apply text-2xl;
+html{
+	@apply text-base leading-normal antialiased font-normal text-black;
 }
-h2 {
-    @apply text-xl;
+h1{
+	@apply font-header text-60 leading-tight font-black mb-8 text-black-dark text-center relative pb-8;
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: calc(50% - 55px);
+		background: theme(colors.blue.default);
+		width: 110px;
+		height: 7px;
+		margin: 0 auto;
+	}
 }
-h3 {
-    @apply text-lg;
+h2{
+	@apply font-header text-28 leading-wide mb-10 text-black-light;
 }
-a {
-    @apply text-blue-600 underline;
+h3{
+	@apply font-header text-23 font-bold mb-4;
+}
+h4{
+	@apply text-20 font-bold mb-8;
+}
+p{
+	@apply mb-6;
+}
+a{
+	@apply text-blue;
+}
+.gradient-ex{
+	min-height: 200px;
+}
+.gradient-wtf{
+	background-image: linear-gradient(to bottom, #e4f0e2 , #ffffff);
 }
 @tailwind components;
 

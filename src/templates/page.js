@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import moment from 'moment'
+//import moment from 'moment'
 import Layout from '../components/Layout/layout';
 import Page from '../components/Page/Page';
 
