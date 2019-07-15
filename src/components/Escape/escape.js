@@ -71,9 +71,9 @@ class Escape extends React.Component {
         >
           <button
             onClick={this.handleClick}
-            className = "btn font-black inline-flex items-center relative w-32 h-16 md:order-3 md:h-12 md:w-38 md:h-auto" >
+            className = "btn font-black inline-flex items-center relative w-32 h-16 md:order-3 md:h-12 md:w-38 md:h-auto tracking-normal" >
             Escape
-            <EscapeIcon className="text-white fill-current absolute esc-position tracking-normal" />
+            <EscapeIcon className="text-white fill-current absolute esc-position" />
           </button>
         </Tooltip>
     );

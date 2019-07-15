@@ -65,6 +65,7 @@ module.exports = {
   },
   variants: {
     gradients: ['responsive'],
+    opacity: ['responsive', 'hover', 'focus'],
   },
   plugins: [
     require('./theme-plugins/gradients'),

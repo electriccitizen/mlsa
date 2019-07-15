@@ -78,7 +78,6 @@ a{
  * @import "components/forms";
  */
 
-
 /* BUTTON */
 .btn{
 	@apply bg-blue text-white tracking-wide uppercase px-6 py-4 font-header font-bold;
@@ -87,14 +86,6 @@ a{
 	}
 	@media screen and (min-width: theme(screens.md)){
 		@apply px-8;
-	}
-}
-
-/* TOOLTIP */
-.tippy-popper{
-	max-width: calc(100% - 10px);
-	@media screen and (max-width: theme(screens.md)){
-		margin-top: 5px;
 	}
 }
 
@@ -123,12 +114,28 @@ a{
  * @import "utilities/skew-transforms";
  */
 
+/* TOOLTIP */
+.tippy-popper{
+	max-width: calc(100% - 10px);
+	@media screen and (max-width: theme(screens.md)){
+		margin-top: 5px;
+	}
+}
+
 /* ESCAPE ICON  */
 .esc-position{
 	top: calc(50% - 13px);
 	right: 1rem;
 	@media screen and (min-width: theme(screens.md)){
 		right: 1.5rem;
+	}
+}
+
+/* TRANSLATE BUTTON */
+.trans-button{
+	padding: 12.5px 13px 12.5px 13px;
+	@media screen and (min-width: theme(screens.md)){
+		padding: 9px 15px 4px;
 	}
 }
 

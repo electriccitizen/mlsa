@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Escape from '../Escape/escape';
+import TransIcon from '../../images/g-translate.svg';
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -10,7 +11,9 @@ function Header({ siteTitle }) {
     <>
     <header className="bg-pineWhite">
       <Escape className="escape-btn" />
-
+      <button className="border-black border-l-0 border-t border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0">
+        <TransIcon className="fill-current text-black opacity-50 w-10 h-10" />
+      </button>
       <nav>
         <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
           <Link to="/" className="flex items-center no-underline">
