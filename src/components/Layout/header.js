@@ -11,7 +11,7 @@ function Header({ siteTitle }) {
     <>
     <header className="bg-pineWhite">
       <Escape className="escape-btn" />
-      <button className="border-black border-l-0 border-t border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0">
+      <button className="border-grey-mid border-l-0 border-t border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0">
         <TransIcon className="fill-current text-black opacity-50 w-10 h-10" />
       </button>
       <nav>
