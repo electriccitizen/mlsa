@@ -21,9 +21,10 @@
 html{
 	@apply text-base leading-normal antialiased font-normal text-black;
 	font-synthesis: none;
+	font-kerning: normal;
 }
 h1{
-	@apply font-header text-60 leading-tight font-black mb-8 text-black-dark text-center relative pb-8;
+	@apply font-header text-60 leading-tight font-extrabold mb-8 text-black-dark text-center relative pb-8;
 	&:after{
 		content: '';
 		display: block;

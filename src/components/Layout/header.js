@@ -39,7 +39,7 @@ function Header({ siteTitle }) {
         } bg-white md:block md:flex md:items-center w-full absolute inset-x-0 m-menu-wrapper md:bg-transparent md:static md:pr-2`}
       >
 
-        <nav className="font-header font-black uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
+        <nav className="font-header font-extrabold uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
           
           <Link to="/" className="main-link">Find Help</Link>
           <Link to="/" className="main-link">Resources</Link>
