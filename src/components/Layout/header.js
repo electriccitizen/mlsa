@@ -23,7 +23,7 @@ function Header({ siteTitle }) {
           <button
             className="font-header font-bold uppercase text-blue flex items-center py-2 xs:px-6 leading-none hover:text-green-dark focus:text-green-dark"
             onClick={() => toggleExpansion(!isExpanded)}
-            aria-expanded={ String(`${isExpanded ? `true` : `false`} `)}
+            aria-expanded={ String(`${isExpanded ? `true` : `false`}`)}
             aria-controls="mainNavigation" 
           >
             Menu
@@ -36,7 +36,7 @@ function Header({ siteTitle }) {
           className={`${
             isExpanded ? `open` : `closed`
           } bg-white w-full absolute inset-x-0 m-menu-wrapper md:bg-transparent md:static md:pr-2 md:flex md:order-3 md:items-center md:pt-4 cmax:pr-0 cmax:-mr-3`}
-          aria-hidden={ String(`${isExpanded ? `true` : `false`} `)}
+          aria-hidden={ String(`${isExpanded ? `true` : `false`}`)}
         >
 
           <nav className="font-header font-extrabold uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
