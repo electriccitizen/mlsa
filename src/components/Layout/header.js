@@ -23,22 +23,20 @@ function Header({ siteTitle }) {
           <button
             className="font-header font-bold uppercase text-blue flex items-center py-2 xs:px-6 leading-none hover:text-green-dark focus:text-green-dark"
             onClick={() => toggleExpansion(!isExpanded)}
+            aria-expanded={ String(`${isExpanded ? `true` : `false`} `)}
+            aria-controls="mainNavigation" 
           >
             Menu
-            {
-              isExpanded ? <CloseIcon className="fill-current h-10 w-10 ml-4" /> 
-              : 
-              <HamburgerIcon className="fill-current h-10 w-10 ml-4" />
-            }
-            
-            
+            { isExpanded ? <CloseIcon className="fill-current h-10 w-10 ml-4" /> : <HamburgerIcon className="fill-current h-10 w-10 ml-4" /> }
           </button>
         </div>
 
         <div
+          id="mainNavigation" 
           className={`${
             isExpanded ? `open` : `closed`
           } bg-white w-full absolute inset-x-0 m-menu-wrapper md:bg-transparent md:static md:pr-2 md:flex md:order-3 md:items-center md:pt-4 cmax:pr-0 cmax:-mr-3`}
+          aria-hidden={ String(`${isExpanded ? `true` : `false`} `)}
         >
 
           <nav className="font-header font-extrabold uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
@@ -53,7 +51,7 @@ function Header({ siteTitle }) {
         </div>
 
         <div className="w-full py-8 md:absolute md:py-6 md:px-20px md:left-0 md:top-0 md:w-auto cmax:pl-0">
-          <Link to="/" className="block w-56 m-auto">
+          <Link to="/" className="block w-56 m-auto hover:opacity-75 focus:opacity-75">
             <Logo />
             <span className="visually-hidden">{siteTitle}</span>
           </Link>
