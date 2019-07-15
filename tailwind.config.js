@@ -57,6 +57,11 @@ module.exports = {
       'pineWhite': ['to bottom', theme('colors.white.pine'), theme('colors.white.default')],
       'greenBlue': ['to bottom', theme('colors.green.trans6'), theme('colors.blue.trans0')],
     }),
+    extend: {
+      width: {
+        '38': '9.5rem',
+      }
+    },
   },
   variants: {
     gradients: ['responsive'],

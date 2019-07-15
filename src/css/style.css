@@ -20,6 +20,7 @@
  */
 html{
 	@apply text-base leading-normal antialiased font-normal text-black;
+	font-synthesis: none;
 }
 h1{
 	@apply font-header text-60 leading-tight font-black mb-8 text-black-dark text-center relative pb-8;
@@ -74,6 +75,19 @@ a{
  * @import "components/forms";
  */
 
+
+/* BUTTONS */
+.btn{
+	@apply bg-blue text-white uppercase px-6 py-4;
+	&:hover,&:focus{
+		@apply bg-grey-dark;
+	}
+	@media screen and (min-width: theme(screens.md)){
+		@apply px-8;
+	}
+}
+
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -98,3 +112,13 @@ a{
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+/* ESCAPE ICON  */
+.esc-position{
+	top: calc(50% - 13px);
+	right: 1rem;
+	@media screen and (min-width: theme(screens.md)){
+		right: 1.5rem;
+	}
+}
+
