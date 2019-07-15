@@ -19,7 +19,7 @@ function Header({ siteTitle }) {
         
       <div className="md:hidden m-menu-toggle border-b border-grey-mid flex flex-auto justify-center xs:justify-end">
         <button
-          className="font-header font-bold uppercase text-blue flex items-center py-2 px-6 leading-none"
+          className="font-header font-bold uppercase text-blue flex items-center py-2 px-6 leading-none hover:text-green-dark focus:text-green-dark"
           onClick={() => toggleExpansion(!isExpanded)}
         >
           Menu
