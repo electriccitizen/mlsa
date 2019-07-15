@@ -61,10 +61,12 @@ module.exports = {
     }),
     extend: {
       width: {
+        '7': '1.75rem',
         '38': '9.5rem',
       },
       screens: {
         'xs': '500px',
+        'cmax': '1140px',
       },
       inset: {
         '100': '100%',
@@ -72,6 +74,12 @@ module.exports = {
       maxHeight: {
         '0': '0'
       },
+      maxWidth: {
+        '1080px': '1080px',
+      },
+      spacing: {
+        '20px': '20px',
+      }
     },
   },
   variants: {

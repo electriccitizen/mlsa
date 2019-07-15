@@ -60,6 +60,7 @@ class Escape extends React.Component {
           arrow="true"
           interactive="true"
           theme="light"
+          className="md:order-2"
           open={this.state.open}
           html={(
             <div className="text-left py-6">

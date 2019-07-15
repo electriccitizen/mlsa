@@ -61,6 +61,14 @@ a{
 .gradient-wtf{
 	background-image: linear-gradient(to bottom, #e4f0e2 , #ffffff);
 }
+.visually-hidden{
+	position: absolute;
+	left: -900vw;
+	top: 0;
+	font-size: 1px;
+	opacity: .1;
+}
+
 @tailwind components;
 
 /**
@@ -177,16 +185,16 @@ a{
 .esc-position{
 	top: calc(50% - 13px);
 	right: 1rem;
-	@media screen and (min-width: theme(screens.md)){
+	@media all and (min-width: theme(screens.md)){
 		right: 1.5rem;
 	}
 }
 
 /* TRANSLATE BUTTON */
 .trans-button{
-	padding: 12.5px 13px 12.5px 13px;
-	@media screen and (min-width: theme(screens.md)){
-		padding: 9px 15px 4px;
+	padding: 12.5px 20px 12.5px 20px;
+	@media all and (min-width: theme(screens.md)){
+		padding: 9px 20px 4px;
 	}
 }
 
