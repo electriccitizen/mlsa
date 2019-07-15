@@ -61,7 +61,16 @@ module.exports = {
     extend: {
       width: {
         '38': '9.5rem',
-      }
+      },
+      screens: {
+        'xs': '500px',
+      },
+      inset: {
+        '100': '100%',
+      },
+      maxHeight: {
+        '0': '0'
+      },
     },
   },
   variants: {

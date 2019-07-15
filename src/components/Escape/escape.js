@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-tippy/dist/tippy.css';
 import { Link } from "gatsby";
 import { Tooltip, } from 'react-tippy';
-import EscapeIcon from '../../images/exit_to_app_24px.svg';
+import EscapeIcon from '../../images/exit-app.svg';
 
 class Escape extends React.Component {
 
@@ -62,7 +62,7 @@ class Escape extends React.Component {
           theme="light"
           open={this.state.open}
           html={(
-            <div className="text-left py-6 px-4">
+            <div className="text-left py-6">
               <p className="text-black text-15"><strong className="block mb-1 text-16">SAFE BROWSING:</strong>Click this button to escape this site. See our <Link to="/safe-browsing">safe browsing tips</Link>&nbsp;here.
               </p>
               <button className="btn text-13" onClick={() => {this.setIsOpen(false)}}>Got it</button>

@@ -89,6 +89,17 @@ a{
 	}
 }
 
+/* MAIN MENU LINKS */
+.main-link{
+	@apply text-black block px-6 py-4 border-b border-grey-mid tracking-wide leading-none text-20;
+	&:last-child{
+		border-bottom: 0;
+	}
+	&:hover,&:focus{
+		background: theme(colors.white.blue);
+	}
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -139,3 +150,23 @@ a{
 	}
 }
 
+/* MOBILE MENU WRAPPER */
+.m-menu-wrapper{
+	top: 72px;
+	-webkit-transition: -webkit-transform .3s ease;
+  -moz-transition: -moz-transform .3s ease;
+  -ms-transition: -ms-transform .3s ease;
+  transition: transform .3s ease;
+	&.open{
+		-webkit-transform: translate(0, 0%);
+    -moz-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    transform: translate(0, 0%);
+	}
+	&.closed{
+		-webkit-transform: translate(-100vw, 0%);
+    -moz-transform: translate(-100vw, 0%);
+    -ms-transform: translate(-100vw, 0%);
+    transform: translate(-100vw, 0%);
+	}
+}
