@@ -50,6 +50,9 @@ p{
 }
 a{
 	@apply text-blue;
+	&:hover,&:focus{
+		@apply text-green-dark;
+	}
 }
 .gradient-ex{
 	min-height: 200px;
@@ -76,9 +79,9 @@ a{
  */
 
 
-/* BUTTONS */
+/* BUTTON */
 .btn{
-	@apply bg-blue text-white uppercase px-6 py-4;
+	@apply bg-blue text-white tracking-wide uppercase px-6 py-4 font-header font-bold;
 	&:hover,&:focus{
 		@apply bg-grey-dark;
 	}
@@ -87,6 +90,13 @@ a{
 	}
 }
 
+/* TOOLTIP */
+.tippy-popper{
+	max-width: calc(100% - 10px);
+	@media screen and (max-width: theme(screens.md)){
+		margin-top: 5px;
+	}
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

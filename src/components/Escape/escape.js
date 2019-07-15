@@ -1,5 +1,6 @@
-import React from 'react'
-import 'react-tippy/dist/tippy.css'
+import React from 'react';
+import 'react-tippy/dist/tippy.css';
+import { Link } from "gatsby";
 import { Tooltip, } from 'react-tippy';
 import EscapeIcon from '../../images/exit_to_app_24px.svg';
 
@@ -61,21 +62,18 @@ class Escape extends React.Component {
           theme="light"
           open={this.state.open}
           html={(
-            <div style={{ width: 200, textAlign: 'left' }}>
-              <p>
-              <strong>SAFE BROWSING:</strong> Click this button to escape this site.
-              See our <a style={{color: 'blue'}} href="/safe-browsing">safe browsing tips</a>
-                here.
+            <div className="text-left py-6 px-4">
+              <p className="text-black text-15"><strong className="block mb-1 text-16">SAFE BROWSING:</strong>Click this button to escape this site. See our <Link to="/safe-browsing">safe browsing tips</Link>&nbsp;here.
               </p>
-              <button className="btn block border border-white flex items-center" onClick={() => {this.setIsOpen(false)}}>Got it</button>
+              <button className="btn text-13" onClick={() => {this.setIsOpen(false)}}>Got it</button>
             </div>
           )}
         >
           <button
             onClick={this.handleClick}
-            className = "btn font-header font-black inline-flex items-center relative w-32 h-16 md:order-3 md:h-12 md:w-38 md:h-auto" >
+            className = "btn font-black inline-flex items-center relative w-32 h-16 md:order-3 md:h-12 md:w-38 md:h-auto" >
             Escape
-            <EscapeIcon className="text-white fill-current absolute esc-position" />
+            <EscapeIcon className="text-white fill-current absolute esc-position tracking-normal" />
           </button>
         </Tooltip>
     );
