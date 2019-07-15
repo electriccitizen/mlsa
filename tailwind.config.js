@@ -29,7 +29,8 @@ module.exports = {
   			default: '#1f2225',
         light: '#262626',
         dark: '#000000',
-  		}
+  		},
+      transparent: 'transparent',
   	},
   	fontFamily: {
   		'sans': ['pt-sans', 'Helvetica', 'sans-serif'],

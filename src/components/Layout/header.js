@@ -11,7 +11,7 @@ function Header({ siteTitle }) {
 
   return (
     <>
-    <header className="bg-pineWhite flex flex-row flex-wrap relative">
+    <header className="bg-pineWhite flex flex-row flex-wrap relative site-header content-start">
       <Escape className="escape-btn" />
       <button className="border-grey-mid border-l-0 border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0">
         <TransIcon className="fill-current text-black opacity-50 w-10 h-10" />
@@ -36,42 +36,21 @@ function Header({ siteTitle }) {
       <div
         className={`${
           isExpanded ? `open` : `closed`
-        } bg-white md:block md:flex md:items-center w-full md:w-auto absolute inset-x-0 m-menu-wrapper`}
+        } bg-white md:block md:flex md:items-center w-full absolute inset-x-0 m-menu-wrapper md:bg-transparent md:static md:pr-2`}
       >
 
-        <nav className="font-header font-black uppercase border-b-4 border-green border-l border-r">
-          <Link
-            to="/"
-            className="main-link"
-          >
-           Find Help
-          </Link>
-
-          <Link
-            to="/"
-            className="main-link"
-          >
-            Resources
-          </Link>
-
-          <Link
-            to="/"
-            className="main-link"
-          >
-           About Us
-          </Link>
-          <Link
-            to="/"
-            className="main-link"
-          >
-           FAQs
-          </Link>
+        <nav className="font-header font-black uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
+          
+          <Link to="/" className="main-link">Find Help</Link>
+          <Link to="/" className="main-link">Resources</Link>
+          <Link to="/" className="main-link">About Us</Link>
+          <Link to="/" className="main-link">FAQs</Link>
 
         </nav>
 
       </div>
 
-      <Link to="/" className="flex items-center no-underline">
+      <Link to="/" className="block w-full">
         <span className="font-bold text-xl tracking-tight">{siteTitle}</span>
       </Link>
 
