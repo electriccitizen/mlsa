@@ -13,6 +13,9 @@ const Partners = () => {
             info
             relationships {
               field_logos {
+                field_media_image {
+                  alt
+                }
                 relationships {
                   field_media_image {
                     localFile {
@@ -47,7 +50,7 @@ const Partners = () => {
         <h2>{node.info}</h2>
         <ul>
           {node.relationships.field_logos.map((logoImage, index) => (
-            <li><Img fixed={logoImage.relationships.field_media_image.localFile.childImageSharp.fixed} /></li>
+            <li><Img fixed={logoImage.relationships.field_media_image.localFile.childImageSharp.fixed} alt={logoImage.field_media_image.alt} /></li>
           ))}
         </ul>
       </div>
