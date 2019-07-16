@@ -22,13 +22,15 @@ module.exports = {
   		grey: {
   			default: '#77787c',
   			light: '#eeeeee',
+        mid: '#979797',
   			dark: '#646569',
   		},
   		black: {
   			default: '#1f2225',
         light: '#262626',
         dark: '#000000',
-  		}
+  		},
+      transparent: 'transparent',
   	},
   	fontFamily: {
   		'sans': ['pt-sans', 'Helvetica', 'sans-serif'],
@@ -57,9 +59,32 @@ module.exports = {
       'pineWhite': ['to bottom', theme('colors.white.pine'), theme('colors.white.default')],
       'greenBlue': ['to bottom', theme('colors.green.trans6'), theme('colors.blue.trans0')],
     }),
+    extend: {
+      width: {
+        '7': '1.75rem',
+        '38': '9.5rem',
+      },
+      screens: {
+        'xs': '500px',
+        'cmax': '1140px',
+      },
+      inset: {
+        '100': '100%',
+      },
+      maxHeight: {
+        '0': '0'
+      },
+      maxWidth: {
+        '1080px': '1080px',
+      },
+      spacing: {
+        '20px': '20px',
+      }
+    },
   },
   variants: {
     gradients: ['responsive'],
+    opacity: ['responsive', 'hover', 'focus'],
   },
   plugins: [
     require('./theme-plugins/gradients'),
