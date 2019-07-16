@@ -23,7 +23,11 @@ const FooterMenu = () => {
   return (
     <nav>
       {fMenu.allTaxonomyTermFooterMenu.edges.map(({ node }) => (
-        <li key={node.id}><Link to={node.field_menu_link.uri}>{node.name}</Link></li>
+        <li key={node.id}>
+          {String(node.field_menu_link.uri).includes('internal') ? <Link to="/">{node.name}</Link>
+            : String(node.field_menu_link.uri).includes('entity') ? <Link to="/">{node.name}</Link>
+            : <a href={node.field_menu_link.uri} target="_blank" rel="noopener noreferrer">{node.name}</a>}
+        </li>
       ))}
     </nav>
   )
