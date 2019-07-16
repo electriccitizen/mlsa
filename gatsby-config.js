@@ -61,6 +61,22 @@ module.exports = {
         tailwind: true,
         purgeOnly: ["src/css/style.css"]
       }
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'ocv7axb'
+        }
+      }
+    },
+    {
+    resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
     }
   ]
 };

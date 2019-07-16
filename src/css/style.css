@@ -18,18 +18,57 @@
  *
  * @import "tailwindcss/components";
  */
-h1 {
-    @apply text-2xl;
+html{
+	@apply text-base leading-normal antialiased font-normal text-black;
+	font-synthesis: none;
+	font-kerning: normal;
 }
-h2 {
-    @apply text-xl;
+h1{
+	@apply font-header text-60 leading-tight font-extrabold mb-8 text-black-dark text-center relative pb-8;
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: calc(50% - 55px);
+		background: theme(colors.blue.default);
+		width: 110px;
+		height: 7px;
+		margin: 0 auto;
+	}
 }
-h3 {
-    @apply text-lg;
+h2{
+	@apply font-header text-28 leading-wide mb-10 text-black-light;
 }
-a {
-    @apply text-blue-600 underline;
+h3{
+	@apply font-header text-23 font-bold mb-4;
 }
+h4{
+	@apply text-20 font-bold mb-8;
+}
+p{
+	@apply mb-6;
+}
+a{
+	@apply text-blue;
+	&:hover,&:focus{
+		@apply text-green-dark;
+	}
+}
+.gradient-ex{
+	min-height: 200px;
+}
+.gradient-wtf{
+	background-image: linear-gradient(to bottom, #e4f0e2 , #ffffff);
+}
+.visually-hidden{
+	position: absolute;
+	left: -900vw;
+	top: 0;
+	font-size: 1px;
+	opacity: .1;
+}
+
 @tailwind components;
 
 /**
@@ -47,6 +86,59 @@ a {
  * @import "components/buttons";
  * @import "components/forms";
  */
+
+/* BUTTON */
+.btn{
+	@apply bg-blue text-white tracking-wide uppercase px-6 py-4 font-header font-bold;
+	&:hover,&:focus{
+		@apply bg-grey-dark;
+	}
+	@media screen and (min-width: theme(screens.md)){
+		@apply px-8;
+	}
+}
+
+/* MAIN MENU LINKS */
+.main-link{
+	@apply text-black block px-6 py-4 border-b border-grey-mid tracking-wide leading-none text-20;
+	&:last-child{
+		border-bottom: 0;
+	}
+	&:hover,&:focus{
+		@apply bg-white-blue;
+	}
+	&.active{
+		@apply text-blue;
+		&:hover,&:focus{
+			@apply text-green-dark;
+		}
+	}
+	@media screen and (min-width: theme(screens.md)){
+		@apply border-0 px-3 relative;
+		&:not(:last-child){
+			&:after{
+				content: '';
+				display: block;
+				height: 24px;
+				width: 2px;
+				background-color: theme(colors.grey.mid);
+				position: absolute;
+				right: 0;
+				top: calc(50% - 12px);
+				-webkit-transform: rotate(20deg);
+				-moz-transform: rotate(20deg);
+				-ms-transform: rotate(20deg);
+				transform: rotate(20deg);
+			}
+		}
+		&:hover,&:focus{
+			@apply bg-transparent;
+		}
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		@apply text-22;
+	}
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -72,3 +164,61 @@ a {
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+/* HEADER */
+.site-header{
+	min-height: 150px;
+	@media screen and (min-width: theme(screens.lg)){
+		min-height: 164px;
+	}
+}
+
+/* TOOLTIP */
+.tippy-popper{
+	max-width: calc(100% - 10px);
+	@media screen and (max-width: theme(screens.md)){
+		margin-top: 5px;
+	}
+}
+
+/* ESCAPE ICON  */
+.esc-position{
+	top: calc(50% - 13px);
+	right: 1rem;
+	@media all and (min-width: theme(screens.md)){
+		right: 1.5rem;
+	}
+}
+
+/* TRANSLATE BUTTON */
+.trans-button{
+	padding: 12.5px 20px 12.5px 20px;
+	@media all and (min-width: theme(screens.md)){
+		padding: 9px 20px 4px;
+	}
+}
+
+/* MOBILE MENU WRAPPER */
+.m-menu-wrapper{
+	top: 72px;
+	-webkit-transition: -webkit-transform .3s ease;
+  -moz-transition: -moz-transform .3s ease;
+  -ms-transition: -ms-transform .3s ease;
+  transition: transform .3s ease;
+	&.open{
+		@media screen and (max-width: theme(screens.md)){
+			-webkit-transform: translate(0, 0%);
+    	-moz-transform: translate(0, 0%);
+   	 	-ms-transform: translate(0, 0%);
+    	transform: translate(0, 0%);
+  	}
+	}
+	&.closed{
+		@media screen and (max-width: theme(screens.md)){
+			-webkit-transform: translate(-150vw, 0%);
+    	-moz-transform: translate(-150vw, 0%);
+    	-ms-transform: translate(-150vw, 0%);
+    	transform: translate(-150vw, 0%);
+  	}
+	}
+}

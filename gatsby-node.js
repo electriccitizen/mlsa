@@ -29,33 +29,33 @@ exports.createPages = ({ actions, graphql }) => {
         }    
           `).then(result => {
 
-        if (result.errors) {
-          reject(result.errors)
-        }
+            if (result.errors) {
+              reject(result.errors)
+            }
 
 
-        // Create pages for each basic page.
-        result.data.allNodePage.edges.forEach(({ node }) => {
+            // Create pages for each basic page.
+            result.data.allNodePage.edges.forEach(({ node }) => {
 
-          let path_alias;
-          if (node.path.alias == null) {
-            path_alias = `${node.drupal_id}`;
-          } else {
-            path_alias = node.path.alias;
-          }
+              let path_alias;
+              if (node.path.alias == null) {
+                path_alias = `${node.drupal_id}`;
+              } else {
+                path_alias = node.path.alias;
+              }
 
-          createPage({
-            path: path_alias,
-            component: path.resolve(`./src/templates/page.js`),
-            context: {
-              drupal_id: node.drupal_id,
-            },
-          })
-        });
+              createPage({
+                path: path_alias,
+                component: path.resolve(`./src/templates/page.js`),
+                context: {
+                  drupal_id: node.drupal_id,
+                },
+              })
+            });
 
         resolve()
 
-      })
+          })
 
     )
   })
