@@ -54,6 +54,14 @@ module.exports = {
           id: 'ocv7axb'
         }
       }
+    },
+    {
+    resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
     }
   ]
 };
