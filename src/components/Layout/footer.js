@@ -1,15 +1,24 @@
 import PropTypes from "prop-types";
 import React from "react";
+import Partners from '../Block/partner-orgs';
+import Social from '../Block/social';
+import FooterMenu from '../Navigation/footer-menu';
+import FooterAbout from '../Block/footer-about';
+import Copyright from '../Block/copyright';
 
 function Footer() {
 
   return (
     <footer>
-      <nav className="flex justify-between max-w-4xl mx-auto p-4 md:p-8 text-sm">
-      <p>
-      Footer
-      </p>
-      </nav>
+      <Partners />
+      <div>
+        <Social />
+        <FooterMenu /> 
+        <Copyright />
+      </div>
+      <div>
+        <FooterAbout />
+      </div>
     </footer>
   );
 }
