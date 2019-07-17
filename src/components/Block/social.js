@@ -28,7 +28,7 @@ const Social = () => {
         {node.field_social_links.map((socialLink, index) => (
           <li className="px-1">
             <a className="block w-48 h-48 hover:opacity-75 focus:opacity-75 mb-8" href={socialLink.uri} target="_blank" rel="noopener noreferrer">
-              {String(socialLink.uri).includes('facebook') ? <Facebook className="text-facebook fill-current" />
+              {String(socialLink.uri).includes('facebook') ? <Facebook />
               : String(socialLink.uri).includes('youtube') ? <Youtube />
               : String(socialLink.uri).includes('linkedin') ? <Linkedin />
               : String(socialLink.uri).includes('twitter') ? <Twitter />

@@ -31,10 +31,6 @@ module.exports = {
         dark: '#000000',
   		},
       transparent: 'transparent',
-      'facebook': '#4463b1',
-      'twitter': '#56acee',
-      'youtube': '#e52117',
-      'linkedin': '#0b76b3',
   	},
   	fontFamily: {
   		'sans': ['pt-sans', 'Helvetica', 'sans-serif'],
