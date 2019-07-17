@@ -23,8 +23,7 @@ const Copyright = () => {
   return (
     copy.allBlockContentBasic.edges.map(({ node }) => (
       node.drupal_internal__id === 1 &&
-        <div id={ `block-${node.drupal_internal__id}`} key={node.drupal_id}>
-          <div>{node.info}</div>
+        <div id={ `block-${node.drupal_internal__id}`} key={node.drupal_id} className="text-black text-center text-16 md:text-left lg:text-18 lg:text-grey-dark">
           <div dangerouslySetInnerHTML={{ __html: node.body.processed}} />
         </div>
       

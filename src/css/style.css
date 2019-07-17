@@ -19,7 +19,7 @@
  * @import "tailwindcss/components";
  */
 html{
-	@apply text-base leading-normal antialiased font-normal text-black;
+	@apply text-base leading-normal antialiased font-normal text-black font-sans;
 	font-synthesis: none;
 	font-kerning: normal;
 }
@@ -247,5 +247,30 @@ a{
 	}
 	@media all and (max-width: theme(screens.md)){
 		max-width: 500px;
+	}
+}
+
+.site-footer{
+	padding-top: 220px;
+	position: relative;
+	padding-bottom: 200px;
+	overflow: hidden;
+	@media all and (min-width: theme(screens.md)){
+		padding-top: 185px;
+		padding-bottom: 160px;
+	}
+	@media all and (min-width: theme(screens.lg)){
+		padding-top: 115px;
+	}
+	&:before{
+		content: '';
+		@apply block absolute inset-0 bg-greenBlue;
+		height: 55px;
+	}
+	.landscape{
+		position: absolute;
+		width: 550px;
+		left: calc(50% - 270px);
+		bottom: -187px;
 	}
 }
