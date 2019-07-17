@@ -21,7 +21,7 @@ const FooterMenu = () => {
   `)
 
   return (
-    <nav className="text-center mb-4 px-4 md:px-5">
+    <nav className="text-center mb-4 md:text-left">
       {fMenu.allTaxonomyTermFooterMenu.edges.map(({ node }) => (
         <div key={node.id} className="footer-menu-item">
           {String(node.field_menu_link.uri).includes('internal') ? <Link to="/">{node.name}</Link>

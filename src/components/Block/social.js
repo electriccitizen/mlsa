@@ -24,7 +24,7 @@ const Social = () => {
 
   return (    
     social.allBlockContentSocialMediaLinks.edges.map(({ node }) => (
-      <ul className="flex flex-row justify-center">
+      <ul className="flex flex-row justify-center md:justify-start -mx-1">
         {node.field_social_links.map((socialLink, index) => (
           <li className="px-1">
             <a className="block w-48 h-48 hover:opacity-75 focus:opacity-75 mb-8" href={socialLink.uri} target="_blank" rel="noopener noreferrer">
