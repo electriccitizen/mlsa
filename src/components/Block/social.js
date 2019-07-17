@@ -1,10 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
-import { faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import Facebook from '../../images/facebook.svg';
+import Youtube from '../../images/youtube.svg';
+import Linkedin from '../../images/linkedin.svg';
+import Twitter from '../../images/twitter.svg';
 
 const Social = () => {
 
@@ -25,14 +24,14 @@ const Social = () => {
 
   return (    
     social.allBlockContentSocialMediaLinks.edges.map(({ node }) => (
-      <ul>
+      <ul className="flex flex-row justify-center">
         {node.field_social_links.map((socialLink, index) => (
-          <li>
-            <a href={socialLink.uri} target="_blank" rel="noopener noreferrer">
-              {String(socialLink.uri).includes('facebook') ? <FontAwesomeIcon icon={faFacebookSquare} title="Facebook" />
-              : String(socialLink.uri).includes('youtube') ? <FontAwesomeIcon icon={faYoutubeSquare} title="YouTube" />
-              : String(socialLink.uri).includes('linkedin') ? <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
-              : String(socialLink.uri).includes('twitter') ? <FontAwesomeIcon icon={faTwitterSquare} title="Twitter" />
+          <li className="px-1">
+            <a className="block w-48 h-48 hover:opacity-75 focus:opacity-75 mb-8" href={socialLink.uri} target="_blank" rel="noopener noreferrer">
+              {String(socialLink.uri).includes('facebook') ? <Facebook className="text-facebook fill-current" />
+              : String(socialLink.uri).includes('youtube') ? <Youtube />
+              : String(socialLink.uri).includes('linkedin') ? <Linkedin />
+              : String(socialLink.uri).includes('twitter') ? <Twitter />
               : 'No Icon Available' }
             </a>
           </li>

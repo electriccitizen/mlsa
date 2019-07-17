@@ -31,6 +31,10 @@ module.exports = {
         dark: '#000000',
   		},
       transparent: 'transparent',
+      'facebook': '#4463b1',
+      'twitter': '#56acee',
+      'youtube': '#e52117',
+      'linkedin': '#0b76b3',
   	},
   	fontFamily: {
   		'sans': ['pt-sans', 'Helvetica', 'sans-serif'],
@@ -46,6 +50,7 @@ module.exports = {
   		'23': '23px',
   		'24': '24px',
   		'28': '28px',
+      '48': '48px',
   		'60': '60px',
   	},
   	lineHeight: {
@@ -63,6 +68,10 @@ module.exports = {
       width: {
         '7': '1.75rem',
         '38': '9.5rem',
+        '48': '48px',
+      },
+      height:{
+        '48': '48px',
       },
       screens: {
         'xs': '500px',
