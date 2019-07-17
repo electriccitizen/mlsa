@@ -6,7 +6,7 @@ const Partners = () => {
 
   const partner = useStaticQuery(graphql`
     query partner {
-      allBlockContentLogoGrid(filter: {drupal_internal__id: {eq: 4}}) {
+      allBlockContentLogoGrid(filter: {drupal_internal__id: {eq: 4}}, sort: {fields: relationships___field_logo_grid, order: ASC}) {
         edges {
           node {
             drupal_internal__id
