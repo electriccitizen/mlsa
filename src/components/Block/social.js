@@ -29,10 +29,10 @@ const Social = () => {
         {node.field_social_links.map((socialLink, index) => (
           <li>
             <a href={socialLink.uri} target="_blank" rel="noopener noreferrer">
-              {String(socialLink.uri).includes('facebook') ? <FontAwesomeIcon icon={faFacebookSquare} />
-              : String(socialLink.uri).includes('youtube') ? <FontAwesomeIcon icon={faYoutubeSquare} />
-              : String(socialLink.uri).includes('linkedin') ? <FontAwesomeIcon icon={faLinkedin} />
-              : String(socialLink.uri).includes('twitter') ? <FontAwesomeIcon icon={faTwitterSquare} />
+              {String(socialLink.uri).includes('facebook') ? <FontAwesomeIcon icon={faFacebookSquare} title="Facebook" />
+              : String(socialLink.uri).includes('youtube') ? <FontAwesomeIcon icon={faYoutubeSquare} title="YouTube" />
+              : String(socialLink.uri).includes('linkedin') ? <FontAwesomeIcon icon={faLinkedin} title="LinkedIn" />
+              : String(socialLink.uri).includes('twitter') ? <FontAwesomeIcon icon={faTwitterSquare} title="Twitter" />
               : 'No Icon Available' }
             </a>
           </li>
