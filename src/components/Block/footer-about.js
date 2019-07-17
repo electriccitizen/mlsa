@@ -23,8 +23,7 @@ const FooterAbout = () => {
 
   return (
     about.allBlockContentBasic.edges.map(({ node }) => (
-      <div id={ `block-${node.drupal_internal__id}`} key={node.drupal_id}>
-        <div>{node.info}</div>
+      <div id={ `block-${node.drupal_internal__id}`} key={node.drupal_id} className="text-black-dark">
         <div dangerouslySetInnerHTML={{ __html: node.body.processed}} />
       </div>
       
