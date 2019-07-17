@@ -222,3 +222,19 @@ a{
   	}
 	}
 }
+
+/* LOGO GRID */
+.logo-grid{
+	li{
+		max-width: 240px;
+		&.image-34{
+			@media all and (min-width: theme(screens.md)){
+				width: 22%;
+				max-width: 200px;
+			}
+		}
+	}
+	@media all and (max-width: theme(screens.md)){
+		max-width: 500px;
+	}
+}
