@@ -43,7 +43,7 @@ class Escape extends React.Component {
     if (typeof window !== `undefined`) {
       // obfustacate the back button when a user hits escape
       window.history.pushState(stateObj, "Google.com", "redirect")
-      window.location.href = 'https://google.com';
+      window.location.href = 'https://www.google.com/search?source=hp&q=weather&oq=weather';
     }
   }
 
