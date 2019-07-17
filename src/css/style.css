@@ -140,6 +140,17 @@ a{
 	}
 }
 
+.footer-menu-item{
+	@apply text-16 inline;
+	&:not(:last-child):after{
+		content: '/';
+		display: inline-block;
+		padding: 0 10px 0 9px;
+		color: theme(colors.black.default);
+		padding-right: 
+	}
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
