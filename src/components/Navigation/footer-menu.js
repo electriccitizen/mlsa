@@ -10,6 +10,7 @@ const FooterMenu = () => {
       allTaxonomyTermFooterMenu(sort: {fields: weight, order: ASC}) {
         edges {
           node {
+            id
             name
             field_menu_link {
               uri

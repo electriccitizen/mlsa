@@ -64,9 +64,10 @@ class Escape extends React.Component {
           open={this.state.open}
           html={(
             <div className="text-left py-6">
-              <p className="text-black text-15"><strong className="block mb-1 text-16">SAFE BROWSING:</strong>Click this button to escape this site. See our <Link to="/safe-browsing">safe browsing tips</Link>&nbsp;here.
+              <p className="text-black text-15"><strong className="block mb-1 text-16">SAFE BROWSING:</strong>Click this button to escape this site. See our safe browsing tips&nbsp;here.
               </p>
-              <button className="btn text-13" onClick={() => {this.setIsOpen(false)}}>Got it</button>
+              <button className="btn text-13 mr-3 mb-2 inline-block" onClick={() => {this.setIsOpen(false)}}>Got it</button>
+              <Link to="/safe-browsing" aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2" >Learn More</Link>
             </div>
           )}
         >

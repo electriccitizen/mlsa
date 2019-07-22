@@ -12,6 +12,7 @@ const Social = () => {
       allBlockContentSocialMediaLinks(filter: {drupal_internal__id: {eq: 3}}, sort: {fields: field_social_links, order: ASC}) {
         edges {
           node {
+            id
             drupal_internal__id
             field_social_links {
               uri
@@ -24,9 +25,9 @@ const Social = () => {
 
   return (    
     social.allBlockContentSocialMediaLinks.edges.map(({ node }) => (
-      <ul className="flex flex-row justify-center md:justify-start -mx-1">
+      <ul key={node.id} className="flex flex-row justify-center md:justify-start -mx-1">
         {node.field_social_links.map((socialLink, index) => (
-          <li className="px-1">
+          <li key={index} className="px-1">
             <a className="block w-48 h-48 hover:opacity-75 focus:opacity-75 mb-8" href={socialLink.uri} target="_blank" rel="noopener noreferrer">
               {String(socialLink.uri).includes('facebook') ? <Facebook />
               : String(socialLink.uri).includes('youtube') ? <Youtube />

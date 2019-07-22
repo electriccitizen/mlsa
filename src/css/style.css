@@ -96,7 +96,15 @@ a{
 	@media screen and (min-width: theme(screens.md)){
 		@apply px-8;
 	}
+	&.btn-alt{
+		@apply bg-green-dark;
+		&:hover,&:focus{
+			@apply text-white bg-grey-dark;
+		}
+	}
 }
+
+
 
 /* MAIN MENU LINKS */
 .main-link{
@@ -186,8 +194,12 @@ a{
 /* TOOLTIP */
 .tippy-popper{
 	max-width: calc(100% - 10px);
-	@media screen and (max-width: theme(screens.md)){
-		margin-top: 5px;
+	margin-top: -10px;
+	button{
+		width: 132px;
+		@media screen and (min-width: theme(screens.lg)){
+			width: 150px;
+		}
 	}
 }
 
