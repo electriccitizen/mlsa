@@ -19,7 +19,7 @@
  * @import "tailwindcss/components";
  */
 html{
-	@apply text-base leading-normal antialiased font-normal text-black;
+	@apply text-base leading-normal antialiased font-normal text-black font-sans;
 	font-synthesis: none;
 	font-kerning: normal;
 }
@@ -96,7 +96,15 @@ a{
 	@media screen and (min-width: theme(screens.md)){
 		@apply px-8;
 	}
+	&.btn-alt{
+		@apply bg-green-dark;
+		&:hover,&:focus{
+			@apply text-white bg-grey-dark;
+		}
+	}
 }
+
+
 
 /* MAIN MENU LINKS */
 .main-link{
@@ -140,6 +148,16 @@ a{
 	}
 }
 
+.footer-menu-item{
+	@apply text-16 inline;
+	&:not(:last-child):after{
+		content: '/';
+		display: inline-block;
+		padding: 0 10px 0 9px;
+		color: theme(colors.black.default);
+	}
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -176,8 +194,12 @@ a{
 /* TOOLTIP */
 .tippy-popper{
 	max-width: calc(100% - 10px);
-	@media screen and (max-width: theme(screens.md)){
-		margin-top: 5px;
+	margin-top: -10px;
+	button{
+		width: 132px;
+		@media screen and (min-width: theme(screens.lg)){
+			width: 150px;
+		}
 	}
 }
 
@@ -220,5 +242,46 @@ a{
     	-ms-transform: translate(-150vw, 0%);
     	transform: translate(-150vw, 0%);
   	}
+	}
+}
+
+/* LOGO GRID */
+.logo-grid{
+	li{
+		max-width: 240px;
+		&.image-34{
+			@media all and (min-width: theme(screens.md)){
+				width: 22%;
+				max-width: 200px;
+			}
+		}
+	}
+	@media all and (max-width: theme(screens.md)){
+		max-width: 500px;
+	}
+}
+
+.site-footer{
+	padding-top: 220px;
+	position: relative;
+	padding-bottom: 200px;
+	overflow: hidden;
+	@media all and (min-width: theme(screens.md)){
+		padding-top: 185px;
+		padding-bottom: 160px;
+	}
+	@media all and (min-width: theme(screens.lg)){
+		padding-top: 115px;
+	}
+	&:before{
+		content: '';
+		@apply block absolute inset-0 bg-greenBlue;
+		height: 55px;
+	}
+	.landscape{
+		position: absolute;
+		width: 550px;
+		left: calc(50% - 270px);
+		bottom: -187px;
 	}
 }
