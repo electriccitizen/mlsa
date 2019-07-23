@@ -5,6 +5,7 @@ module.exports = {
   	colors: {
   		green: {
   			default: '#239c4a',
+        light: "#99cdbb",
   			dark: '#14662e',
   			trans6: 'rgba(35,156,74,.6)',
   		},
@@ -46,6 +47,7 @@ module.exports = {
   		'23': '23px',
   		'24': '24px',
   		'28': '28px',
+      '48': '48px',
   		'60': '60px',
   	},
   	lineHeight: {
@@ -57,12 +59,16 @@ module.exports = {
     gradients: theme => ({
       // Array definition (defaults to linear gradients).
       'pineWhite': ['to bottom', theme('colors.white.pine'), theme('colors.white.default')],
-      'greenBlue': ['to bottom', theme('colors.green.trans6'), theme('colors.blue.trans0')],
+      'greenBlue': ['to bottom', theme('colors.green.trans6'), theme('colors.green.light')],
     }),
     extend: {
       width: {
         '7': '1.75rem',
         '38': '9.5rem',
+        '48': '48px',
+      },
+      height:{
+        '48': '48px',
       },
       screens: {
         'xs': '500px',

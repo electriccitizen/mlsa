@@ -6,12 +6,16 @@ import TransIcon from '../../images/g-translate.svg';
 import HamburgerIcon from '../../images/hamburger.svg';
 import CloseIcon from '../../images/close-x.svg';
 import Logo from '../../images/logo.svg';
+import Helmet from "react-helmet";
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
     <>
+    <Helmet>
+      <link href="https://use.typekit.net" rel="preconnect" crossorigin />
+    </Helmet>
     <header className="bg-pineWhite site-header">
       <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080px">
         <Escape />
