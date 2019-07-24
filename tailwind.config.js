@@ -48,7 +48,9 @@ module.exports = {
   		'24': '24px',
   		'28': '28px',
       '48': '48px',
+      '56': '56px',
   		'60': '60px',
+      '64': '64px',
   	},
   	lineHeight: {
   		none: 1,
@@ -84,6 +86,7 @@ module.exports = {
         '1080px': '1080px',
       },
       spacing: {
+        '7': '1.75rem',
         '20px': '20px',
       }
     },

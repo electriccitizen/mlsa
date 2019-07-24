@@ -22,6 +22,9 @@ html{
 	@apply text-base leading-normal antialiased font-normal text-black font-sans;
 	font-synthesis: none;
 	font-kerning: normal;
+	#___gatsby{
+		overflow-x: hidden;
+	}
 }
 h1{
 	@apply font-header text-60 leading-tight font-extrabold mb-8 text-black-dark text-center relative pb-8;
@@ -285,3 +288,64 @@ a{
 		bottom: -187px;
 	}
 }
+
+/* HOMEPAGE INTRO BLOCK */
+.intro-text{
+	.intro-headline{
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - 55px);
+			background: theme(colors.blue.default);
+			width: 110px;
+			height: 7px;
+			margin: 0 auto;
+		}
+		a{
+			@apply font-extrabold underline;
+		}
+	}
+	@media all and (min-width: theme(screens.md)){
+		width: 55%;
+		min-height: 450px;
+		.intro-headline{
+			&:after{
+				content: none;
+			}
+		}
+	}
+	@media all and (min-width: theme(screens.cmax)){
+		width: 48%;
+	}
+}
+.intro-image-wrapper{
+	@apply -mx-4;
+	overflow: hidden;
+	height: 425px;
+	.intro-image-inner{
+		position: relative;
+		left: 50%;
+		top: 50%;
+		width: 510px;
+		transform: -webkit-translate(-50%,-50%);
+		transform: -moz-translate(-50%,-50%);
+		transform: -ms-translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+	}
+	@media all and (min-width: theme(screens.md)){
+		@apply mx-0 absolute pl-7;
+		top: -20px;
+		left: 55%;
+		height: 450px;
+		.intro-image-inner{
+			width: 540px;
+		}
+	}
+	@media all and (min-width: theme(screens.cmax)){
+		left: 48%;
+		width: 52%;
+	}
+}
+
