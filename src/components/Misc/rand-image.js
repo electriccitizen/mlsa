@@ -33,9 +33,9 @@ const RandomImages = () => {
   )
 
   let randImages = [
-    <Img fixed={pageQuery.imageOne.childImageSharp.fixed} />,
-    <Img fixed={pageQuery.imageTwo.childImageSharp.fixed} />,
-    <Img fixed={pageQuery.imageThree.childImageSharp.fixed} />,
+    <Img fixed={pageQuery.imageOne.childImageSharp.fixed} alt="Trees in the winter"/>,
+    <Img fixed={pageQuery.imageTwo.childImageSharp.fixed} alt="Train Bridge over river in the sunset" />,
+    <Img fixed={pageQuery.imageThree.childImageSharp.fixed} alt="River in the mountains" />,
   ];
   
   return randImages[Math.floor(Math.random()*randImages.length)];
