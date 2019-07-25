@@ -9,22 +9,22 @@ const RandomImages = () => {
     query pageQuery {
       imageOne: file(relativePath: { eq: "white-pines.jpg" }) {
         childImageSharp {
-          fixed(fit: COVER, height: 350, width: 210, jpegProgressive: true){
-            ...GatsbyImageSharpFixed
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
       imageTwo: file(relativePath: { eq: "train-bridge.jpg" }) {
         childImageSharp {
-          fixed(fit: COVER, height: 350, width: 210, jpegProgressive: true){
-            ...GatsbyImageSharpFixed
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
       imageThree: file(relativePath: { eq: "mountain-river.jpg" }) {
         childImageSharp {
-          fixed(fit: COVER, height: 350, width: 210, jpegProgressive: true){
-            ...GatsbyImageSharpFixed
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -33,9 +33,9 @@ const RandomImages = () => {
   )
 
   let randImages = [
-    <Img fixed={pageQuery.imageOne.childImageSharp.fixed} alt="Trees in the winter"/>,
-    <Img fixed={pageQuery.imageTwo.childImageSharp.fixed} alt="Train Bridge over river in the sunset" />,
-    <Img fixed={pageQuery.imageThree.childImageSharp.fixed} alt="River in the mountains" />,
+    <Img fluid={pageQuery.imageOne.childImageSharp.fluid} alt="Trees in the winter"/>,
+    <Img fluid={pageQuery.imageTwo.childImageSharp.fluid} alt="Train Bridge over river in the sunset" />,
+    <Img fluid={pageQuery.imageThree.childImageSharp.fluid} alt="River in the mountains" />,
   ];
   
   return randImages[Math.floor(Math.random()*randImages.length)];

@@ -20,7 +20,7 @@ function Layout({ children }) {
       render={data => (
         <div>
           <Header siteTitle={data.site.siteMetadata.title} />
-            <main className="px-4 py-8 md:px-7">
+            <main className="max-w-1143px mx-auto px-4 py-8 md:px-7">
               {children}
             </main>
           <Footer />

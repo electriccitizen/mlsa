@@ -40,13 +40,13 @@ h1{
 		margin: 0 auto;
 	}
 }
-h2{
+h2,.h2{
 	@apply font-header text-28 leading-wide mb-10 text-black-light;
 }
-h3{
+h3,.h3{
 	@apply font-header text-23 font-bold mb-4;
 }
-h4{
+h4,.h4{
 	@apply text-20 font-bold mb-8;
 }
 p{
@@ -107,8 +107,6 @@ a{
 	}
 }
 
-
-
 /* MAIN MENU LINKS */
 .main-link{
 	@apply text-black block px-6 py-4 border-b border-grey-mid tracking-wide leading-none text-20;
@@ -158,6 +156,31 @@ a{
 		display: inline-block;
 		padding: 0 10px 0 9px;
 		color: theme(colors.black.default);
+	}
+}
+
+/* CARD IMAGES */
+.card-image{
+	@apply relative overflow-hidden block;
+	flex: 0 0 30%;
+	min-height: 250px;
+	&.card-small{
+		flex: 0 0 127px;
+		min-height: 236px;
+	}
+	.gatsby-image-wrapper{
+		height: 100%;
+	}
+}
+.card-text{
+	@apply flex flex-col justify-center py-4 px-6 text-left;
+	&.card-small{
+		@apply px-8;
+	}
+	@media all and (min-width: theme(screens.md)){
+		&.card-small{
+			@apply px-6;
+		}
 	}
 }
 
@@ -289,6 +312,7 @@ a{
 	}
 }
 
+<<<<<<< HEAD
 /* HOMEPAGE INTRO BLOCK */
 .intro-text{
 	.intro-headline{
@@ -348,4 +372,7 @@ a{
 		width: 52%;
 	}
 }
+=======
+/* HOME PAGE FEATURED CONTENT */
+>>>>>>> Home page feactured content grid theming
 
