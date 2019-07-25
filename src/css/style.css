@@ -165,7 +165,7 @@ a{
 		flex: 0 0 127px;
 		min-height: 236px;
 	}
-	.gatsby-image-wrapper{
+	.gatsby-image-wrapper,& > div{
 		height: 100%;
 	}
 }
