@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Img from 'gatsby-image';
 
 
 const RandomImages = () => {
 
-  const pageQuery = graphql`
+  const pageQuery = useStaticQuery(graphql`
     query pageQuery {
       imageOne: file(relativePath: { eq: "white-pines.jpg" }) {
         childImageSharp {
@@ -30,11 +30,12 @@ const RandomImages = () => {
       }
     }
   `
+  )
 
   let randImages = [
     <Img fixed={pageQuery.imageOne.childImageSharp.fixed} />,
     <Img fixed={pageQuery.imageTwo.childImageSharp.fixed} />,
-    <Img fixed={pageQuery.imageThree.childImageSharp.fixed} />, 
+    <Img fixed={pageQuery.imageThree.childImageSharp.fixed} />,
   ];
   
   return randImages[Math.floor(Math.random()*randImages.length)];
