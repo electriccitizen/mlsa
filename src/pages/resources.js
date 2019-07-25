@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout/layout";
 import SEO from "../components/Layout/seo";
-import Search from "../components/Search/search";
+import ResourceLibrary from "../components/ResourceLibrary/ResourceLibrary";
 
 
 const searchIndices = [
@@ -17,10 +17,9 @@ function IndexPage() {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
       <section>
-        <Search collapse indices={searchIndices} />
+        <ResourceLibrary collapse indices={searchIndices} />
       </section>
     </Layout>
   );
 }
-
 export default IndexPage;

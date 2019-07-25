@@ -68,7 +68,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         <ClearRefinements clearsQuery />
       </div>
 
-
       <div class="flex mb-4">
         <div class="w-1/3 bg-gray-400">
           <RefinementList attribute='field_crime.name' />
