@@ -81,9 +81,13 @@ module.exports = {
         '0': '0'
       },
       maxWidth: {
+        'xxs': '18rem',  
         '1080px': '1080px',
+        '1116px': '1116px',
+        '1143px': '1143px',
       },
       spacing: {
+        '7': '1.75rem',
         '20px': '20px',
       }
     },
