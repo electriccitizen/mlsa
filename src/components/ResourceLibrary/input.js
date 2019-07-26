@@ -6,7 +6,7 @@ export default connectSearchBox(({ refine, ...rest }) => (
   <Form>
     <Input
       type="text"
-      placeholder="Enter keywords to find resources"
+      placeholder="Search"
       aria-label="Enter keywords"
       onChange={e => refine(e.target.value)}
       {...rest}
