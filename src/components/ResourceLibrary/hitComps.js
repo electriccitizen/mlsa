@@ -1,6 +1,5 @@
-import React, { Fragment } from "react"
-import { Highlight, Snippet } from "react-instantsearch-dom"
-import { Link } from "gatsby"
+import React from "react"
+import { Highlight } from "react-instantsearch-dom"
 
 export const ResourceHit = clickHandler => ({ hit }) => (
   <div>
