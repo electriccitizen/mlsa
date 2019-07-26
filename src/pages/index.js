@@ -8,7 +8,6 @@ import HomeFeatured from '../components/Block/homeFeatured';
 function IndexPage() {
   return (
     <Layout>
-      <HomeIntro />
       <SEO
         title="Home"
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}

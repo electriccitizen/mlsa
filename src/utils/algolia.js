@@ -34,41 +34,28 @@ const resourceQuery = `{
         }
 }`
 
-
-
-
 const settings = { attributesToSnippet: [
     `title`,
     `description`,
   ]}
 
-// const flatten = arr =>
-//   arr.flatMap(({ node: field_description, relationships,field_url, }) => relationships.flatMap(
-//     ({ crime:  name,  ...rest }) => ({
-//     ...field_url,
-//     ...field_description,
-//     ...crime,
-//     ...rest,
-//
-//   }
-// )
-//
-//   ))
-
 const flatten = arr =>
-  arr.map(({ node: { relationships,url, } }) => ({
-  }) => relationships.map(({crime: {name, ...rest}}) => ({
-    ...crime,
-    ...relationships,
-    ...name,
-    ...url,
-    ...rest,
-
-    }),
-    alert(arr.uri)
-
-
-  ))
+  arr.map(
+    ( { node: { title, relationships, field_url, field_description, ...rest }}) =>
+        (
+          {
+            title,
+            crime: relationships.crime ? relationships.crime.map(crimeObj => crimeObj.name) : null,
+            issue: relationships.issue ? relationships.issue.map(issueObj => issueObj.name) : null,
+            category: relationships.category ? relationships.category.map(categoryObj => categoryObj.name) : null,
+            county: relationships.county ? relationships.county.map(countyObj => countyObj.name) : null,
+            type: relationships.type ? relationships.type.map(typeObj => typeObj.name) : null,
+            ...field_description,
+            ...field_url,
+            ...rest
+          }
+        )
+    );
 
 const queries = [
   {
