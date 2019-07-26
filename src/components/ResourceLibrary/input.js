@@ -4,6 +4,7 @@ import { SearchIcon, Form, Input } from "./styles"
 
 export default connectSearchBox(({ refine, ...rest }) => (
   <Form>
+    <SearchIcon />
     <Input
       type="text"
       placeholder="Search"
@@ -12,5 +13,7 @@ export default connectSearchBox(({ refine, ...rest }) => (
       {...rest}
       className="ais-SearchBox-input"
     />
+
+
   </Form>
 ))

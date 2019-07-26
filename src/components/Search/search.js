@@ -109,9 +109,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
           }}
         />
       </div>
-
-
-
     </InstantSearch>
       </>
   )

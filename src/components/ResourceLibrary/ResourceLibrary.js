@@ -1,14 +1,14 @@
 import React, { useState, useEffect, createRef } from "react"
-import qs from 'qs';
 import {
   InstantSearch,
   Index,
   Hits,
   connectStateResults,
-  SearchBox,
+  ScrollTo,
 } from "react-instantsearch-dom"
 
 import { RefinementList } from 'react-instantsearch-dom';
+import { MenuSelect } from 'react-instantsearch-dom';
 import { ClearRefinements } from 'react-instantsearch-dom';
 import { CurrentRefinements } from 'react-instantsearch-dom';
 import algoliasearch from "algoliasearch/lite"
@@ -72,29 +72,43 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
        <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
       </div>
       <div class="flex p-4">
-        <CurrentRefinements clearsQuery />
+        <CurrentRefinements />
       </div>
 
       <div class="flex mb-4">
         <div class="w-1/3 bg-gray-400 pr-8">
-          <ClearRefinements />
-          <h4 class="mb-0 mt-0">Crimes</h4>
-          <RefinementList attribute='crime' />
+          <ClearRefinements clearsQuery />
+          <h4 class="mb-0 mt-2">Crimes</h4>
+          <RefinementList
+            attribute='crime'
+            limit={20}
+          />
 
           <h4 class="mb-0 mt-2">Related issues</h4>
-          <RefinementList attribute='issue' />
+          <RefinementList
+            attribute='issue'
+            limit={20}
+          />
 
           <h4 class="mb-0 mt-2">Categories</h4>
-          <RefinementList attribute='category' />
+          <RefinementList
+            attribute='category'
+            limit={20}
+          />
 
           <h4 class="mb-0 mt-2">Areas served</h4>
-          <RefinementList attribute='county' />
+          <RefinementList
+            attribute='county'
+            limit={5}
+            showMore
+            showMoreLimit={60}
+          />
 
           <h4 class="mb-0 mt-2">Resource type</h4>
-          <RefinementList attribute='type'
-              showMoreLimit={2}/>
+          <RefinementList attribute='type'/>
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
+          <ScrollTo>
           <HitsWrapper  asGrid={hitsAsGrid}>
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
@@ -107,6 +121,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
               </Index>
             ))}
           </HitsWrapper>
+          </ScrollTo>
         </div>
       </div>
       <div class="flex">
