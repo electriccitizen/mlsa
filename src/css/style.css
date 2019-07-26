@@ -22,6 +22,9 @@ html{
 	@apply text-base leading-normal antialiased font-normal text-black font-sans;
 	font-synthesis: none;
 	font-kerning: normal;
+	#___gatsby{
+		overflow-x: hidden;
+	}
 }
 h1{
 	@apply font-header text-60 leading-tight font-extrabold mb-8 text-black-dark text-center relative pb-8;
@@ -69,6 +72,10 @@ a{
 	opacity: .1;
 }
 
+.ml-wipe{
+	margin-left: 0 !important;
+}
+
 @tailwind components;
 
 /**
@@ -91,16 +98,51 @@ a{
 .btn{
 	@apply bg-blue text-white tracking-wide uppercase px-6 py-4 font-header font-bold;
 	&:hover,&:focus{
-		@apply bg-grey-dark;
-	}
-	@media screen and (min-width: theme(screens.md)){
-		@apply px-8;
+		@apply bg-grey-dark text-white;
 	}
 	&.btn-alt{
 		@apply bg-green-dark;
 		&:hover,&:focus{
 			@apply text-white bg-grey-dark;
 		}
+	}
+	&.btn-arrow{
+		@apply inline-block relative pl-10 pr-4 py-3;
+		height: 50px;
+		margin-left: -25px;
+		&:before{
+			@apply absolute block top-0;
+			content: '';
+			right: -25px;
+			width: 0;
+			height: 0;
+			-webkit-transform: rotate(0.05deg);
+			-moz-transform: scale(1.1);
+			transform: rotate(0.05deg);
+			border-top: 25px double rgba(0,0,0,0);
+			border-bottom: 25px double rgba(0,0,0,0);
+			border-left: 25px solid theme(colors.blue.default);
+		}
+		&:after{
+			@apply absolute block inset-0;
+			content: '';
+			width: 0;
+			height: 0;
+			-webkit-transform: rotate(0.05deg);
+			-moz-transform: scale(1.1);
+			transform: rotate(0.05deg);
+			border-top: 25px double rgba(0,0,0,0);
+			border-bottom: 25px double rgba(0,0,0,0);
+			border-left: 25px solid theme(colors.grey.light);
+		}
+		&:hover,&:focus{
+			&:before{
+				border-left-color: theme(colors.grey.dark);
+			}
+		}
+	}
+	@media screen and (min-width: theme(screens.md)){
+		@apply px-8;
 	}
 }
 
@@ -286,6 +328,16 @@ a{
 	}
 }
 
+/* HOME PAGE RESOURCES */
+.home-resources{
+	&:after{
+		@apply block h-full absolute top-0 bg-grey-light;
+		content: '';
+		left: -50vw;
+		width: 200vw;
+		z-index: -1;
+	}
+}
 
 /* ALGOLIA MADNESS */
 
@@ -1059,4 +1111,5 @@ a[class^='ais-'] {
 	color: #a5aed1;
 	cursor: not-allowed;
 	background: inherit; }
+
 
