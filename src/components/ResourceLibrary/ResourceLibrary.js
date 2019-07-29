@@ -87,20 +87,6 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           <RefinementList attribute='type'/>
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
-          <ScrollTo>
-          <HitsWrapper asGrid={hitsAsGrid}>
-            {indices.map(({ name, hitComp }) => (
-              <Index key={name} indexName={name}>
-                <header>
-                  <Stats />
-                </header>
-                <Results>
-                  <Hits hitComponent={hitComps[hitComp]} />
-                </Results>
-              </Index>
-            ))}
-          </HitsWrapper>
-
 
             <HitsWrapper  asGrid={hitsAsGrid}>
             {indices.map(({ name, title, hitComp }) => (
@@ -115,7 +101,6 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
               </Index>
             ))}
           </HitsWrapper>
-          </ScrollTo>
         </div>
       </div>
       <div class="flex">
