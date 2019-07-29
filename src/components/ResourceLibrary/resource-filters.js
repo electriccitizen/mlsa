@@ -21,8 +21,8 @@ class FilterToggle extends React.Component {
     
     return (
       <div className="lg:w-1/4">
-        <div className="lg:hidden m-auto max-w-xs">
-          <button className="" onClick={this.toggle.bind(this)}>
+        <div className="lg:hidden m-auto max-w-xs relative">
+          <button className="bg-green hover:bg-grey-dark focus:bg-grey-dark text-white text-20 text-left font-header font-extrabold px-4 py-3half w-full" onClick={this.toggle.bind(this)}>
             Filter Results:
           </button>
           <FilterIcon className="filter-icon" />

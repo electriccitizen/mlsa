@@ -458,7 +458,7 @@ input:focus + .resource-search-icon{
 .filter-icon{
 	@apply absolute w-6 h-6;
 	top: 50%;
-	right: 12px;
+	right: 14px;
 	margin-top: -13px;
 }
 .filter-list{
