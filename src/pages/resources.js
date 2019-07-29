@@ -3,11 +3,9 @@ import Layout from "../components/Layout/layout";
 import SEO from "../components/Layout/seo";
 import ResourceLibrary from "../components/ResourceLibrary/ResourceLibrary";
 
-
 const searchIndices = [
   { name: `Resources`, title: `Resources`, hitComp: `ResourceHit` },
 ]
-
 
 function IndexPage() {
   return (

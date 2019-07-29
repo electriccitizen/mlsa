@@ -8,7 +8,6 @@ import {
 } from "react-instantsearch-dom"
 
 import { RefinementList } from 'react-instantsearch-dom';
-import { MenuSelect } from 'react-instantsearch-dom';
 import { ClearRefinements } from 'react-instantsearch-dom';
 import { CurrentRefinements } from 'react-instantsearch-dom';
 import algoliasearch from "algoliasearch/lite"
