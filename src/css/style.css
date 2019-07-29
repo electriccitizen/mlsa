@@ -425,3 +425,18 @@ a{
 	}
 }
 
+<<<<<<< HEAD
+=======
+/* PREFOOTER IMAGE */
+.prefooter-wrapper > div{
+	height: 240px;
+	overflow: hidden;
+	@media all and (min-width: theme(screens.md)){
+		height: 312px;
+	}
+	@media all and (min-width: theme(screens.lg)){
+		height: 376px;
+	}
+}
+
+>>>>>>> Home page prefooter image
