@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout/layout";
 import SEO from "../components/Layout/seo";
-import HomeIntro from "../components/Block/home-intro";
-import HomeResources from "../components/Block/home-resources";
-import HomeFeatured from '../components/Block/home-featured';
-import HomePrefooter from "../components/Block/home-prefooter";
+import HomeIntro from "../components/Block/homeIntro";
+import HomeResources from "../components/Block/homeResources";
+import HomeFeatured from '../components/Block/homeFeatured';
+import HomePrefooter from "../components/Block/homePrefooter";
 
 function IndexPage() {
   return (
