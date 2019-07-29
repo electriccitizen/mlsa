@@ -27,20 +27,6 @@ const Stats = connectStateResults(
     res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 )
 
-const useClickOutside = (ref, handler, events) => {
-  if (!events) events = [`mousedown`, `touchstart`]
-  const detectClickOutside = event =>
-    !ref.current.contains(event.target) && handler()
-  useEffect(() => {
-    for (const event of events)
-      document.addEventListener(event, detectClickOutside)
-    return () => {
-      for (const event of events)
-        document.removeEventListener(event, detectClickOutside)
-    }
-  })
-}
-
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   const ref = createRef()
   const [query, setQuery] = useState(``)
@@ -50,7 +36,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
 
-  useClickOutside(ref, () => setFocus(false))
+    //useClickOutside(ref, () => setFocus(false))
 
   return (
     <>
@@ -63,12 +49,11 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        onSearchStateChange={({ query }) => setQuery(query)}
-        routing="true"
+        //onSearchStateChange={({ query }) => setQuery(query)}
         root={{ Root, props: { ref } }}
       >
       <div class="flex p-4 mx-auto w-1/3">
-       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+      <Input />
       </div>
       <div class="flex p-4">
         <CurrentRefinements />
@@ -103,10 +88,25 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
           <ScrollTo>
-          <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+          <HitsWrapper asGrid={hitsAsGrid}>
+            {indices.map(({ name, hitComp }) => (
+              <Index key={name} indexName={name}>
+                <header>
+                  <Stats />
+                </header>
+                <Results>
+                  <Hits hitComponent={hitComps[hitComp]} />
+                </Results>
+              </Index>
+            ))}
+          </HitsWrapper>
+
+
+            <HitsWrapper  asGrid={hitsAsGrid}>
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
                 <header>
+                  <h3 class="mb-0">{title}</h3>
                   <Stats />
                 </header>
                 <Results>
