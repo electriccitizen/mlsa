@@ -12,8 +12,8 @@ function Footer() {
   return (
     <footer className="site-footer">
       <Partners />
-      <div className="m-auto max-w-1080px">
-        <div className="mx-4 border-t border-grey-mid pt-8 md:flex md:flex-row md:mx-7 cmax:mx-0 cmax:px-5">
+      <div className="m-auto max-w-1080">
+        <div className="mx-4 border-t border-grey-mid pt-8 md:flex md:flex-row md:mx-5 cmax:mx-0 cmax:px-5">
           <div className="md:w-1/2 md:pr-6 lg:pr-16">
             <Social />
             <FooterMenu /> 

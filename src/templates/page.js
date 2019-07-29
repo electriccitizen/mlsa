@@ -19,11 +19,14 @@ const pageTemplate = (props) => {
 
   return (
     <Layout>
-      <div>
+      <section>
         <Page
           header={page.relationships.field_header}
         />
-      </div>
+      </section>
+      <section className="prefooter">
+        Place holder for prefooter image from page.js
+      </section>
     </Layout>
   )
 };
