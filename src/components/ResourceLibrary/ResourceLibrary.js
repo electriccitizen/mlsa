@@ -12,7 +12,6 @@ import { ClearRefinements } from 'react-instantsearch-dom';
 import { CurrentRefinements } from 'react-instantsearch-dom';
 import algoliasearch from "algoliasearch/lite"
 import { Pagination } from 'react-instantsearch-dom';
-import { HitsWrapper } from "./styles"
 
 import Input from "./input"
 import * as hitComps from "./hitComps"
@@ -87,7 +86,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
 
-            <HitsWrapper  asGrid={hitsAsGrid}>
+          <div class="HitsWrapper">
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
                 <header>
@@ -99,7 +98,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
                 </Results>
               </Index>
             ))}
-          </HitsWrapper>
+          </div>
         </div>
       </div>
       <div class="flex">
