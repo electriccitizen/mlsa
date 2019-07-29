@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react"
+import React from "react"
 import {
   InstantSearch,
   Index,
@@ -27,31 +27,22 @@ const Stats = connectStateResults(
 )
 
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
-  const ref = createRef()
-  const [query, setQuery] = useState(``)
-  const [focus, setFocus] = useState(false)
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
-
-    //useClickOutside(ref, () => setFocus(false))
-
   return (
     <>
-
       <div className="text-center   md:justify-center">
           <h1>Resource Library</h1>
           <p class="mx-auto w-1/3">If we're gonna walk though the woods, we need a little path. Don't be afraid to make these big decisions. </p>
       </div>
-
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
-        //onSearchStateChange={({ query }) => setQuery(query)}
       >
       <div class="flex p-4 mx-auto w-1/3">
-      <Input />
+        <Input />
       </div>
       <div class="flex p-4">
         <CurrentRefinements />
@@ -85,8 +76,8 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           <RefinementList attribute='type'/>
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
-
-          <div class="HitsWrapper">
+          <ScrollTo>
+          <div>
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
                 <header>
@@ -94,11 +85,12 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
                   <Stats />
                 </header>
                 <Results>
-                  <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+                  <Hits hitComponent={hitComps[hitComp]()} />
                 </Results>
               </Index>
             ))}
           </div>
+          </ScrollTo>
         </div>
       </div>
       <div class="flex">
