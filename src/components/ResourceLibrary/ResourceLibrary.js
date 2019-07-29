@@ -12,7 +12,7 @@ import { ClearRefinements } from 'react-instantsearch-dom';
 import { CurrentRefinements } from 'react-instantsearch-dom';
 import algoliasearch from "algoliasearch/lite"
 import { Pagination } from 'react-instantsearch-dom';
-import { Root, HitsWrapper } from "./styles"
+import { HitsWrapper } from "./styles"
 
 import Input from "./input"
 import * as hitComps from "./hitComps"
@@ -50,7 +50,6 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         searchClient={searchClient}
         indexName={indices[0].name}
         //onSearchStateChange={({ query }) => setQuery(query)}
-        root={{ Root, props: { ref } }}
       >
       <div class="flex p-4 mx-auto w-1/3">
       <Input />
