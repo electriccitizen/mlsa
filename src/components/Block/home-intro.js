@@ -46,7 +46,7 @@ const HomeIntro = () => {
           <div className="text-56 font-header font-light relative mb-6 pb-1 leading-tight intro-headline md:text-60 md:mb-4 lg:text-64" dangerouslySetInnerHTML={{ __html: node.field_headline.processed}} />
           <div className="text-22 mb-16">{node.field_leadin}</div>
         </div>
-        <div class="intro-image-wrapper">
+        <div className="intro-image-wrapper">
           <div className="intro-image-inner">
             <Img className="intro-image" fluid={node.relationships.field_image.relationships.field_media_image.localFile.childImageSharp.fluid} alt={node.relationships.field_image.field_media_image.alt} />
           </div>
