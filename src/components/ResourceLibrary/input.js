@@ -1,11 +1,9 @@
 import React from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
-import { SearchIcon, Form, Input } from "./styles"
 
 export default connectSearchBox(({ refine, ...rest }) => (
-  <Form>
-    <SearchIcon />
-    <Input
+  <form>
+    <input
       type="text"
       placeholder="Search"
       aria-label="Enter keywords"
@@ -13,5 +11,5 @@ export default connectSearchBox(({ refine, ...rest }) => (
       {...rest}
       className="ais-SearchBox-input"
     />
-  </Form>
+  </form>
 ))
