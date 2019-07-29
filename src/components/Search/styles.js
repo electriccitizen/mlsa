@@ -67,6 +67,7 @@ export const Form = styled.form`
 `
 
 export const HitsWrapper = styled.div`
+  display: grid;
   max-height: 80vh;
   overflow: scroll;
   z-index: 2;
@@ -123,7 +124,8 @@ export const PoweredBy = () => (
   <span css="font-size: 0.6em; text-align: end; padding: 0;">
     Powered by{` `}
     <a href="https://algolia.com">
-   Algolia
+    XXX
     </a>
+
   </span>
 )
