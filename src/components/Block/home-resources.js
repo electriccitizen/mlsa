@@ -35,7 +35,7 @@ const HomeResources = () => {
 
   return (
     resources.allBlockContentHomepageResources.edges.map(({ node }) => (
-      <div className="flex flex-row flex-wrap items-center relative home-resources py-10 mb-10" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
+      <div className="flex flex-row flex-wrap items-center relative home-resources py-10 mb-10 lg:mb-16" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
         <div className="w-full order-2 md:order-1 md:w-1/2 md:order-1 md:pr-16">
           <ul className="flex flex-row flex-wrap justify-center max-w-xxs m-auto md:-mb-8">
             {resources.allTaxonomyTermResourceTypes.edges.map(({ node }) => (
