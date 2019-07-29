@@ -73,7 +73,6 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
       <div class="flex p-4">
         <CurrentRefinements />
       </div>
-
       <div class="flex mb-4">
         <div class="w-1/3 bg-gray-400 pr-8">
           <ClearRefinements clearsQuery />
@@ -82,19 +81,16 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
             attribute='crime'
             limit={20}
           />
-
           <h4 class="mb-0 mt-2">Related issues</h4>
           <RefinementList
             attribute='issue'
             limit={20}
           />
-
           <h4 class="mb-0 mt-2">Categories</h4>
           <RefinementList
             attribute='category'
             limit={20}
           />
-
           <h4 class="mb-0 mt-2">Areas served</h4>
           <RefinementList
             attribute='county'
@@ -102,7 +98,6 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
             showMore
             showMoreLimit={60}
           />
-
           <h4 class="mb-0 mt-2">Resource type</h4>
           <RefinementList attribute='type'/>
         </div>
