@@ -431,6 +431,7 @@ a{
 	}
 }
 
+<<<<<<< HEAD
 /* PREFOOTER IMAGE */
 .prefooter-wrapper > div{
 	height: 240px;
@@ -442,5 +443,16 @@ a{
 		height: 376px;
 	}
 
+=======
+/* RESOURCE LIBRARY */
+input:focus + .resource-search-icon{
+	@apply text-grey-mid;
+}
+.resource-search-icon{
+	@apply absolute text-blue w-7 h-7;
+	top: 50%;
+	right: 12px;
+	margin-top: -20px;
+>>>>>>> Clean up bad class usage, accessibility no-nos and some console errors
 }
 

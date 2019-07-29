@@ -55,7 +55,7 @@ const HomeResources = () => {
         <div className="order-1 w-full text-center md:order-1 md:w-1/2 md:order-2 md:text-left">
           <h2 className="mb-3">{node.info}</h2>
           <div className="pb-2" dangerouslySetInnerHTML={{ __html: node.body.processed}} />
-          <Link className="btn btn-arrow mb-10 md:mb-0 md-ml-wipe" to="/">Resources</Link>
+          <Link className="btn btn-arrow mb-10 md:mb-0 md:ml-0 ml-wipe" to="/resources">Resources</Link>
         </div>
       </div>
     ))

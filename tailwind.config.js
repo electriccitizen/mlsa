@@ -90,6 +90,7 @@ module.exports = {
         '2280': '2280px',
       },
       spacing: {
+        '3half': '.85rem',
         '7': '1.75rem',
         '20px': '20px',
       }
