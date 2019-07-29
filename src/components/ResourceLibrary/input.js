@@ -13,7 +13,5 @@ export default connectSearchBox(({ refine, ...rest }) => (
       {...rest}
       className="ais-SearchBox-input"
     />
-
-
   </Form>
 ))

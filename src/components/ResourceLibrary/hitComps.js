@@ -8,5 +8,6 @@ export const ResourceHit = clickHandler => ({ hit }) => (
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h4>
     </a>
-    <div attribute="description" hit={hit} tagName="mark" dangerouslySetInnerHTML={{ __html: hit.description}} /></div>
+    <div attribute="description" hit={hit} tagName="mark" dangerouslySetInnerHTML={{ __html: hit.description}} />
+  </div>
 )
