@@ -60,7 +60,7 @@ export const Form = styled.form`
 `
 
 export const HitsWrapper = styled.div`
-  display: ${props => (props.show ? `grid` : `none`)};
+  display: grid;
   max-height: 80vh;
   overflow: scroll;
   z-index: 2;
