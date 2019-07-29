@@ -21,11 +21,6 @@ const Results = connectStateResults(
     res && res.nbHits > 0 ? children : `No results for '${state.query}'`
 )
 
-const Stats = connectStateResults(
-  ({ searchResults: res }) =>
-    res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
-)
-
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
@@ -33,57 +28,63 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   )
   return (
     <>
-      <div className="text-center   md:justify-center">
+      <div className="text-center">
           <h1>Resource Library</h1>
-          <p class="mx-auto w-1/3">If we're gonna walk though the woods, we need a little path. Don't be afraid to make these big decisions. </p>
+          <h2>If we're gonna walk though the woods, we need a little path. Don't be afraid to make these big decisions.</h2>
       </div>
       <InstantSearch
         searchClient={searchClient}
         indexName={indices[0].name}
       >
-      <div class="flex p-4 mx-auto w-1/3">
+      <div>
         <Input />
       </div>
-      <div class="flex p-4">
+      <div>
         <CurrentRefinements />
+        <ClearRefinements clearsQuery />
       </div>
-      <div class="flex mb-4">
-        <div class="w-1/3 bg-gray-400 pr-8">
-          <ClearRefinements clearsQuery />
-          <h4 class="mb-0 mt-2">Crimes</h4>
-          <RefinementList
-            attribute='crime'
-            limit={20}
-          />
-          <h4 class="mb-0 mt-2">Related issues</h4>
-          <RefinementList
-            attribute='issue'
-            limit={20}
-          />
-          <h4 class="mb-0 mt-2">Categories</h4>
-          <RefinementList
-            attribute='category'
-            limit={20}
-          />
-          <h4 class="mb-0 mt-2">Areas served</h4>
-          <RefinementList
-            attribute='county'
-            limit={5}
-            showMore
-            showMoreLimit={60}
-          />
-          <h4 class="mb-0 mt-2">Resource type</h4>
-          <RefinementList attribute='type'/>
+      <div className="lg:flex lg:flex-row">
+        <div className="lg:w-1/4">
+          <div className="filter-group">
+            <h3>Crimes</h3>
+            <RefinementList
+              attribute='crime'
+              limit={20}
+            />
+          </div>
+          <div className="filter-group">
+            <h3>Related issues</h3>
+            <RefinementList
+              attribute='issue'
+              limit={20}
+            />
+          </div>
+          <div className="filter-group">
+            <h3>Categories</h3>
+            <RefinementList
+              attribute='category'
+              limit={20}
+            />
+          </div>
+          <div className="filter-group">
+            <h3>Areas served</h3>
+            <RefinementList
+              attribute='county'
+              limit={5}
+              showMore
+              showMoreLimit={60}
+            />
+          </div>
+          <div className="filter-group">
+            <h3>Resource type</h3>
+            <RefinementList attribute='type'/>
+          </div>
         </div>
-        <div class="w-2/3 bg-gray-500 p-4" >
+        <div className="lg:w-3/4">
           <ScrollTo>
           <div>
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
-                <header>
-                  <h3 class="mb-0">{title}</h3>
-                  <Stats />
-                </header>
                 <Results>
                   <Hits hitComponent={hitComps[hitComp]()} />
                 </Results>
@@ -93,7 +94,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           </ScrollTo>
         </div>
       </div>
-      <div class="flex">
+      <div>
         <div id="pagination">
           <Pagination
             padding={5}
