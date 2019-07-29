@@ -41,7 +41,7 @@ const useClickOutside = (ref, handler, events) => {
   })
 }
 
-export default function ResourceLibrary({ indices, collapse, gridhitsAsGrid }) {
+export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   const ref = createRef()
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
