@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   InstantSearch,
   Index,
@@ -7,14 +7,13 @@ import {
   ScrollTo,
 } from "react-instantsearch-dom"
 
-import { RefinementList } from 'react-instantsearch-dom';
 import { ClearRefinements } from 'react-instantsearch-dom';
 import { CurrentRefinements } from 'react-instantsearch-dom';
-import algoliasearch from "algoliasearch/lite"
+import algoliasearch from "algoliasearch/lite";
 import { Pagination } from 'react-instantsearch-dom';
-
-import Input from "./input"
-import * as hitComps from "./hitComps"
+import Input from "./input";
+import * as hitComps from "./hitComps";
+import FilterToggle from './resource-filters';
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
@@ -44,42 +43,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <ClearRefinements clearsQuery />
       </div>
       <div className="lg:flex lg:flex-row">
-        <div className="lg:w-1/4">
-          <div className="filter-group">
-            <h3>Crimes</h3>
-            <RefinementList
-              attribute='crime'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Related issues</h3>
-            <RefinementList
-              attribute='issue'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Categories</h3>
-            <RefinementList
-              attribute='category'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Areas served</h3>
-            <RefinementList
-              attribute='county'
-              limit={5}
-              showMore
-              showMoreLimit={60}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Resource type</h3>
-            <RefinementList attribute='type'/>
-          </div>
-        </div>
+        <FilterToggle />
         <div className="lg:w-3/4">
           <ScrollTo>
           <div>
