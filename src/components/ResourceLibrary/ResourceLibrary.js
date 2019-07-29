@@ -41,7 +41,7 @@ const useClickOutside = (ref, handler, events) => {
   })
 }
 
-export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
+export default function ResourceLibrary({ indices, collapse, gridhitsAsGrid }) {
   const ref = createRef()
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
@@ -103,7 +103,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         </div>
         <div class="w-2/3 bg-gray-500 p-4" >
           <ScrollTo>
-          <HitsWrapper  asGrid={hitsAsGrid}>
+          <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
             {indices.map(({ name, title, hitComp }) => (
               <Index key={name} indexName={name}>
                 <header>
