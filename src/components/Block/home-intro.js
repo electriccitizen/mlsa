@@ -41,7 +41,7 @@ const HomeIntro = () => {
 
   return (
     intro.allBlockContentHomepageIntro.edges.map(({ node }) => (
-      <div className="relative max-w-1080px m-auto " id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
+      <div className="relative max-w-1080px m-auto mb-10" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
         <div className="intro-text text-center md:text-left">
           <div className="text-56 font-header font-light relative mb-6 pb-1 leading-tight intro-headline md:text-60 md:mb-4 lg:text-64" dangerouslySetInnerHTML={{ __html: node.field_headline.processed}} />
           <div className="text-28 mb-16 md:text-24">{node.field_leadin}</div>

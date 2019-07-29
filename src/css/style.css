@@ -72,8 +72,10 @@ a{
 	opacity: .1;
 }
 
-.ml-wipe{
-	margin-left: 0 !important;
+.md-ml-wipe{
+	@media all and (min-width: theme(screens.md)){
+		margin-left: 0 !important;
+	}
 }
 
 @tailwind components;
