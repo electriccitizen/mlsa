@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Partners from '../Block/partner-orgs';
+import Partners from '../Block/partnerOrgs';
 import Social from '../Block/social';
-import FooterMenu from '../Navigation/footer-menu';
-import FooterAbout from '../Block/footer-about';
+import FooterMenu from '../Navigation/footerMenu';
+import FooterAbout from '../Block/footerAbout';
 import Copyright from '../Block/copyright';
 import Landscape from '../../images/landscape.svg'
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout/layout";
 import SEO from "../components/Layout/seo";
-import HomeResources from "../components/Block/home-resources"
+import HomeResources from "../components/Block/homeResources"
 
 function IndexPage() {
   return (

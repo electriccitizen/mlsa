@@ -13,7 +13,7 @@ import algoliasearch from "algoliasearch/lite";
 import { Pagination } from 'react-instantsearch-dom';
 import Input from "./input";
 import * as hitComps from "./hitComps";
-import FilterToggle from './resource-filters';
+import FilterToggle from './filterToggle';
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
