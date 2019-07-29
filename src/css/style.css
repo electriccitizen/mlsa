@@ -349,4 +349,18 @@ input:focus + .resource-search-icon{
 	right: 12px;
 	margin-top: -20px;
 }
-
+.filter-icon{
+	@apply absolute w-6 h-6;
+	top: 50%;
+	right: 14px;
+	margin-top: -13px;
+}
+.filter-list{
+	display: none;
+	&.display-filters{
+		display: block;
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		display: block !important;
+	}
+}
