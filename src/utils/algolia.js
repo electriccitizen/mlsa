@@ -51,6 +51,7 @@ const flatten = arr =>
             category: relationships.category ? relationships.category.map(categoryObj => categoryObj.name) : null,
             county: relationships.county ? relationships.county.map(countyObj => countyObj.name) : null,
             type: relationships.type ? relationships.type.map(typeObj => typeObj.name) : null,
+            icon: relationships.type ? relationships.type.map(iconObj => iconObj.field_icon) : null,
             ...field_description,
             ...field_url,
             ...rest

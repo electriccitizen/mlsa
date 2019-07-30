@@ -3,7 +3,7 @@ import { Highlight } from "react-instantsearch-dom"
 
 export const ResourceHit = clickHandler => ({ hit }) => (
   <div>
-  	<div>{hit.field_icon} test</div>
+  	<div>{hit.icon[0]}</div>
   	<h2 className="h3 mb-0 mt-2">
 	    <a href={hit.url} onClick={clickHandler}>
 	       <Highlight attribute="title" hit={hit} tagName="mark" />
