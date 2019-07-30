@@ -534,20 +534,22 @@ input:focus + .resource-search-icon{
 .filter-group-list{
 	@apply hidden border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
 	max-height: 250px;
-	&::-webkit-scrollbar {
-    width: 16px;
-	}
-	&::-webkit-scrollbar-track {
-		border-left: 1px solid theme(colors.grey.midAlt);
-	}
-	&::-webkit-scrollbar-thumb {
-    @apply bg-grey-midAlt;
-	}
-	&::-webkit-scrollbar-button {
-		@apply: hidden;
-	}
 	&.display-group{
 		@apply block;
+	}
+	&:not(.noscroll){
+		&::-webkit-scrollbar {
+	    width: 16px;
+		}
+		&::-webkit-scrollbar-track {
+			border-left: 1px solid theme(colors.grey.midAlt);
+		}
+		&::-webkit-scrollbar-thumb {
+	    @apply bg-grey-midAlt;
+		}
+		&::-webkit-scrollbar-button {
+			@apply: hidden;
+		}
 	}
 	.ais-RefinementList-label{
 		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
