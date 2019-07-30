@@ -9,7 +9,7 @@ export default connectSearchBox(({ refine, ...rest }) => (
       type="text"
       id="searchbox"
       placeholder="Search"
-      aria-label="Enter keywords"
+      aria-label="Searchbox"
       onChange={e => refine(e.target.value)}
       {...rest}
       className="border border-grey-dark w-full font-header pl-2 pr-8 py-3half leading-none mb-2"

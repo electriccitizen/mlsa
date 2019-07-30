@@ -16,18 +16,20 @@ class FilterGroup extends React.Component {
   }
     
   render() {
-    var shown = this.state.shown ? "display-group" : "";
+    let shown = this.state.shown ? "display-group" : "";
     
     return (
       <div className="filter-group">
-        <h3><button className={`filter-group-toggle ${shown}`} onClick={this.toggle.bind(this)}>{this.props.name}</button></h3>
-        <RefinementList
-          attribute={this.props.attribute}
-          limit={this.props.limit}
-          className={`filter-group-list ${shown} ${this.props.noscroll ? 'noscroll' : ''}`}
-          showMore={this.props.showmore}
-          showMoreLimit={this.props.showlimit}
-        />
+        <h3><button className={`filter-group-toggle ${shown}`} onClick={this.toggle.bind(this)} aria-controls={`filter-${this.props.attribute}`}  aria-expanded={String(shown ? 'true' : 'false')}>{this.props.name}</button></h3>
+        <div id={`filter-${this.props.attribute}`} aria-hidden={String(shown ? 'false' : 'true')} className={`filter-group-list ${shown} ${this.props.noscroll ? 'noscroll' : ''}`}>
+          <RefinementList
+            attribute={this.props.attribute}
+            limit={this.props.limit}
+            id={`filter-${this.props.attribute}`}
+            showMore={this.props.showmore}
+            showMoreLimit={this.props.showlimit}
+          />
+        </div>
       </div>
     )
   }
