@@ -28,8 +28,8 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   return (
     <>
       <div className="text-center">
-          <h1>Resource Library</h1>
-          <h2>If we're gonna walk though the woods, we need a little path. Don't be afraid to make these big decisions.</h2>
+        <h1>Resource Library</h1>
+        <h2 className="mx-auto max-w-3xl">If we're gonna walk though the woods, we need a little path. Don't be afraid to make these big decisions.</h2>
       </div>
       <InstantSearch
         searchClient={searchClient}
