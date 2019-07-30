@@ -50,11 +50,10 @@ const flatten = arr =>
             issue: relationships.issue ? relationships.issue.map(issueObj => issueObj.name) : null,
             category: relationships.category ? relationships.category.map(categoryObj => categoryObj.name) : null,
             county: relationships.county ? relationships.county.map(countyObj => countyObj.name) : null,
-            type: relationships.type ? relationships.type.map(typeObj => (typeObj.name,typeObject.field_icon)) : null,
-            icon: relationships.type ? relationships.type.map(iconObj => (iconObj.field_icon)) : null,
+            type: relationships.type ? relationships.type.map(typeObj => typeObj.name) : null,
+            icon: relationships.type ? relationships.type.map(iconObj => iconObj.field_icon) : null,
             ...field_description,
             ...field_url,
-            ...relationships.type.field_icon,
             ...rest
           }
         )
