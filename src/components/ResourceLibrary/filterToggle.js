@@ -32,11 +32,11 @@ class FilterToggle extends React.Component {
           <FilterIcon className="filter-icon" />
         </div>
         <div className={`filter-list bg-white-dark pt-8 pb-6 px-3 ${shown}`}>
-          <FilterGroup name="Crimes" attribute="crime" limit="20"/>
-          <FilterGroup name="Related Issue" attribute="issue" limit="20"/>
-          <FilterGroup name="Categories" attribute="category" limit="20"/>
-          <FilterGroup name="Areas served" attribute="county" limit="5" showmore showlimit="60" />
-          <FilterGroup name="Resource Type" attribute="type" />
+          <FilterGroup name="Crimes" attribute="crime" limit={20} />
+          <FilterGroup name="Related Issue" attribute="issue" limit={20} />
+          <FilterGroup name="Categories" attribute="category" limit={20} />
+          <FilterGroup name="Areas served" attribute="county" limit={60} />
+          <FilterGroup name="Resource Type" attribute="type" noscroll />
         </div>
       </div>
     )
