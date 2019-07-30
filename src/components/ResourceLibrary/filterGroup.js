@@ -24,7 +24,7 @@ class FilterGroup extends React.Component {
         <RefinementList
           attribute={this.props.attribute}
           limit={this.props.limit}
-          className={`filter-group-list ${shown}`}
+          className={`filter-group-list ${shown} ${this.props.noscroll ? 'noscroll' : ''}`}
           showMore={this.props.showmore}
           showMoreLimit={this.props.showlimit}
         />

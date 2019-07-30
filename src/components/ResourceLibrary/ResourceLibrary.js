@@ -42,45 +42,43 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <CurrentRefinements />
         <ClearRefinements clearsQuery />
       </div>
-      <div className="lg:flex lg:flex-row">
+      <div className="lg:flex lg:flex-row mb-6">
         <FilterToggle />
         <div className="lg:w-3/4">
           <ScrollTo>
-          <div>
-            {indices.map(({ name, title, hitComp }) => (
-              <Index key={name} indexName={name}>
-                <Results>
-                  <Hits hitComponent={hitComps[hitComp]()} />
-                </Results>
-              </Index>
-            ))}
-          </div>
+            <div>
+              {indices.map(({ name, title, hitComp }) => (
+                <Index key={name} indexName={name}>
+                  <Results>
+                    <Hits hitComponent={hitComps[hitComp]()} />
+                  </Results>
+                </Index>
+              ))}
+            </div>
           </ScrollTo>
+          <div id="pagination" className="border-t border-mid-grey pt-4 px-4">
+            <Pagination
+              padding={5}
+              translations={{
+                previous: '‹',
+                next: '›',
+                first: '«',
+                last: '»',
+                page(currentRefinement) {
+                    return currentRefinement;
+                    },
+                ariaPrevious: 'Previous page',
+                ariaNext: 'Next page',
+                ariaFirst: 'First page',
+                ariaLast: 'Last page',
+                ariaPage(currentRefinement) {
+                  return `Page ${currentRefinement}`;
+                  },
+                }}
+              />
+          </div>
         </div>
       </div>
-      <div>
-        <div id="pagination">
-          <Pagination
-            padding={5}
-            translations={{
-              previous: '‹',
-              next: '›',
-              first: '«',
-              last: '»',
-              page(currentRefinement) {
-                  return currentRefinement;
-                  },
-              ariaPrevious: 'Previous page',
-              ariaNext: 'Next page',
-              ariaFirst: 'First page',
-              ariaLast: 'Last page',
-              ariaPage(currentRefinement) {
-                return `Page ${currentRefinement}`;
-                },
-              }}
-            />
-          </div>
-        </div>
       </InstantSearch>
     </>
   )
