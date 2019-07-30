@@ -1,4 +1,6 @@
 import React from 'react';
+//import Text from '../Paragraphs/text';
+
 class Page extends React.Component {
 
   renderElement(){
@@ -17,7 +19,14 @@ class Page extends React.Component {
     return (
       <>
         <h1>{this.props.header.field_title}</h1>
-        <h3>{this.props.header.field_subheader}</h3>
+        <h2>{this.props.header.field_subheader}</h2>
+        <div>
+          {this.props.content.map((paragraphItem, index) => (
+            <div key={paragraphItem.drupal_id}>
+              {paragraphItem.__typename}
+            </div>
+          ))}
+        </div>
       </>
     )
   }

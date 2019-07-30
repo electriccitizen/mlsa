@@ -22,6 +22,7 @@ const pageTemplate = (props) => {
       <div>
         <Page
           header={page.relationships.field_header}
+          content={page.relationships.field_content}
         />
       </div>
     </Layout>
@@ -43,38 +44,44 @@ export const query = graphql `
       relationships {
         field_prefooter_image {
           id
-         }
-         field_header {
+        }
+        field_header {
+          drupal_id
+          field_title
+          field_subheader
+        }
+        field_content {
+          __typename
+          ... on paragraph__accordion_group {
             drupal_id
-            field_title
-            field_subheader
           }
-          field_content {
-            __typename
-            ... on paragraph__accordion_group {
-              drupal_id
-            }
-            ... on paragraph__button {
-              drupal_id
-            }
-            ... on paragraph__horizontal_rule {
-              drupal_id
-            }
-            ... on paragraph__image {
-              drupal_id
-            }
-            ...on paragraph__text {
-              drupal_id
-            }
-            ... on paragraph__text_with_image {
-              drupal_id
-            }
-            ... on paragraph__video {
-              drupal_id
-            }
-            
+          ... on paragraph__button {
+            drupal_id
           }
+          ... on paragraph__horizontal_rule {
+            drupal_id
+          }
+          ... on paragraph__image {
+            drupal_id
+          }
+          ... on paragraph__react_component {
+            drupal_id
+          }
+          ...on paragraph__text {
+            drupal_id
+            field_header
+            field_text {
+              processed
+            }
+          }
+          ... on paragraph__text_with_image {
+            drupal_id
+          }
+          ... on paragraph__video {
+            drupal_id
+          } 
         }
       }
     }
+  }
 `;

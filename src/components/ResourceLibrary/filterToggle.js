@@ -17,7 +17,7 @@ class FilterToggle extends React.Component {
   }
     
   render() {
-    var shown = this.state.shown ? "display-filters" : "";
+    let shown = this.state.shown ? "display-filters" : "";
     
     return (
       <div className="lg:w-1/4 mb-10">
