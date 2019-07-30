@@ -6,6 +6,7 @@ module.exports = {
   		green: {
   			default: '#239c4a',
         light: "#99cdbb",
+        mid: '#0D8833', 
   			dark: '#14662e',
   			trans6: 'rgba(35,156,74,.6)',
   		},
@@ -14,11 +15,15 @@ module.exports = {
   			dark: '#0c3e96',
   			trans0: 'rgba(17,114,204,0)',
   		},
+      red: {
+        default: "#cc111e",
+      },
   		white: {
   			default: '#ffffff',
   			blue: '#eff6f8',
   			green: '#f0f8f3',
-  			pine: '#e4f0e2', 
+  			pine: '#e4f0e2',
+        dark: '#f6f6f6', 
   		},
   		grey: {
   			default: '#77787c',
@@ -90,6 +95,7 @@ module.exports = {
         '2280': '2280px',
       },
       spacing: {
+        '1half': '.35rem',
         '3half': '.85rem',
         '7': '1.75rem',
         '20px': '20px',

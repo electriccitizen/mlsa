@@ -113,11 +113,9 @@ a{
 		height: 50px;
 		margin-left: -25px;
 		&:before{
-			@apply absolute block top-0;
+			@apply absolute block top-0 w-0 h-0;
 			content: '';
 			right: -25px;
-			width: 0;
-			height: 0;
 			-webkit-transform: rotate(0.05deg);
 			-moz-transform: scale(1.1);
 			transform: rotate(0.05deg);
@@ -470,3 +468,60 @@ input:focus + .resource-search-icon{
 		display: block !important;
 	}
 }
+.ais-CurrentRefinements-list{
+	@apply flex flex-row flex-wrap pt-3 pb-3;
+	.ais-CurrentRefinements-label{
+		display: none;
+	}
+	.ais-CurrentRefinements-category{
+		@apply inline-block px-3 pt-2 pb-1half mb-2 bg-blue text-white rounded mr-2 text-15 font-header font-bold;
+	}
+	.ais-CurrentRefinements-categoryLabel{
+		@apply mr-2  leading-none;
+	}
+	.ais-CurrentRefinements-delete{
+		@apply font-bold font-header;
+		&:hover,&:focus{
+			@apply opacity-75;
+		}
+	}
+}
+.ais-ClearRefinements-button{
+	@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
+	&:hover,&:focus{
+		@apply bg-grey-dark;
+	}
+}
+.ais-CurrentRefinements--noRefinement{
+	.ais-CurrentRefinements-list{
+		@apply pt-0 pb-0;
+	}
+	& + .ais-ClearRefinements{
+		@apply hidden;
+	}
+}
+.filter-group-toggle{
+	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-extrabold;
+	&:after{
+		@apply block absolute right-0 w-0 h-0;
+		content: '';
+		top: 6px;
+		-webkit-transform: rotate(0.05deg);
+		-moz-transform: scale(1.1);
+		transform: rotate(0.05deg);
+		border-left: 8px double rgba(0,0,0,0);
+		border-right: 8px double rgba(0,0,0,0);
+		border-top: 8px solid theme(colors.black.default);
+	}
+	&.display-group:after{
+		@apply border-t-0;
+		border-bottom: 8px solid theme(colors.black.default);
+	}
+}
+.filter-group-list{
+	display: none;
+	&.display-group{
+		display: block;
+	}
+}
+
