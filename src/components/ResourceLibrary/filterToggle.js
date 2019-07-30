@@ -1,6 +1,6 @@
 import React from 'react';
-import { RefinementList } from 'react-instantsearch-dom';
 import FilterIcon from '../../images/filter.svg';
+import FilterGroup from './filterGroup';
 
 class FilterToggle extends React.Component {
   constructor() {
@@ -20,48 +20,19 @@ class FilterToggle extends React.Component {
     var shown = this.state.shown ? "display-filters" : "";
     
     return (
-      <div className="lg:w-1/4">
+      <div className="lg:w-1/4 mb-10">
         <div className="lg:hidden m-auto max-w-xs relative">
-          <button className="bg-green hover:bg-grey-dark focus:bg-grey-dark text-white text-20 text-left font-header font-extrabold px-4 py-3half w-full" onClick={this.toggle.bind(this)}>
-            Filter Results:
+          <button className="bg-green-mid hover:bg-grey-dark focus:bg-grey-dark text-white text-20 text-left font-header font-extrabold px-4 py-3half w-full" onClick={this.toggle.bind(this)}>
+            {shown ? 'Close Filters:' : 'Filters Results:'}
+            <FilterIcon className="filter-icon" />
           </button>
-          <FilterIcon className="filter-icon" />
         </div>
-        <div className={`filter-list ${shown}`}>
-          <div className="filter-group">
-            <h3>Crimes</h3>
-            <RefinementList
-              attribute='crime'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Related issues</h3>
-            <RefinementList
-              attribute='issue'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Categories</h3>
-            <RefinementList
-              attribute='category'
-              limit={20}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Areas served</h3>
-            <RefinementList
-              attribute='county'
-              limit={5}
-              showMore
-              showMoreLimit={60}
-            />
-          </div>
-          <div className="filter-group">
-            <h3>Resource type</h3>
-            <RefinementList attribute='type'/>
-          </div>
+        <div className={`filter-list bg-white-dark pt-8 pb-6 px-3 ${shown}`}>
+          <FilterGroup name="Crimes" attribute="crime" limit="20"/>
+          <FilterGroup name="Related Issue" attribute="issue" limit="20"/>
+          <FilterGroup name="Categories" attribute="category" limit="20"/>
+          <FilterGroup name="Areas served" attribute="county" limit="5" showmore showlimit="60" />
+          <FilterGroup name="Resource Type" attribute="type" />
         </div>
       </div>
     )
