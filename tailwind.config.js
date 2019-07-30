@@ -29,7 +29,9 @@ module.exports = {
   			default: '#77787c',
   			light: '#eeeeee',
         mid: '#979797',
+        midAlt: '#c5c4c6',
   			dark: '#646569',
+        darker: '#4a4a4a',
   		},
   		black: {
   			default: '#1f2225',
