@@ -9,19 +9,19 @@ import Toolbox from '../../images/toolbox.svg';
 import Info from '../../images/info.svg';
 
 export const ResourceHit = clickHandler => ({ hit }) => (
-  <div>
+  <div className="text-center mb-8 md:text-left">
   	<div>
   		<span className="visually-hidden">{hit.icon[0]}</span>
-      {hit.icon[0] === 'advocate' ? <Advocate className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'database' ? <Database className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'learn' ? <Learn className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'question' ? <Question className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'search' ? <Search className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'toolbox' ? <Toolbox className="w-16 w-18 m-auto" />
-      : hit.icon[0] === 'info' ? <Info className="w-16 w-18 m-auto" />
+      {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+      : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+      : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+      : hit.icon[0] === 'question' ? <Question className="resource-icon" />
+      : hit.icon[0] === 'search' ? <Search className="resource-icon" />
+      : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+      : hit.icon[0] === 'info' ? <Info className="resource-icon" />
       : '' }
   	</div>
-  	<h2 className="h3 mb-0 mt-2">
+  	<h2 className="h3 mb-4">
 	    <a href={hit.url} onClick={clickHandler}>
 	       <Highlight attribute="title" hit={hit} tagName="mark" />
 	    </a>

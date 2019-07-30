@@ -429,7 +429,6 @@ a{
 	}
 }
 
-<<<<<<< HEAD
 /* PREFOOTER IMAGE */
 .prefooter-wrapper > div{
 	height: 240px;
@@ -441,8 +440,7 @@ a{
 		height: 376px;
 	}
 
-=======
-/* RESOURCE LIBRARY */
+/* RESOURCE LIBRARY SEARCH BOX */
 input:focus + .resource-search-icon{
 	@apply text-grey-mid;
 }
@@ -453,6 +451,7 @@ input:focus + .resource-search-icon{
 	margin-top: -20px;
 >>>>>>> Clean up bad class usage, accessibility no-nos and some console errors
 }
+/* RESOURCE LIBRARY FILTERS */
 .filter-icon{
 	@apply absolute w-6 h-6;
 	top: 50%;
@@ -473,6 +472,7 @@ input:focus + .resource-search-icon{
 		display: block !important;
 	}
 }
+/* CURRENT FILTERS LIST */
 .ais-CurrentRefinements-list{
 	@apply flex flex-row flex-wrap pt-3 pb-3;
 	.ais-CurrentRefinements-label{
@@ -505,6 +505,7 @@ input:focus + .resource-search-icon{
 		@apply hidden;
 	}
 }
+/* RESOURCE FILTER GROUPS */
 .filter-group{
 	@media all and (min-width: theme(screens.sm)){
 		@apply w-1/2 px-2;
@@ -584,6 +585,28 @@ input:focus + .resource-search-icon{
 		.ais-RefinementList-count{
 			@apply hidden;
 		}
+	}
+}
+/* RESOURCE RESULTS LIST */
+.ais-Hits-list{
+	@media all and (min-width: theme(screens.md)){
+		@apply flex flex-row flex-wrap -mx-2;
+		.ais-Hits-item{
+			@apply w-1/3 px-2;
+		}
+	}
+	@media all and (min-width: theme(screens.lg)){
+		@apply mx-0;
+		.ais-Hits-item{
+			@apply w-1/3 px-4;
+		}
+	}
+}
+/* RESULT RESOURCE ITEM */
+.resource-icon{
+	@apply w-16 h-16 m-auto mb-3half;
+	@media screen and (min-width: theme(screens.md)){
+		@apply mx-0;
 	}
 }
 
