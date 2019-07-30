@@ -1,37 +1,38 @@
 const resourceQuery = `{
   resources: allNodeResource {
-          edges {
-            node {
-              drupal_id
-              changed
-              status
-              title
-              field_description {
-                description: value
-              }
-              field_url {
-                url: uri
-              }
-              relationships {
-                crime: field_crime {
-                  name
-                }
-                issue: field_related_issue {
-                  name
-                }
-                category: field_related_category {
-                  name
-                }
-                county: field_county {
-                  name
-                }
-                type: field_resource_type {
-                  name
-                }
-              }
-            }
+    edges {
+      node {
+        drupal_id
+        changed
+        status
+        title
+        field_description {
+          description: value
+        }
+        field_url {
+          url: uri
+        }
+        relationships {
+          crime: field_crime {
+            name
+          }
+          issue: field_related_issue {
+            name
+          }
+          category: field_related_category {
+            name
+          }
+          county: field_county {
+            name
+          }
+          type: field_resource_type {
+            name
+            field_icon
           }
         }
+      }
+    }
+  }
 }`
 
 const settings = { attributesToSnippet: [

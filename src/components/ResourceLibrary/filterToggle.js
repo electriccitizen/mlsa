@@ -27,6 +27,10 @@ class FilterToggle extends React.Component {
             <FilterIcon className="filter-icon" />
           </button>
         </div>
+        <div className="hidden relative lg:block bg-green-mid text-white text-20 font-header font-extrabold px-4 py-8">
+          Filter Results:
+          <FilterIcon className="filter-icon" />
+        </div>
         <div className={`filter-list bg-white-dark pt-8 pb-6 px-3 ${shown}`}>
           <FilterGroup name="Crimes" attribute="crime" limit="20"/>
           <FilterGroup name="Related Issue" attribute="issue" limit="20"/>

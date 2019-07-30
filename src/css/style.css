@@ -460,11 +460,16 @@ input:focus + .resource-search-icon{
 	margin-top: -13px;
 }
 .filter-list{
-	display: none;
+	@apply hidden;
 	&.display-filters{
-		display: block;
+		@apply block;
+		@media screen and (min-width: theme(screens.sm)){
+			@apply flex flex-row flex-wrap -mx-2;
+		}		
 	}
 	@media screen and (min-width: theme(screens.lg)){
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 		display: block !important;
 	}
 }
@@ -500,6 +505,14 @@ input:focus + .resource-search-icon{
 		@apply hidden;
 	}
 }
+.filter-group{
+	@media all and (min-width: theme(screens.sm)){
+		@apply w-1/2 px-2;
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		@apply w-full px-0;
+	}
+}
 .filter-group-toggle{
 	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-extrabold;
 	&:after{
@@ -519,9 +532,56 @@ input:focus + .resource-search-icon{
 	}
 }
 .filter-group-list{
-	display: none;
+	@apply hidden border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
+	max-height: 250px;
+	&::-webkit-scrollbar {
+    width: 16px;
+	}
+	&::-webkit-scrollbar-track {
+		border-left: 1px solid theme(colors.grey.midAlt);
+	}
+	&::-webkit-scrollbar-thumb {
+    @apply bg-grey-midAlt;
+	}
+	&::-webkit-scrollbar-button {
+		@apply: hidden;
+	}
 	&.display-group{
-		display: block;
+		@apply block;
+	}
+	.ais-RefinementList-label{
+		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
+		.ais-RefinementList-checkbox{
+			@apply absolute opacity-0;
+			&:checked{
+				& + .ais-RefinementList-labelText{
+					@apply text-blue;
+				}
+				&:hover{
+					& + .ais-RefinementList-labelText{
+						@apply text-green-dark;
+					}
+				}
+				&:focus{
+					& + .ais-RefinementList-labelText{
+						@apply underline;
+					}
+				}
+			}
+			&:hover{
+				& + .ais-RefinementList-labelText{
+					@apply text-green-dark;
+				}
+			}
+			&:focus{
+				& + .ais-RefinementList-labelText{
+					@apply underline;
+				}
+			}
+		}
+		.ais-RefinementList-count{
+			@apply hidden;
+		}
 	}
 }
 
