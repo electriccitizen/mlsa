@@ -13,7 +13,7 @@ const resourceQuery = `{
                 uri
               }
               relationships {
-                field_crime {
+                crime: field_crime {
                   name
                 }
                 field_related_issue {
@@ -38,8 +38,8 @@ const settings = { attributesToSnippet: [
 
 
 const flatten = arr =>
-  arr.map(({ node: { relationships,field_crime,url, ...rest } }) => ({
-    ...field_crime,
+  arr.map(({ node: { relationships,crime,url, ...rest } }) => ({
+    ...crime,
     ...url,
     ...relationships,
     ...rest,

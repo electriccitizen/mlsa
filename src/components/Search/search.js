@@ -7,7 +7,12 @@ import {
 } from "react-instantsearch-dom"
 
 import { RefinementList } from 'react-instantsearch-dom';
+import { ClearRefinements } from 'react-instantsearch-dom';
+import { CurrentRefinements } from 'react-instantsearch-dom';
+import { MenuSelect } from 'react-instantsearch-dom';
+import { Menu } from 'react-instantsearch-dom';
 import algoliasearch from "algoliasearch/lite"
+import { Pagination } from 'react-instantsearch-dom';
 
 import { Root, HitsWrapper, PoweredBy } from "./styles"
 import Input from "./input"
@@ -47,28 +52,68 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
   )
   useClickOutside(ref, () => setFocus(false))
   return (
+    <>
+
     <InstantSearch
       searchClient={searchClient}
       indexName={indices[0].name}
       onSearchStateChange={({ query }) => setQuery(query)}
       root={{ Root, props: { ref } }}
     >
+      <div class="flex">
       <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+      </div>
+      <div class="flex">
+      <CurrentRefinements clearsQuery />
+        <ClearRefinements clearsQuery />
+      </div>
 
-      foo: <RefinementList attribute="field_crime.name" />
-      <HitsWrapper  asGrid={hitsAsGrid}>
-        {indices.map(({ name, title, hitComp }) => (
-          <Index key={name} indexName={name}>
-            <header>
-              <h3>{title}</h3>
-              <Stats />
-            </header>
-            <Results>
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-            </Results>
-          </Index>
-        ))}
-      </HitsWrapper>
+
+      <div class="flex mb-4">
+        <div class="w-1/3 bg-gray-400">
+          <RefinementList attribute='field_crime.name' />
+        </div>
+        <div class="w-2/3 bg-gray-500">
+          <HitsWrapper  asGrid={hitsAsGrid}>
+            {indices.map(({ name, title, hitComp }) => (
+              <Index key={name} indexName={name}>
+                <header>
+                  <h3>{title}</h3>
+                  <Stats />
+                </header>
+                <Results>
+                  <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+                </Results>
+              </Index>
+            ))}
+          </HitsWrapper>
+        </div>
+    </div>
+      <div class="flex">
+        <Pagination
+          padding={5}
+          translations={{
+            previous: '‹',
+            next: '›',
+            first: '«',
+            last: '»',
+            page(currentRefinement) {
+              return currentRefinement;
+            },
+            ariaPrevious: 'Previous page',
+            ariaNext: 'Next page',
+            ariaFirst: 'First page',
+            ariaLast: 'Last page',
+            ariaPage(currentRefinement) {
+              return `Page ${currentRefinement}`;
+            },
+          }}
+        />
+      </div>
+
+
+
     </InstantSearch>
+      </>
   )
 }
