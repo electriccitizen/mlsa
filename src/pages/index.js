@@ -9,6 +9,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
+      <HomeIntro />
       <SEO
         title={page.relationships.field_header.field_title}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
