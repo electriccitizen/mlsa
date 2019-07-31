@@ -17,7 +17,7 @@ function Header({ siteTitle }) {
       <link href="https://use.typekit.net" rel="preconnect" crossorigin />
     </Helmet>
     <header className="bg-pineWhite site-header">
-      <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080px">
+      <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080">
         <Escape />
         <button className="border-grey-mid border-l-0 border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0 md:order-1">
           <TransIcon className="fill-current text-grey w-7 h-7" />
