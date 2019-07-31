@@ -6,20 +6,26 @@ const resourceQuery = `{
               changed
               status
               title
-              description: field_description {
-                value
+              field_description {
+                description: value
               }
-              url: field_url {
-                uri
+              field_url {
+                url: uri
               }
               relationships {
                 crime: field_crime {
                   name
                 }
-                field_related_issue {
+                issue: field_related_issue {
                   name
                 }
-                field_region {
+                category: field_related_category {
+                  name
+                }
+                county: field_county {
+                  name
+                }
+                type: field_resource_type {
                   name
                 }
               }
@@ -36,14 +42,33 @@ const settings = { attributesToSnippet: [
     `description`,
   ]}
 
+// const flatten = arr =>
+//   arr.flatMap(({ node: field_description, relationships,field_url, }) => relationships.flatMap(
+//     ({ crime:  name,  ...rest }) => ({
+//     ...field_url,
+//     ...field_description,
+//     ...crime,
+//     ...rest,
+//
+//   }
+// )
+//
+//   ))
 
 const flatten = arr =>
-  arr.map(({ node: { relationships,crime,url, ...rest } }) => ({
+  arr.map(({ node: { relationships,url, } }) => ({
+  }) => relationships.map(({crime: {name, ...rest}}) => ({
     ...crime,
-    ...url,
     ...relationships,
+    ...name,
+    ...url,
     ...rest,
-  }))
+
+    }),
+    alert(arr.uri)
+
+
+  ))
 
 const queries = [
   {
@@ -54,5 +79,7 @@ const queries = [
   },
 
 ]
+
+
 
 module.exports = queries
