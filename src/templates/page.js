@@ -19,12 +19,13 @@ const pageTemplate = (props) => {
 
   return (
     <Layout>
-      <section>
+      <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
         <Page
           header={page.relationships.field_header}
+          content={page.relationships.field_content}
         />
       </section>
-      <section className="prefooter">
+      <section className="max-w-2280 mx-auto">
         Place holder for prefooter image from page.js
       </section>
     </Layout>
@@ -66,8 +67,22 @@ export const query = graphql `
             ... on paragraph__image {
               drupal_id
             }
+            ... on paragraph__react_component {
+              drupal_id
+              drupal_internal__id
+              relationships {
+                field_components {
+                  drupal_internal__tid
+                  id
+                }
+              }
+            }
             ...on paragraph__text {
               drupal_id
+              field_header
+              field_text {
+                processed
+              }
             }
             ... on paragraph__text_with_image {
               drupal_id
