@@ -439,6 +439,7 @@ a{
 	@media all and (min-width: theme(screens.lg)){
 		height: 376px;
 	}
+}
 
 /* RESOURCE LIBRARY SEARCH BOX */
 input:focus + .resource-search-icon{
@@ -449,7 +450,6 @@ input:focus + .resource-search-icon{
 	top: 50%;
 	right: 12px;
 	margin-top: -20px;
->>>>>>> Clean up bad class usage, accessibility no-nos and some console errors
 }
 /* RESOURCE LIBRARY FILTERS */
 .filter-icon{
