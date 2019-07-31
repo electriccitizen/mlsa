@@ -66,6 +66,13 @@ export const query = graphql `
           }
           ... on paragraph__react_component {
             drupal_id
+            drupal_internal__id
+            relationships {
+              field_components {
+                drupal_internal__tid
+                id
+              }
+            }
           }
           ...on paragraph__text {
             drupal_id
