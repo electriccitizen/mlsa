@@ -35,7 +35,9 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <Input />
       </div>
       <div>
-        <CurrentRefinements />
+        <div className="current-refinements">
+          <CurrentRefinements />
+        </div>
         <ClearRefinements clearsQuery />
       </div>
       <div className="lg:flex lg:flex-row mb-6">
