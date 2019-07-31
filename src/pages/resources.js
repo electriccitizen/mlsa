@@ -14,7 +14,7 @@ function IndexPage() {
         title="Home"
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
-      <section>
+      <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
         <ResourceLibrary collapse indices={searchIndices} />
       </section>
     </Layout>

@@ -56,7 +56,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
               ))}
             </div>
           </ScrollTo>
-          <div id="pagination" className="border-t border-mid-grey pt-4 px-4">
+          <div id="pagination" className="border-t border-mid-grey pt-4 px-4 lg:mx-0 lg:mx-4">
             <Pagination
               padding={5}
               translations={{
