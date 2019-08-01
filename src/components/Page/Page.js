@@ -9,7 +9,7 @@ class Page extends React.Component {
     return (
       <>
         <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
-          <div classname="text-center">
+          <div className="text-center">
             <h1>{this.props.header.field_title}</h1>
             <h2 className="mx-auto max-w-3xl">{this.props.header.field_subheader}</h2>
           </div>

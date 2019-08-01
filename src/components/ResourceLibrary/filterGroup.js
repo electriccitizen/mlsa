@@ -1,27 +1,31 @@
 import React from 'react';
 import { RefinementList } from 'react-instantsearch-dom';
+import AnimateHeight from 'react-animate-height';
 
 class FilterGroup extends React.Component {
   constructor() {
     super();
     this.state = {
-      shown: false,
+      height: 0,
     };
   } 
   
-  toggle() {
+  toggle = () => {
+    const { height } = this.state;
+ 
     this.setState({
-      shown: !this.state.shown
+      height: height === 0 ? 250 : 0,
     });
-  }
+  };
     
   render() {
-    let shown = this.state.shown ? "display-group" : "";
+    const { height } = this.state;
+    let shown = this.state.height === 250 ? "true" : "false";
     
     return (
       <div className="filter-group">
-        <h3><button className={`filter-group-toggle ${shown}`} onClick={this.toggle.bind(this)} aria-controls={`filter-${this.props.attribute}`}  aria-expanded={String(shown ? 'true' : 'false')}>{this.props.name}</button></h3>
-        <div id={`filter-${this.props.attribute}`} aria-hidden={String(shown ? 'false' : 'true')} className={`filter-group-list ${shown} ${this.props.noscroll ? 'noscroll' : ''}`}>
+        <h3><button className={`filter-group-toggle ${String(shown) === 'true' ? 'display-group' : ''}`} onClick={this.toggle.bind(this)} aria-controls={`filter-${this.props.attribute}`}  aria-expanded={String(shown)}>{this.props.name}</button></h3>
+        <AnimateHeight duration={500} height={height} id={`filter-${this.props.attribute}`} aria-hidden={String(shown)} className={`filter-group-list ${this.props.noscroll ? 'noscroll' : ''}`}>
           <RefinementList
             attribute={this.props.attribute}
             limit={this.props.limit}
@@ -29,7 +33,7 @@ class FilterGroup extends React.Component {
             showMore={this.props.showmore}
             showMoreLimit={this.props.showlimit}
           />
-        </div>
+        </AnimateHeight>
       </div>
     )
   }

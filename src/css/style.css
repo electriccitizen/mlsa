@@ -508,6 +508,7 @@ input:focus + .resource-search-icon{
 
 /* RESOURCE FILTER GROUPS */
 .filter-group{
+	@apply mb-6;
 	@media all and (min-width: theme(screens.sm)){
 		@apply w-1/2 px-2;
 	}
@@ -534,12 +535,12 @@ input:focus + .resource-search-icon{
 	}
 }
 .filter-group-list{
-	@apply hidden border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
-	max-height: 250px;
-	&.display-group{
-		@apply block;
+	overflow: hidden;
+	& > div{
+		@apply border border-grey-mid bg-white p-3 overflow-y-scroll;
+		max-height: 250px;
 	}
-	&:not(.noscroll){
+	&:not(.noscroll) > div{
 		&::-webkit-scrollbar {
 	    width: 16px;
 		}
@@ -553,6 +554,7 @@ input:focus + .resource-search-icon{
 			@apply: hidden;
 		}
 	}
+
 	label{
 		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
 		input{
