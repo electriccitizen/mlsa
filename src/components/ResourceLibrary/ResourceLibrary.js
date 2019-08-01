@@ -46,7 +46,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <FilterToggle />
         <div className="lg:w-3/4">
           <ScrollTo>
-            <div>
+            <div className="results-list">
               {indices.map(({ name, title, hitComp }) => (
                 <Index key={name} indexName={name}>
                   <Results>

@@ -589,17 +589,19 @@ input:focus + .resource-search-icon{
 	}
 }
 /* RESOURCE RESULTS LIST */
-.ais-Hits-list{
-	@media all and (min-width: theme(screens.md)){
-		@apply flex flex-row flex-wrap -mx-2;
-		.ais-Hits-item{
-			@apply w-1/3 px-2;
+.results-list{
+	ul{
+		@media all and (min-width: theme(screens.md)){
+			@apply flex flex-row flex-wrap -mx-2;
+			& > li{
+				@apply w-1/3 px-2;
+			}
 		}
-	}
-	@media all and (min-width: theme(screens.lg)){
-		@apply mx-0;
-		.ais-Hits-item{
-			@apply w-1/3 px-4;
+		@media all and (min-width: theme(screens.lg)){
+			@apply mx-0;
+			& > li{
+				@apply w-1/3 px-4;
+			}
 		}
 	}
 }
