@@ -7,6 +7,7 @@ import HamburgerIcon from '../../images/hamburger.svg';
 import CloseIcon from '../../images/close-x.svg';
 import Logo from '../../images/logo.svg';
 import Helmet from "react-helmet";
+import MainMenu from '../Navigation/mainMenu';
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -39,19 +40,10 @@ function Header({ siteTitle }) {
           id="mainNavigation" 
           className={`${
             isExpanded ? `open` : `closed`
-          } bg-white w-full absolute inset-x-0 m-menu-wrapper md:bg-transparent md:static md:pr-2 md:flex md:order-3 md:items-center md:pt-4 cmax:pr-0 cmax:-mr-3`}
+          } bg-white w-full absolute inset-x-0 z-10 m-menu-wrapper md:bg-transparent md:static md:pr-2 md:flex md:order-3 md:items-center md:pt-4 cmax:pr-0 cmax:-mr-3`}
           aria-hidden={ String(`${isExpanded ? `true` : `false`}`)}
         >
-
-          <nav className="font-header font-extrabold uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
-            
-            <Link to="/" className="main-link">Find Help</Link>
-            <Link to="/" className="main-link">Resources</Link>
-            <Link to="/" className="main-link">About Us</Link>
-            <Link to="/" className="main-link">FAQs</Link>
-
-          </nav>
-
+          <MainMenu />
         </div>
 
         <div className="w-full py-8 md:absolute md:py-6 md:px-20px md:left-0 md:top-0 md:w-auto cmax:pl-0">
