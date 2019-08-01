@@ -7,6 +7,7 @@ import HamburgerIcon from '../../images/hamburger.svg';
 import CloseIcon from '../../images/close-x.svg';
 import Logo from '../../images/logo.svg';
 import Helmet from "react-helmet";
+import MainMenu from '../Navigation/mainMenu';
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -43,14 +44,7 @@ function Header({ siteTitle }) {
           aria-hidden={ String(`${isExpanded ? `true` : `false`}`)}
         >
 
-          <nav className="font-header font-extrabold uppercase border-b-4 border-green border-l border-r md:border-0 md:w-full md:flex md:justify-end">
-            
-            <Link to="/" className="main-link">Find Help</Link>
-            <Link to="/" className="main-link">Resources</Link>
-            <Link to="/" className="main-link">About Us</Link>
-            <Link to="/" className="main-link">FAQs</Link>
-
-          </nav>
+          <MainMenu />
 
         </div>
 
