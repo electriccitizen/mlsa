@@ -614,18 +614,17 @@ input:focus + .resource-search-icon{
 }
 
 /* RESOURCE PAGER */
-.ais-Pagination-list{
-	@apply flex flex-row flex-wrap justify-center;
-	.ais-Pagination-item{
-		&.ais-Pagination-item--disabled{
-			@apply opacity-50;
-		}
-		&:not(.ais-Pagination-item--page){
-			@apply text-22;
-		}
-		.ais-Pagination-link{
-			@apply block rounded w-8 h-8 leading-none border border-blue text-blue font-bold flex flex-col justify-center items-center;
-			margin: 0 4px 10px;
+#pagination{
+	ul{
+		@apply flex flex-row flex-wrap justify-center;
+		li{
+			a,span{
+				@apply block rounded w-8 h-8 leading-none border border-blue text-blue font-bold flex flex-col justify-center items-center;
+				margin: 0 4px 10px;
+			}
+			span{
+				@apply opacity-50;
+			}
 		}
 	}
 }
