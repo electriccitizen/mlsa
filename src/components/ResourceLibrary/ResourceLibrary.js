@@ -38,7 +38,9 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <div className="current-refinements">
           <CurrentRefinements />
         </div>
-        <ClearRefinements clearsQuery />
+        <div className="clear-filters">
+          <ClearRefinements clearsQuery />
+        </div>
       </div>
       <div className="lg:flex lg:flex-row mb-6">
         <FilterToggle />

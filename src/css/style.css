@@ -480,33 +480,32 @@ input:focus + .resource-search-icon{
 			display: none;
 		}
 		& > span:not(:first-child){
-			@apply inline-block px-3 pt-2 pb-1half mb-2 bg-blue text-white rounded mr-2 text-15 font-header font-bold;
+			@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
 			& > span{
-				@apply mr-2  leading-none;
+				@apply mr-2 leading-none;
 			}
 			& > button{
-				@apply font-bold font-header;
+				@apply font-bold font-header text-blue;
+				text-shadow: 1px 1px 1px theme(colors.grey.dark);
 				&:hover,&:focus{
-					@apply opacity-75;
+					@apply text-green;
 				}
 			}
 		}
 	}
 }
-.ais-ClearRefinements-button{
-	@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
-	&:hover,&:focus{
-		@apply bg-grey-dark;
+.clear-filters{
+	button{
+		@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
+		&:hover,&:focus{
+			@apply bg-grey-dark;
+		}
+		&:disabled,&[disabled]{
+			@apply hidden;
+		}
 	}
 }
-.ais-CurrentRefinements--noRefinement{
-	.ais-CurrentRefinements-list{
-		@apply pt-0 pb-0;
-	}
-	& + .ais-ClearRefinements{
-		@apply hidden;
-	}
-}
+
 /* RESOURCE FILTER GROUPS */
 .filter-group{
 	@media all and (min-width: theme(screens.sm)){
@@ -554,37 +553,37 @@ input:focus + .resource-search-icon{
 			@apply: hidden;
 		}
 	}
-	.ais-RefinementList-label{
+	label{
 		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
-		.ais-RefinementList-checkbox{
+		input{
 			@apply absolute opacity-0;
 			&:checked{
-				& + .ais-RefinementList-labelText{
+				& + span:first-of-type{
 					@apply text-blue;
 				}
 				&:hover{
-					& + .ais-RefinementList-labelText{
+					& + span:first-of-type{
 						@apply text-green-dark;
 					}
 				}
 				&:focus{
-					& + .ais-RefinementList-labelText{
+					& + span:first-of-type{
 						@apply underline;
 					}
 				}
 			}
 			&:hover{
-				& + .ais-RefinementList-labelText{
+				& + span:first-of-type{
 					@apply text-green-dark;
 				}
 			}
 			&:focus{
-				& + .ais-RefinementList-labelText{
+				& + span:first-of-type{
 					@apply underline;
 				}
 			}
 		}
-		.ais-RefinementList-count{
+		span:last-of-type{
 			@apply hidden;
 		}
 	}
