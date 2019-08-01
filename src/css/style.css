@@ -451,27 +451,7 @@ input:focus + .resource-search-icon{
 	right: 12px;
 	margin-top: -20px;
 }
-/* RESOURCE LIBRARY FILTERS */
-.filter-icon{
-	@apply absolute w-6 h-6;
-	top: 50%;
-	right: 14px;
-	margin-top: -13px;
-}
-.filter-list{
-	@apply hidden;
-	&.display-filters{
-		@apply block;
-		@media screen and (min-width: theme(screens.sm)){
-			@apply flex flex-row flex-wrap -mx-2;
-		}		
-	}
-	@media screen and (min-width: theme(screens.lg)){
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-		display: block !important;
-	}
-}
+
 /* CURRENT FILTERS LIST */
 .current-refinements ul{
 	@apply flex flex-row flex-wrap pt-3 pb-3;
@@ -506,6 +486,35 @@ input:focus + .resource-search-icon{
 	}
 }
 
+/* RESOURCE LIBRARY FILTERS */
+.filter-icon{
+	@apply absolute w-6 h-6;
+	top: 50%;
+	right: 14px;
+	margin-top: -13px;
+}
+#resource-filter-list{
+	@media screen and (min-width: theme(screens.lg)){
+		height: auto !important;
+		& > div{
+			display: block !important;
+		}
+	}
+}
+.filter-list{
+	@apply overflow-hidden; 
+	&.display-filters{
+		@media screen and (min-width: theme(screens.sm)){
+			@apply flex flex-row flex-wrap -mx-2;
+		}		
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		height: auto !important;
+	}
+}
+
 /* RESOURCE FILTER GROUPS */
 .filter-group{
 	&.active-group:not(:last-child){
@@ -537,7 +546,7 @@ input:focus + .resource-search-icon{
 	}
 }
 .filter-group-list{
-	overflow: hidden;
+	@apply overflow-hidden;
 	& > div{
 		@apply border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
 		max-height: 250px;
