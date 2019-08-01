@@ -23,7 +23,7 @@ class FilterGroup extends React.Component {
     let shown = this.state.height === 250 ? "true" : "false";
     
     return (
-      <div className="filter-group">
+      <div className={`filter-group ${String(shown) === 'true' ? 'active-group' : ''}`}>
         <h3><button className={`filter-group-toggle ${String(shown) === 'true' ? 'display-group' : ''}`} onClick={this.toggle.bind(this)} aria-controls={`filter-${this.props.attribute}`}  aria-expanded={String(shown)}>{this.props.name}</button></h3>
         <AnimateHeight duration={500} height={height} id={`filter-${this.props.attribute}`} aria-hidden={String(shown)} className={`filter-group-list ${this.props.noscroll ? 'noscroll' : ''}`}>
           <RefinementList

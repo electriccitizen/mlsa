@@ -508,7 +508,9 @@ input:focus + .resource-search-icon{
 
 /* RESOURCE FILTER GROUPS */
 .filter-group{
-	@apply mb-6;
+	&.active-group:not(:last-child){
+		@apply mb-6;
+	}
 	@media all and (min-width: theme(screens.sm)){
 		@apply w-1/2 px-2;
 	}
@@ -537,7 +539,7 @@ input:focus + .resource-search-icon{
 .filter-group-list{
 	overflow: hidden;
 	& > div{
-		@apply border border-grey-mid bg-white p-3 overflow-y-scroll;
+		@apply border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
 		max-height: 250px;
 	}
 	&:not(.noscroll) > div{
