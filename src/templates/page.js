@@ -3,23 +3,17 @@ import { graphql } from 'gatsby';
 //import moment from 'moment'
 import Layout from '../components/Layout/layout';
 import Page from '../components/Page/Page';
-
-
+import SEO from "../components/Layout/seo";
 
 const pageTemplate = (props) => {
   const { nodePage: page } = props.data;
 
-  // Check for a valid media object and set to empty
-  // (i think NULL or not defined will break?)
-  //var media;
-  //if (page.relationships.field_hero) {
-  //  media = page.relationships.field_hero.relationships.field_media_image
-  //} else {
-  //  media = ''
-  //}
-
   return (
     <Layout>
+      <SEO
+        title={page.relationships.field_header.field_title}
+        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+      />
       <Page
         header={page.relationships.field_header}
         content={page.relationships.field_content}
