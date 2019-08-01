@@ -15,6 +15,7 @@ const pageTemplate = (props) => {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
       <Page
+        info={page}
         header={page.relationships.field_header}
         content={page.relationships.field_content}
         prefooter={page.relationships.field_prefooter_image}
@@ -29,6 +30,7 @@ export const query = graphql `
   query pageTemplate($drupal_id: String!) {
     nodePage(drupal_id: {eq: $drupal_id}) {
       drupal_id
+      drupal_internal__nid
       title
       path {
         alias
