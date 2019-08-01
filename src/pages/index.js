@@ -4,7 +4,6 @@ import SEO from "../components/Layout/seo";
 import HomeIntro from "../components/Block/homeIntro";
 import HomeResources from "../components/Block/homeResources";
 import HomeFeatured from '../components/Block/homeFeatured';
-import HomePrefooter from "../components/Block/homePrefooter";
 
 function IndexPage() {
   return (
@@ -17,9 +16,6 @@ function IndexPage() {
         <HomeIntro />
         <HomeResources />
         <HomeFeatured />
-      </section>
-      <section className="max-w-2280 mx-auto">
-        <HomePrefooter />
       </section>
     </Layout>
   );
