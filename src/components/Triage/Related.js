@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
-export function Crime() {
+export function Related() {
  const data = useStaticQuery(graphql`
-    query CrimeQuery {
-        allTaxonomyTermCrime {
+    query RelatedQuery {
+        allTaxonomyTermRelatedIssues {
           edges {
             node {
               drupal_id
@@ -18,7 +18,7 @@ export function Crime() {
   return (
     <ul>
       {
-        data.allTaxonomyTermCrime.edges.map(
+        data.allTaxonomyTermRelatedIssues.edges.map(
           (term, index) =>
             (
               <li key={index}>
