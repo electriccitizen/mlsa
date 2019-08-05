@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useWizard } from "react-wizard-primitive";
 import { Responses } from "./Responses"
 
-
 export function Triage() {
   const { nextStep, previousStep, activeStepIndex, getStep } = useWizard();
   const colors = ["#34495e", "#9b59b6", "#e74c3c", "#2ecc71", "#1abc9c"];
@@ -32,27 +31,13 @@ export function Triage() {
   // Just a basic component for the sake of layout
   const CustomStep = ({ stepIndex, color, question, vocab }) => (
     <div className="step" style={{ background: color }}>
-      {question}: {vocab}
-      <Responses vocab={vocab}/>
+      <h3>{question}</h3>
+      <Responses component={vocab} />
     </div>
   );
 
-
-
-  const questions = ["How can i help you?", "step 2", "step 3", "step 4"]
-
-
   return (
     <div>
-
-
-      {
-      data.allTaxonomyTermTriageQuestions.edges.map(
-      (question, index) =>
-      (
-        <div>{question.name}</div>
-      )
-      )}
 
       {
       data.allTaxonomyTermTriageQuestions.edges.map(
@@ -63,16 +48,21 @@ export function Triage() {
       )}
       <div className="button-wrapper">
         {/* disable Previous button if activeStepIndex is 0 */}
-        <button disabled={activeStepIndex === 0} onClick={previousStep}>
+
+{ activeStepIndex === 0 ? ''
+  : (<button disabled={activeStepIndex === 0} onClick={previousStep}>
           Previous
-        </button>
+        </button>)
+}
+
+
         {/* disable Previous button if activeStepIndex is lastStep */}
         <button
           disabled={activeStepIndex === colors.length - 1}
           onClick={nextStep}
         >
-          Next
-        </button>
+
+{ activeStepIndex === 0 ? 'START' : 'NEXT' }        </button>
       </div>
       {/*<div>*/}
       {/*  {step1.isActive && <div onClick={step1.nextStep}>Step 1</div>}*/}
