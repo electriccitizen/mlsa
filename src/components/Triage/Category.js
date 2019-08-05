@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 
-export function Crime() {
+export function Category() {
  const data = useStaticQuery(graphql`
-    query CrimeQuery {
-        allTaxonomyTermCrime {
+    query CategoryQuery {
+        allTaxonomyTermResourceCategory {
           edges {
             node {
               drupal_id
@@ -18,10 +18,10 @@ export function Crime() {
   return (
     <ul>
       {
-        data.allTaxonomyTermCrime.edges.map(
+        data.allTaxonomyTermResourceCategory.edges.map(
           (term, index) =>
             (
-              <li key={index}>
+              <li>
               <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" />
                 <label htmlFor="subscribeNews">{term.node.name}</label>
               </li>
