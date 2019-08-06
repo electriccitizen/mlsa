@@ -113,11 +113,9 @@ a{
 		height: 50px;
 		margin-left: -25px;
 		&:before{
-			@apply absolute block top-0;
+			@apply absolute block top-0 w-0 h-0;
 			content: '';
 			right: -25px;
-			width: 0;
-			height: 0;
 			-webkit-transform: rotate(0.05deg);
 			-moz-transform: scale(1.1);
 			transform: rotate(0.05deg);
@@ -442,4 +440,206 @@ a{
 		height: 376px;
 	}
 }
+
+/* RESOURCE LIBRARY SEARCH BOX */
+input:focus + .resource-search-icon{
+	@apply text-grey-mid;
+}
+.resource-search-icon{
+	@apply absolute text-blue w-7 h-7;
+	top: 50%;
+	right: 12px;
+	margin-top: -20px;
+}
+
+/* CURRENT FILTERS LIST */
+.current-refinements ul{
+	@apply flex flex-row flex-wrap pt-3 pb-3;
+	li{
+		& > span:first-child{
+			display: none;
+		}
+		& > span:not(:first-child){
+			@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
+			& > span{
+				@apply mr-2 leading-none;
+			}
+			& > button{
+				@apply font-bold font-header text-blue;
+				text-shadow: 1px 1px 1px theme(colors.grey.dark);
+				&:hover,&:focus{
+					@apply text-green;
+				}
+			}
+		}
+	}
+}
+.clear-filters{
+	button{
+		@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
+		&:hover,&:focus{
+			@apply bg-grey-dark;
+		}
+		&:disabled,&[disabled]{
+			@apply hidden;
+		}
+	}
+}
+
+/* RESOURCE LIBRARY FILTERS */
+.filter-icon{
+	@apply absolute w-6 h-6;
+	top: 50%;
+	right: 14px;
+	margin-top: -13px;
+}
+#resource-filter-list{
+	@media screen and (min-width: theme(screens.lg)){
+		height: auto !important;
+		& > div{
+			display: block !important;
+		}
+	}
+}
+.filter-list{
+	@apply overflow-hidden; 
+	&.display-filters{
+		@media screen and (min-width: theme(screens.sm)){
+			@apply flex flex-row flex-wrap -mx-2;
+		}		
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		height: auto !important;
+	}
+}
+
+/* RESOURCE FILTER GROUPS */
+.filter-group{
+	&.active-group:not(:last-child){
+		@apply mb-6;
+	}
+	@media all and (min-width: theme(screens.sm)){
+		@apply w-1/2 px-2;
+	}
+	@media screen and (min-width: theme(screens.lg)){
+		@apply w-full px-0;
+	}
+}
+.filter-group-toggle{
+	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-extrabold;
+	&:after{
+		@apply block absolute right-0 w-0 h-0;
+		content: '';
+		top: 6px;
+		-webkit-transform: rotate(0.05deg);
+		-moz-transform: scale(1.1);
+		transform: rotate(0.05deg);
+		border-left: 8px double rgba(0,0,0,0);
+		border-right: 8px double rgba(0,0,0,0);
+		border-top: 8px solid theme(colors.black.default);
+	}
+	&.display-group:after{
+		@apply border-t-0;
+		border-bottom: 8px solid theme(colors.black.default);
+	}
+}
+.filter-group-list{
+	@apply overflow-hidden;
+	& > div{
+		@apply border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
+		max-height: 250px;
+	}
+	&:not(.noscroll) > div{
+		&::-webkit-scrollbar {
+	    width: 16px;
+		}
+		&::-webkit-scrollbar-track {
+			border-left: 1px solid theme(colors.grey.midAlt);
+		}
+		&::-webkit-scrollbar-thumb {
+	    @apply bg-grey-midAlt;
+		}
+		&::-webkit-scrollbar-button {
+			@apply: hidden;
+		}
+	}
+
+	label{
+		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
+		input{
+			@apply absolute opacity-0;
+			&:checked{
+				& + span:first-of-type{
+					@apply text-blue;
+				}
+				&:hover{
+					& + span:first-of-type{
+						@apply text-green-dark;
+					}
+				}
+				&:focus{
+					& + span:first-of-type{
+						@apply underline;
+					}
+				}
+			}
+			&:hover{
+				& + span:first-of-type{
+					@apply text-green-dark;
+				}
+			}
+			&:focus{
+				& + span:first-of-type{
+					@apply underline;
+				}
+			}
+		}
+		span:last-of-type{
+			@apply hidden;
+		}
+	}
+}
+/* RESOURCE RESULTS LIST */
+.results-list{
+	ul{
+		@media all and (min-width: theme(screens.md)){
+			@apply flex flex-row flex-wrap -mx-2;
+			& > li{
+				@apply w-1/3 px-2;
+			}
+		}
+		@media all and (min-width: theme(screens.lg)){
+			@apply mx-0;
+			& > li{
+				@apply w-1/3 px-4;
+			}
+		}
+	}
+}
+/* RESULT RESOURCE ITEM */
+.resource-icon{
+	@apply w-16 h-16 m-auto mb-3half;
+	@media screen and (min-width: theme(screens.md)){
+		@apply mx-0;
+	}
+}
+
+/* RESOURCE PAGER */
+#pagination{
+	ul{
+		@apply flex flex-row flex-wrap justify-center;
+		li{
+			a,span{
+				@apply block rounded w-8 h-8 leading-none border border-blue text-blue font-bold flex flex-col justify-center items-center;
+				margin: 0 4px 10px;
+			}
+			span{
+				@apply opacity-50;
+			}
+		}
+	}
+}
+
 

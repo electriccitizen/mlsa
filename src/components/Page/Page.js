@@ -1,26 +1,48 @@
 import React from 'react';
-class Page extends React.Component {
+import Text from '../Paragraphs/text';
+import ReactComponent from '../Paragraphs/reactComponent';
+import Img from 'gatsby-image';
 
-  renderElement(){
-    if (this.props.content) {
-      return (
-        <div>
-         save this render element for future paragraphs logic
-        </div>
-      );
-    } else {
-      return null
-    }
-  }
+class Page extends React.Component {
 
   render() {
     return (
       <>
-        <h1>{this.props.header.field_title}</h1>
-        <h3>{this.props.header.field_subheader}</h3>
+        <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
+          {/* Hide headder and subheader from home page */}
+          {this.props.info.drupal_internal__nid !== 21 &&
+            <div className="text-center">
+              <h1>{this.props.header.field_title}</h1>
+              <h2 className="mx-auto max-w-3xl">{this.props.header.field_subheader}</h2>
+            </div>
+          }
+          <div>
+            {this.props.content.map((paragraphItem, index) => (
+              <div key={paragraphItem.drupal_id}>
+                {paragraphItem.__typename === 'paragraph__text' ? 
+                    <Text 
+                      header={paragraphItem.field_header}
+                      content={paragraphItem.field_text.processed} 
+                    />
+                  : paragraphItem.__typename === 'paragraph__react_component' ?
+                      <ReactComponent 
+                        content={paragraphItem.relationships.field_components.drupal_internal__tid}
+                      />
+                  : ''
+                }
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="max-w-2280 mx-auto">
+          <div className="prefooter-wrapper">
+            <Img fluid={this.props.prefooter.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid} alt={this.props.prefooter.relationships.field_single_image.field_media_image.alt} />
+          </div>
+        </section>
       </>
     )
   }
+
 }
 
 export default Page;
