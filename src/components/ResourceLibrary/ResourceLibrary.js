@@ -34,12 +34,12 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
       <div>
         <Input />
       </div>
-      <div>
+      <div className="clearfix">
         <div className="current-refinements">
           <CurrentRefinements />
-        </div>
-        <div className="clear-filters">
-          <ClearRefinements />
+          <div className="clear-filters">
+            <ClearRefinements />
+          </div>
         </div>
       </div>
       <div className="md:flex md:flex-row mb-6">

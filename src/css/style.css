@@ -451,22 +451,27 @@ input:focus + .resource-search-icon{
 }
 
 /* CURRENT FILTERS LIST */
-.current-refinements ul{
-	@apply flex flex-row flex-wrap pt-3 pb-3;
-	li{
-		& > span:first-child{
-			display: none;
-		}
-		& > span:not(:first-child){
-			@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
-			& > span{
-				@apply mr-2 leading-none;
+.current-refinements{
+	& > *{
+		@apply float-left;
+	}
+	ul{
+		@apply flex flex-row flex-wrap;
+		li{
+			& > span:first-child{
+				display: none;
 			}
-			& > button{
-				@apply font-bold font-header text-blue;
-				text-shadow: 1px 1px 1px theme(colors.grey.dark);
-				&:hover,&:focus{
-					@apply text-green;
+			& > span:not(:first-child){
+				@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
+				& > span{
+					@apply mr-2 leading-none;
+				}
+				& > button{
+					@apply font-bold font-header text-blue;
+					text-shadow: 1px 1px 1px theme(colors.grey.dark);
+					&:hover,&:focus{
+						@apply text-green;
+					}
 				}
 			}
 		}
@@ -474,7 +479,7 @@ input:focus + .resource-search-icon{
 }
 .clear-filters{
 	button{
-		@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
+		@apply inline-block bg-red text-white text-15 px-3 pt-2 pb-1half font-header font-extrabold mb-6;
 		&:hover,&:focus{
 			@apply bg-grey-dark;
 		}
