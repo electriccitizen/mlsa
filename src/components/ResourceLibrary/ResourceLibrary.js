@@ -20,6 +20,7 @@ const Results = connectStateResults(
     res && res.nbHits > 0 ? children : <div className="mb-4 md:px-2 lg:px-4">No results for '{state.query}'</div>
 )
 
+
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
@@ -42,7 +43,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           </div>
         </div>
       </div>
-      <div className="md:flex md:flex-row mb-6">
+      <div className={`md:flex md:flex-row mb-6`}>
         <FilterToggle />
         <div className="md:w-2/3 lg:w-3/4">
           <ScrollTo>
