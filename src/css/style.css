@@ -425,6 +425,10 @@ a{
 	}
 	.home-resource-icon{
 		@apply w-16 h-16 m-auto;
+		&.q-icon{
+			width: 68px;
+			height: 68px;
+		}
 	}
 }
 
@@ -629,6 +633,9 @@ input:focus + .resource-search-icon{
 }
 /* RESULT RESOURCE ITEM */
 .resource-link{
+	& > span{
+		@apply mb-3half h-16 inline-block;
+	}
 	&:hover,&:focus{
 		.resource-icon{
 			@apply opacity-50;
@@ -638,7 +645,11 @@ input:focus + .resource-search-icon{
 		}
 	}
 	.resource-icon{
-		@apply w-16 h-16 m-auto mb-3half inline-block;
+		@apply w-16 h-16 m-auto inline-block;
+		&.q-icon{
+			width: 68px;
+			height: 68px;
+		}
 		@media screen and (min-width: theme(screens.md)){
 			@apply mx-0;
 		}
