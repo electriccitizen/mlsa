@@ -33,6 +33,8 @@
     "styled-components": "^4.3.2",
     "styled-icons": "^8.1.0",
     "react-wizard-primitive": "^2.2.0"
+    "react-wizard-primitive": "^2.2.0",
+    "unstated-next": "^1.1.0"
   },
   "scripts": {
     "analyze:lint": "eslint --ext .jsx --ext .js .",
