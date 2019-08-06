@@ -11,7 +11,7 @@ const components = {
   category: Category,
   related: Related
 };
-export function Responses({component}) {
+export function Responses({component, props}) {
   const StepComponent = components[component];
   return (
     <div>
