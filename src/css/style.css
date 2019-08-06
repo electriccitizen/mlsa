@@ -22,9 +22,6 @@ html{
 	@apply text-base leading-normal antialiased font-normal text-black font-sans;
 	font-synthesis: none;
 	font-kerning: normal;
-	#___gatsby{
-		overflow-x: hidden;
-	}
 }
 h1{
 	@apply font-header text-60 leading-tight font-extrabold mb-8 text-black-dark text-center relative pb-8;
@@ -392,8 +389,7 @@ a{
 }
 .intro-image-wrapper{
 	@apply -mx-4;
-	overflow: hidden;
-	height: 425px;
+	height: 450px;
 	.intro-image-inner{
 		position: relative;
 		left: 50%;
@@ -405,17 +401,17 @@ a{
 		transform: translate(-50%,-50%);
 	}
 	@media all and (min-width: theme(screens.md)){
-		@apply mx-0 absolute pl-7;
+		@apply mx-0 absolute pl-2;
 		top: -20px;
 		left: 55%;
-		height: 450px;
-		.intro-image-inner{
-			width: 540px;
-		}
 	}
 	@media all and (min-width: theme(screens.cmax)){
 		left: 48%;
 		width: 52%;
+		.intro-image-inner{
+			width: 536px;
+			left: 54%;
+		}
 	}
 }
 
@@ -426,6 +422,9 @@ a{
 		left: -50vw;
 		width: 200vw;
 		z-index: -1;
+	}
+	.home-resource-icon{
+		@apply w-16 h-16 m-auto;
 	}
 }
 
@@ -454,22 +453,27 @@ input:focus + .resource-search-icon{
 }
 
 /* CURRENT FILTERS LIST */
-.current-refinements ul{
-	@apply flex flex-row flex-wrap pt-3 pb-3;
-	li{
-		& > span:first-child{
-			display: none;
-		}
-		& > span:not(:first-child){
-			@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
-			& > span{
-				@apply mr-2 leading-none;
+.current-refinements{
+	& > *{
+		@apply float-left;
+	}
+	ul{
+		@apply flex flex-row flex-wrap;
+		li{
+			& > span:first-child{
+				display: none;
 			}
-			& > button{
-				@apply font-bold font-header text-blue;
-				text-shadow: 1px 1px 1px theme(colors.grey.dark);
-				&:hover,&:focus{
-					@apply text-green;
+			& > span:not(:first-child){
+				@apply inline-block px-3 pt-2 pb-1half mb-2 bg-grey-light rounded-sm mr-2 text-15 font-header font-bold;
+				& > span{
+					@apply mr-2 leading-none;
+				}
+				& > button{
+					@apply font-bold font-header text-blue;
+					text-shadow: 1px 1px 1px theme(colors.grey.dark);
+					&:hover,&:focus{
+						@apply text-green;
+					}
 				}
 			}
 		}
@@ -477,7 +481,7 @@ input:focus + .resource-search-icon{
 }
 .clear-filters{
 	button{
-		@apply bg-red text-white px-4 py-2 font-header font-extrabold mb-5;
+		@apply inline-block bg-red text-white text-15 px-3 pt-2 pb-1half font-header font-extrabold mb-6;
 		&:hover,&:focus{
 			@apply bg-grey-dark;
 		}
@@ -495,7 +499,7 @@ input:focus + .resource-search-icon{
 	margin-top: -13px;
 }
 #resource-filter-list{
-	@media screen and (min-width: theme(screens.lg)){
+	@media screen and (min-width: theme(screens.md)){
 		height: auto !important;
 		& > div{
 			display: block !important;
@@ -504,12 +508,7 @@ input:focus + .resource-search-icon{
 }
 .filter-list{
 	@apply overflow-hidden; 
-	&.display-filters{
-		@media screen and (min-width: theme(screens.sm)){
-			@apply flex flex-row flex-wrap -mx-2;
-		}		
-	}
-	@media screen and (min-width: theme(screens.lg)){
+	@media screen and (min-width: theme(screens.md)){
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 		height: auto !important;
@@ -521,10 +520,7 @@ input:focus + .resource-search-icon{
 	&.active-group:not(:last-child){
 		@apply mb-6;
 	}
-	@media all and (min-width: theme(screens.sm)){
-		@apply w-1/2 px-2;
-	}
-	@media screen and (min-width: theme(screens.lg)){
+	@media screen and (min-width: theme(screens.md)){
 		@apply w-full px-0;
 	}
 }
@@ -608,7 +604,7 @@ input:focus + .resource-search-icon{
 		@media all and (min-width: theme(screens.md)){
 			@apply flex flex-row flex-wrap -mx-2;
 			& > li{
-				@apply w-1/3 px-2;
+				@apply w-1/2 px-2;
 			}
 		}
 		@media all and (min-width: theme(screens.lg)){
@@ -620,12 +616,23 @@ input:focus + .resource-search-icon{
 	}
 }
 /* RESULT RESOURCE ITEM */
-.resource-icon{
-	@apply w-16 h-16 m-auto mb-3half;
-	@media screen and (min-width: theme(screens.md)){
-		@apply mx-0;
+.resource-link{
+	&:hover,&:focus{
+		.resource-icon{
+			@apply opacity-50;
+		}
+		h2{
+			@apply text-green-dark;
+		}
+	}
+	.resource-icon{
+		@apply w-16 h-16 m-auto mb-3half inline-block;
+		@media screen and (min-width: theme(screens.md)){
+			@apply mx-0;
+		}
 	}
 }
+
 
 /* RESOURCE PAGER */
 #pagination{

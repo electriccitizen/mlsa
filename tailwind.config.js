@@ -82,6 +82,7 @@ module.exports = {
       screens: {
         'xs': '500px',
         'cmax': '1140px',
+        'xxl': '1500px',
       },
       inset: {
         '100': '100%',
