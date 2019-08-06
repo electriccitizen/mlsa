@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
+import useLocalStorage from '../../hooks/use-local-storage';
 
-export function Crime() {
- const data = useStaticQuery(graphql`
+export function Crime(props) {
+  //const [crime, setCrime] = useState(false);
+  const [crime, setCrime] = useLocalStorage('crime', 'murder');
+
+
+  // const handleInputChange = (event) => {
+  //   const target = event.target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   const name = target.name;
+
+
+
+  const data = useStaticQuery(graphql`
     query CrimeQuery {
         allTaxonomyTermCrime {
           edges {
@@ -14,19 +26,14 @@ export function Crime() {
         }
     }
   `)
+  console.log(props)
 
   return (
-    <ul>
-      {
-        data.allTaxonomyTermCrime.edges.map(
-          (term, index) =>
-            (
-              <li key={index}>
-              <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter" />
-                <label htmlFor="subscribeNews">{term.node.name}</label>
-              </li>
-            )
-        )}
-    </ul>
+    <>
+      What is your crime? <input type="text" onChange={e => setCrime(e.target.value)}  name="crime" id="crime" value={crime} />
+
+      <a onClick={e => setCrime('')}>Reset</a>
+      </>
+
   );
 }
