@@ -439,6 +439,7 @@ a{
 	@media all and (min-width: theme(screens.lg)){
 		height: 376px;
 	}
+
 }
 
 /* RESOURCE LIBRARY SEARCH BOX */
