@@ -389,8 +389,7 @@ a{
 }
 .intro-image-wrapper{
 	@apply -mx-4;
-	overflow: hidden;
-	height: 425px;
+	height: 450px;
 	.intro-image-inner{
 		position: relative;
 		left: 50%;
@@ -402,17 +401,17 @@ a{
 		transform: translate(-50%,-50%);
 	}
 	@media all and (min-width: theme(screens.md)){
-		@apply mx-0 absolute pl-7;
+		@apply mx-0 absolute pl-2;
 		top: -20px;
 		left: 55%;
-		height: 450px;
-		.intro-image-inner{
-			width: 540px;
-		}
 	}
 	@media all and (min-width: theme(screens.cmax)){
 		left: 48%;
 		width: 52%;
+		.intro-image-inner{
+			width: 536px;
+			left: 54%;
+		}
 	}
 }
 
@@ -423,6 +422,9 @@ a{
 		left: -50vw;
 		width: 200vw;
 		z-index: -1;
+	}
+	.home-resource-icon{
+		@apply w-16 h-16 m-auto;
 	}
 }
 

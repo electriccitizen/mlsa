@@ -24,7 +24,7 @@ const HomeIntro = () => {
                   field_media_image {
                     localFile {
                       childImageSharp {
-                        fluid(maxWidth: 540, jpegProgressive: true, maxHeight: 450) {
+                        fluid(maxWidth: 542, maxHeight: 466, jpegProgressive: true) {
                           ...GatsbyImageSharpFluid
                         }
                       }
@@ -42,9 +42,9 @@ const HomeIntro = () => {
   return (
     intro.allBlockContentHomepageIntro.edges.map(({ node }) => (
       <div className="relative max-w-1080px m-auto mb-10" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
-        <div className="intro-text text-center md:text-left">
+        <div className="intro-text text-center md:text-left md:pt-4">
           <div className="text-56 font-header font-light relative mb-6 pb-1 leading-tight intro-headline md:text-60 md:mb-4 lg:text-64" dangerouslySetInnerHTML={{ __html: node.field_headline.processed}} />
-          <div className="text-22 mb-16">{node.field_leadin}</div>
+          <div className="text-22 mb-12 md:pr-16">{node.field_leadin}</div>
         </div>
         <div className="intro-image-wrapper">
           <div className="intro-image-inner">
