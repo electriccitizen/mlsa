@@ -17,7 +17,7 @@ import FilterToggle from './filterToggle';
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+    res && res.nbHits > 0 ? children : <div className="mb-4 md:px-2 lg:px-4">No results for '{state.query}'</div>
 )
 
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
@@ -39,14 +39,14 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           <CurrentRefinements />
         </div>
         <div className="clear-filters">
-          <ClearRefinements clearsQuery />
+          <ClearRefinements />
         </div>
       </div>
-      <div className="lg:flex lg:flex-row mb-6">
+      <div className="md:flex md:flex-row mb-6">
         <FilterToggle />
-        <div className="lg:w-3/4">
+        <div className="md:w-2/3 lg:w-3/4">
           <ScrollTo>
-            <div className="results-list">
+            <div className="results-list md:pl-4">
               {indices.map(({ name, title, hitComp }) => (
                 <Index key={name} indexName={name}>
                   <Results>
@@ -56,7 +56,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
               ))}
             </div>
           </ScrollTo>
-          <div id="pagination" className="border-t border-mid-grey pt-4 px-4 lg:mx-0 lg:mx-4">
+          <div id="pagination" className="border-t border-mid-grey pt-4 px-4 md:mx-4 lg:mx-8">
             <Pagination
               padding={5}
               translations={{
