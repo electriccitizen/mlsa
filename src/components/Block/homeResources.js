@@ -4,7 +4,7 @@ import Advocate from '../../images/advocate.svg';
 import Database from '../../images/database.svg';
 import Learn from '../../images/learn.svg';
 import Question from '../../images/question.svg';
-import Search from '../../images/search.svg';
+import Form from '../../images/form.svg';
 import Toolbox from '../../images/toolbox.svg';
 
 const HomeResources = () => {
@@ -39,13 +39,13 @@ const HomeResources = () => {
         <div className="w-full order-2 md:order-1 md:w-1/2 md:order-1 md:pr-16">
           <ul className="flex flex-row flex-wrap justify-center max-w-xxs m-auto md:-mb-8">
             {resources.allTaxonomyTermResourceTypes.edges.map(({ node }) => (
-              <li className={`block w-1/3 mb-8 ${node.field_icon}`} key={node.id}>
+              <li className={`block w-1/3 mb-8 flex flex-col justify-center ${node.field_icon}`} key={node.id}>
                 <span className="visually-hidden">{node.field_icon}</span>
                 {String(node.field_icon) === 'advocate' ? <Advocate className="w-16 w-18 m-auto" />
                 : String(node.field_icon) === 'database' ? <Database className="w-16 w-18 m-auto" />
                 : String(node.field_icon) === 'learn' ? <Learn className="w-16 w-18 m-auto" />
                 : String(node.field_icon) === 'question' ? <Question className="w-16 w-18 m-auto" />
-                : String(node.field_icon) === 'search' ? <Search className="w-16 w-18 m-auto" />
+                : String(node.field_icon) === 'search' ? <Form className="w-16 w-18 m-auto" />
                 : String(node.field_icon) === 'toolbox' ? <Toolbox className="w-16 w-18 m-auto" />
                 : '' }
               </li>

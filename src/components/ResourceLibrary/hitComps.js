@@ -4,7 +4,7 @@ import Advocate from '../../images/advocate.svg';
 import Database from '../../images/database.svg';
 import Learn from '../../images/learn.svg';
 import Question from '../../images/question.svg';
-import Search from '../../images/search.svg';
+import Form from '../../images/form.svg';
 import Toolbox from '../../images/toolbox.svg';
 import Info from '../../images/info.svg';
 
@@ -16,7 +16,7 @@ export const ResourceHit = clickHandler => ({ hit }) => (
       : hit.icon[0] === 'database' ? <Database className="resource-icon" />
       : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
       : hit.icon[0] === 'question' ? <Question className="resource-icon" />
-      : hit.icon[0] === 'search' ? <Search className="resource-icon" />
+      : hit.icon[0] === 'search' ? <Form className="resource-icon" />
       : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
       : hit.icon[0] === 'info' ? <Info className="resource-icon" />
       : '' }
