@@ -1,13 +1,30 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import Partners from '../Block/partnerOrgs';
 import Social from '../Block/social';
 import FooterMenu from '../Navigation/footerMenu';
-import FooterAbout from '../Block/footerAbout';
-import Copyright from '../Block/copyright';
 import Landscape from '../../images/landscape.svg'
+import BasicBlock from '../Block/basicBlock';
 
 function Footer() {
+
+  const basic = useStaticQuery(graphql`
+    query basicBlock{
+      allBlockContentBasic {
+        edges {
+          node {
+            drupal_id
+            drupal_internal__id
+            info
+            body {
+              processed
+            }
+          }
+        }
+      }
+    }
+  `)
 
   return (
     <footer className="site-footer">
@@ -17,10 +34,23 @@ function Footer() {
           <div className="md:w-1/2 md:pr-6 lg:pr-16">
             <Social />
             <FooterMenu /> 
-            <Copyright />
+            {basic.allBlockContentBasic.edges.map(({ node }) => (
+              node.drupal_internal__id === 1 &&
+              <BasicBlock
+                id={node.drupal_internal__id}
+                body={node.body}
+                classes="text-black text-center text-16 md:text-left lg:text-18 lg:text-grey-dark"
+              />
+            ))}
           </div>
           <div className="md:w-1/2 md:pl-6 lg:pl-16">
-            <FooterAbout />
+            {basic.allBlockContentBasic.edges.map(({ node }) => (
+              node.drupal_internal__id === 2 &&
+              <BasicBlock
+                id={node.drupal_internal__id}
+                body={node.body}
+              />
+            ))}
           </div>
         </div>
       </div>
