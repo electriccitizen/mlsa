@@ -614,12 +614,23 @@ input:focus + .resource-search-icon{
 	}
 }
 /* RESULT RESOURCE ITEM */
-.resource-icon{
-	@apply w-16 h-16 m-auto mb-3half;
-	@media screen and (min-width: theme(screens.md)){
-		@apply mx-0;
+.resource-link{
+	&:hover,&:focus{
+		.resource-icon{
+			@apply opacity-50;
+		}
+		h2{
+			@apply text-green-dark;
+		}
+	}
+	.resource-icon{
+		@apply w-16 h-16 m-auto mb-3half inline-block;
+		@media screen and (min-width: theme(screens.md)){
+			@apply mx-0;
+		}
 	}
 }
+
 
 /* RESOURCE PAGER */
 #pagination{
