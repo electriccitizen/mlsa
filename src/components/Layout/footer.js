@@ -40,6 +40,7 @@ function Footer() {
                 id={node.drupal_internal__id}
                 body={node.body}
                 classes="text-black text-center text-16 md:text-left lg:text-18 lg:text-grey-dark"
+                key={node.drupal_id}
               />
             ))}
           </div>
@@ -49,6 +50,7 @@ function Footer() {
               <BasicBlock
                 id={node.drupal_internal__id}
                 body={node.body}
+                key={node.drupal_id}
               />
             ))}
           </div>
