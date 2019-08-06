@@ -634,7 +634,7 @@ input:focus + .resource-search-icon{
 			@apply opacity-50;
 		}
 		h2{
-			@apply text-green-dark;
+			@apply text-green-dark no-underline;
 		}
 	}
 	.resource-icon{

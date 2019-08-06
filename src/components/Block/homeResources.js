@@ -44,7 +44,7 @@ const HomeResources = () => {
                 {String(node.field_icon) === 'advocate' ? <Advocate className="home-resource-icon" />
                 : String(node.field_icon) === 'database' ? <Database className="home-resource-icon" />
                 : String(node.field_icon) === 'learn' ? <Learn className="home-resource-icon" />
-                : String(node.field_icon) === 'question' ? <Question className="home-resource-icon" />
+                : String(node.field_icon) === 'question' ? <Question className="home-resource-icon q-icon" />
                 : String(node.field_icon) === 'search' ? <Form className="home-resource-icon" />
                 : String(node.field_icon) === 'toolbox' ? <Toolbox className="home-resource-icon" />
                 : '' }
