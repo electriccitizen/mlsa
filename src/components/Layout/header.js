@@ -43,25 +43,7 @@ function Header({ siteTitle }) {
           } bg-white w-full absolute inset-x-0 z-10 m-menu-wrapper md:bg-transparent md:static md:pr-2 md:flex md:order-3 md:items-center md:pt-4 cmax:pr-0 cmax:-mr-3`}
           aria-hidden={ String(`${isExpanded ? `true` : `false`}`)}
         >
-<<<<<<< HEAD
           <MainMenu />
-=======
-
-         <div className="text-sm">
-            <Link
-              to="/"
-              className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline text-white"
-            >
-             Find Help
-            </Link>
-
-            <Link
-              to="/resources"
-              className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-white"
-            >
-              Resources
-            </Link>
->>>>>>> MT-33: fix merge conflicts after rebase master.
         </div>
 
         <div className="w-full py-8 md:absolute md:py-6 md:px-20px md:left-0 md:top-0 md:w-auto cmax:pl-0">

@@ -25,12 +25,9 @@ class Page extends React.Component {
                       content={paragraphItem.field_text.processed} 
                     />
                   : paragraphItem.__typename === 'paragraph__react_component' ?
-                    paragraphItem.relationships.field_components.map((reactItem, index) => (
                       <ReactComponent 
-                        key={reactItem.id}
-                        content={reactItem.drupal_internal__tid}
+                        content={paragraphItem.relationships.field_components.drupal_internal__tid}
                       />
-                    ))
                   : ''
                 }
               </div>
