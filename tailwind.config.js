@@ -80,6 +80,7 @@ module.exports = {
         '48': '48px',
       },
       screens: {
+        'xxs': '400px',
         'xs': '500px',
         'cmax': '1140px',
         'xxl': '1500px',

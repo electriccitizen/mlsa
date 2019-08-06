@@ -42,7 +42,8 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
           </div>
         </div>
       </div>
-      <div className="md:flex md:flex-row mb-6">
+
+      <div className={`md:flex md:flex-row mb-6`}>
         <FilterToggle />
         <div className="md:w-2/3 lg:w-3/4">
           <ScrollTo>

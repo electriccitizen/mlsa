@@ -32,7 +32,7 @@ function Header({ siteTitle }) {
             aria-controls="mainNavigation" 
           >
             Menu
-            { isExpanded ? <CloseIcon className="fill-current h-10 w-10 ml-4" /> : <HamburgerIcon className="fill-current h-10 w-10 ml-4" /> }
+            { isExpanded ? <CloseIcon className="fill-current h-8 w-8 ml-1 xxs:ml-4 xxs:h-10 xxs:w-10" /> : <HamburgerIcon className="fill-current h-8 w-8 ml-1 xxs:ml-4 xxs:h-10 xxs:w-10" /> }
           </button>
         </div>
 

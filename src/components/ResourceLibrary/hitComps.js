@@ -16,13 +16,13 @@ export const ResourceHit = clickHandler => ({ hit }) => (
         {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
         : hit.icon[0] === 'database' ? <Database className="resource-icon" />
         : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
-        : hit.icon[0] === 'question' ? <Question className="resource-icon" />
+        : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
         : hit.icon[0] === 'search' ? <Form className="resource-icon" />
         : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
         : hit.icon[0] === 'info' ? <Info className="resource-icon" />
         : '' }
     	</span>
-    	<h2 className="h3 mb-4 text-blue">
+    	<h2 className="h3 mb-4 text-blue underline">
   	    <Highlight attribute="title" hit={hit} tagName="mark" />
       </h2>
     </a>
