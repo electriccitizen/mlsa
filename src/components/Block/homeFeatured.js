@@ -45,21 +45,21 @@ const HomeFeatured = () => {
           }
         }
       }
-      imageOne: file(relativePath: { eq: "white-pines.jpg" }) {
+      imageOne: file(relativePath: { eq: "big-sky-sunset.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      imageTwo: file(relativePath: { eq: "train-bridge.jpg" }) {
+      imageTwo: file(relativePath: { eq: "montana-landscape.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      imageThree: file(relativePath: { eq: "mountain-river.jpg" }) {
+      imageThree: file(relativePath: { eq: "wheat.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
