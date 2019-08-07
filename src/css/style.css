@@ -631,6 +631,14 @@ input:focus + .resource-search-icon{
 		}
 	}
 }
+
+.highlight-result{
+	*{
+		display: inline !important;
+		margin-bottom: 0;
+	}
+}
+
 /* RESULT RESOURCE ITEM */
 .resource-link{
 	& > span{

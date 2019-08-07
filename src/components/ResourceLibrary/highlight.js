@@ -9,14 +9,14 @@ const Highlight = ({ highlight, attribute, hit }) => {
   });
 
   return (
-    <span>
+    <span className="highlight-result">
       {parsedHit.map(
         (part, index) =>
           part.isHighlighted ? (
-            <mark key={index}>{part.value}</mark>
+            <mark key={index} dangerouslySetInnerHTML={{ __html:part.value}} />
           ) : (
-            <span key={index}>{part.value}</span>
-          )
+            <span key={index} dangerouslySetInnerHTML={{ __html:part.value}} />
+        )
       )}
     </span>
   );
