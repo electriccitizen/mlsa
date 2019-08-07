@@ -37,7 +37,7 @@ export function Crime(props) {
   };
   console.log(props)
 
-  console.log(localStorage.getItem('crime'))
+  //console.log(localStorage.getItem('crime'))
   return (
     <>
       <ul class="mb-8">
