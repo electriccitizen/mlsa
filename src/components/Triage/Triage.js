@@ -66,7 +66,9 @@ export function Triage(props) {
             nextStep();
           }}
         >
-        { activeStepIndex === 0 ? 'START' : 'NEXT' }        </button>
+          { activeStepIndex === 0 ? 'START' : activeStepIndex === 4 ? 'SUBMIT' : 'NEXT'}
+
+        </button>
       </div>
 
     </div>
