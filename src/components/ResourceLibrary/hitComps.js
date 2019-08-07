@@ -1,5 +1,5 @@
 import React from "react";
-import { Highlight } from "react-instantsearch-dom";
+import CustomHighlight from './highlight';
 import Advocate from '../../images/advocate.svg';
 import Database from '../../images/database.svg';
 import Learn from '../../images/learn.svg';
@@ -7,6 +7,7 @@ import Question from '../../images/question.svg';
 import Form from '../../images/form.svg';
 import Toolbox from '../../images/toolbox.svg';
 import Info from '../../images/info.svg';
+
 
 export const ResourceHit = clickHandler => ({ hit }) => (
   <div className="text-center mb-8 md:text-left">
@@ -23,7 +24,7 @@ export const ResourceHit = clickHandler => ({ hit }) => (
         : '' }
     	</span>
     	<h2 className="h3 mb-4 text-blue underline">
-  	    <Highlight attribute="title" hit={hit} tagName="mark" />
+  	    <CustomHighlight attribute="title" hit={hit} />
       </h2>
     </a>
     <div attribute="description" hit={hit} tagName="mark" dangerouslySetInnerHTML={{ __html: hit.description}} />
