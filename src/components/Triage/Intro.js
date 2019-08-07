@@ -38,7 +38,7 @@ export function Intro() {
 
 const [intro, setIntro] = useLocalStorage('intro', 'joebody');
  const [goo, setGoo] = useLocalStorage('goo', 'yo ma');
- console.log(localStorage.getItem('intro'))
+ //console.log(localStorage.getItem('intro'))
   return (
     <>
     <ul className="mb-8">
