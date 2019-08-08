@@ -12,9 +12,8 @@ const Image = (props) => {
       :
         <Img fluid={props.image} atl={props.alt} />
       }
-	    {props.caption && <figcaption className="mx-auto max-w-2xlHalf mt-2 text-grey-mid italic text-center text-16">{props.caption}</figcaption>}
+	    {props.caption && <figcaption className="mx-auto max-w-2xlHalf mt-2 text-grey-mid italic text-center">{props.caption}</figcaption>}
     </div>
-      
   )
 };
 

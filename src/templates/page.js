@@ -135,9 +135,41 @@ export const query = graphql `
           }
           ... on paragraph__text_with_image {
             drupal_id
+            field_header
+            field_image_placement
+            field_link {
+              uri
+            }
+            field_text {
+              processed
+            }
+            relationships {
+              field_single_image {
+                field_caption
+                field_media_image {
+                  alt
+                }
+                relationships {
+                  field_media_image {
+                    localFile {
+                      childImageSharp{
+                        fluid(maxWidth: 760, jpegProgressive: true) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
           ... on paragraph__video {
             drupal_id
+            relationships {
+              field_video {
+                field_media_oembed_video
+              }
+            }
           }  
         }
       }

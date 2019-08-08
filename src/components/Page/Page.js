@@ -3,6 +3,8 @@ import Accordions from '../Paragraphs/accordions';
 import Button from '../Paragraphs/button';
 import Image from '../Paragraphs/image';
 import Text from '../Paragraphs/text';
+import TextImage from '../Paragraphs/textImage';
+import Video from '../Paragraphs/video';
 import ReactComponent from '../Paragraphs/reactComponent';
 import Img from 'gatsby-image';
 
@@ -50,6 +52,21 @@ class Page extends React.Component {
                     <Text 
                       header={paragraphItem.field_header}
                       content={paragraphItem.field_text.processed} 
+                    />
+                  : paragraphItem.__typename === 'paragraph__text_with_image' ?
+                    <TextImage
+                      header={paragraphItem.field_header}
+                      text={paragraphItem.field_text.processed}
+                      image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
+                      alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
+                      link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
+                      caption={paragraphItem.relationships.field_single_image.field_caption}
+                      placement={paragraphItem.field_image_placement}
+                    />
+                  : paragraphItem.__typename === 'paragraph__video' ?
+                    <Video
+                      header={paragraphItem.field_header}
+                      content={paragraphItem.relationships.field_video.field_media_oembed_video}
                     />
                   : ''
                 }
