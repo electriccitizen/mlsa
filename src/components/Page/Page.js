@@ -31,6 +31,8 @@ class Page extends React.Component {
                       header={paragraphItem.field_header}
                       content={paragraphItem.field_buttons}
                     />
+                  : paragraphItem.__typename === 'paragraph__horizontal_rule' ?
+                    <hr className="border-t border-mid-grey mx-auto max-w-3xl" />
                   : paragraphItem.__typename === 'paragraph__react_component' ?
                       <ReactComponent 
                         content={paragraphItem.relationships.field_components.drupal_internal__tid}

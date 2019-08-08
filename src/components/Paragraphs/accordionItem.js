@@ -17,6 +17,7 @@ class AccordionItem extends React.Component {
       height: height === 0 ? 'auto' : 0,
     });
   };
+  
   render() {
     const { height } = this.state;
     let shown = this.state.height === 'auto' ? "true" : "false";
