@@ -71,6 +71,11 @@ export const query = graphql `
           }
           ... on paragraph__button {
             drupal_id
+            field_header
+            field_buttons {
+              title
+              uri
+            }
           }
           ... on paragraph__horizontal_rule {
             drupal_id

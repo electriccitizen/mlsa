@@ -1,5 +1,6 @@
 import React from 'react';
 import Text from '../Paragraphs/text';
+import Button from '../Paragraphs/button';
 import ReactComponent from '../Paragraphs/reactComponent';
 import Img from 'gatsby-image';
 
@@ -23,6 +24,11 @@ class Page extends React.Component {
                     <Text 
                       header={paragraphItem.field_header}
                       content={paragraphItem.field_text.processed} 
+                    />
+                  : paragraphItem.__typename === 'paragraph__button' ?
+                    <Button
+                      header={paragraphItem.field_header}
+                      content={paragraphItem.field_buttons}
                     />
                   : paragraphItem.__typename === 'paragraph__react_component' ?
                       <ReactComponent 
