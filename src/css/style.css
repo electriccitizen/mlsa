@@ -143,8 +143,6 @@ a{
 	}
 }
 
-
-
 /* MAIN MENU LINKS */
 .main-link{
 	a{
@@ -225,6 +223,16 @@ a{
 		&.card-small{
 			@apply px-6;
 		}
+	}
+}
+
+.paragraph-item{
+	@apply mb-8;
+	h2.h3{
+		@apply mb-3 mx-auto text-center max-w-3xl;
+	}
+	@media all and (min-width: theme(screens.lg)){
+		@apply mb-12;
 	}
 }
 

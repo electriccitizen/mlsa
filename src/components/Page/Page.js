@@ -19,7 +19,7 @@ class Page extends React.Component {
           }
           <div>
             {this.props.content.map((paragraphItem, index) => (
-              <div key={paragraphItem.drupal_id}>
+              <div key={paragraphItem.drupal_id} className="paragraph-item">
                 {paragraphItem.__typename === 'paragraph__text' ? 
                     <Text 
                       header={paragraphItem.field_header}
