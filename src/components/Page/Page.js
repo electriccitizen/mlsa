@@ -1,6 +1,7 @@
 import React from 'react';
 import Accordions from '../Paragraphs/accordions';
 import Button from '../Paragraphs/button';
+import Image from '../Paragraphs/image';
 import Text from '../Paragraphs/text';
 import ReactComponent from '../Paragraphs/reactComponent';
 import Img from 'gatsby-image';
@@ -32,11 +33,19 @@ class Page extends React.Component {
                       content={paragraphItem.field_buttons}
                     />
                   : paragraphItem.__typename === 'paragraph__horizontal_rule' ?
-                    <hr className="border-t border-mid-grey mx-auto max-w-3xl" />
+                    <hr className="border-t border-mid-grey mx-auto max-w-2xlHalf" />
+                  : paragraphItem.__typename === 'paragraph__image' ?
+                    <Image
+                      header={paragraphItem.field_header}
+                      image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
+                      alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
+                      link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
+                      caption={paragraphItem.relationships.field_single_image.field_caption}
+                    />
                   : paragraphItem.__typename === 'paragraph__react_component' ?
-                      <ReactComponent 
-                        content={paragraphItem.relationships.field_components.drupal_internal__tid}
-                      />
+                    <ReactComponent 
+                      content={paragraphItem.relationships.field_components.drupal_internal__tid}
+                    />
                   : paragraphItem.__typename === 'paragraph__text' ?
                     <Text 
                       header={paragraphItem.field_header}

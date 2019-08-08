@@ -92,6 +92,29 @@ export const query = graphql `
           }
           ... on paragraph__image {
             drupal_id
+            field_header
+            field_link {
+              uri
+            }
+            relationships {
+              field_single_image {
+                field_caption
+                field_media_image {
+                  alt
+                }
+                relationships {
+                  field_media_image {
+                    localFile {
+                      childImageSharp{
+                        fluid(maxWidth: 1080, jpegProgressive: true) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
           ... on paragraph__react_component {
             drupal_id

@@ -3,8 +3,8 @@ import { Link } from 'gatsby';
 
 const Button = (props) => {
   return (
-    <div className="max-w-3xl mx-auto">
-      <h2 className="h3">{props.header}</h2>
+    <div className="max-w-2xlHalf mx-auto">
+      {props.header && <h2 className="h3">{props.header}</h2>}
       <div className="flex flex-row flex-wrap justify-center -mx-2 -mb-4">
 	      {props.content.map((buttonLink, index) => (
 	      	<div className="px-2 mb-4" key={index}>
