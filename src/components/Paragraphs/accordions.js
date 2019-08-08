@@ -3,7 +3,7 @@ import AccordionItem from './accordionItem';
 
 const Accordions = (props) => {
   return (
-    <div className="max-w-3xl mx-auto -mb-4">
+    <div className="max-w-2xlHalf mx-auto -mb-4">
       <h2 className="h3">{props.header}</h2>
       {props.content.map((accordionItem, index) => (
         <AccordionItem 
