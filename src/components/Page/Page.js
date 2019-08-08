@@ -1,6 +1,7 @@
 import React from 'react';
-import Text from '../Paragraphs/text';
+import Accordions from '../Paragraphs/accordions';
 import Button from '../Paragraphs/button';
+import Text from '../Paragraphs/text';
 import ReactComponent from '../Paragraphs/reactComponent';
 import Img from 'gatsby-image';
 
@@ -20,10 +21,10 @@ class Page extends React.Component {
           <div>
             {this.props.content.map((paragraphItem, index) => (
               <div key={paragraphItem.drupal_id} className="paragraph-item">
-                {paragraphItem.__typename === 'paragraph__text' ? 
-                    <Text 
+                {paragraphItem.__typename === 'paragraph__accordion_group' ? 
+                    <Accordions 
                       header={paragraphItem.field_header}
-                      content={paragraphItem.field_text.processed} 
+                      content={paragraphItem.relationships.field_accordions} 
                     />
                   : paragraphItem.__typename === 'paragraph__button' ?
                     <Button
@@ -34,6 +35,11 @@ class Page extends React.Component {
                       <ReactComponent 
                         content={paragraphItem.relationships.field_components.drupal_internal__tid}
                       />
+                  : paragraphItem.__typename === 'paragraph__text' ?
+                    <Text 
+                      header={paragraphItem.field_header}
+                      content={paragraphItem.field_text.processed} 
+                    />
                   : ''
                 }
               </div>

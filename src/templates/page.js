@@ -68,6 +68,16 @@ export const query = graphql `
           __typename
           ... on paragraph__accordion_group {
             drupal_id
+            field_header
+            relationships {
+              field_accordions {
+                drupal_id
+                field_accordion_header
+                field_text {
+                  processed
+                }
+              }
+            }
           }
           ... on paragraph__button {
             drupal_id

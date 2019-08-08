@@ -44,7 +44,7 @@ h3,.h3{
 	@apply font-header text-23 font-bold mb-4;
 }
 h4,.h4{
-	@apply text-20 font-bold mb-8;
+	@apply text-20 font-bold mb-6;
 }
 p{
 	@apply mb-6;
@@ -664,7 +664,6 @@ input:focus + .resource-search-icon{
 	}
 }
 
-
 /* RESOURCE PAGER */
 #pagination{
 	ul{
@@ -681,4 +680,12 @@ input:focus + .resource-search-icon{
 	}
 }
 
-
+/* PARAGRAPHS */
+.accordion-text{
+	*:last-child{
+		@apply mb-0;
+		*:last-child{
+			@apply mb-0;
+		}
+	}
+}
