@@ -66,7 +66,8 @@ class Page extends React.Component {
                   : paragraphItem.__typename === 'paragraph__video' ?
                     <Video
                       header={paragraphItem.field_header}
-                      content={paragraphItem.relationships.field_video.field_media_oembed_video}
+                      name={paragraphItem.relationships.field_video.name}
+                      video={paragraphItem.relationships.field_video.field_media_oembed_video}
                     />
                   : ''
                 }

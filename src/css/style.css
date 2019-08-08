@@ -689,3 +689,8 @@ input:focus + .resource-search-icon{
 		}
 	}
 }
+
+.video-holder{
+	@apply relative;
+	padding-bottom: 56.25%;
+}

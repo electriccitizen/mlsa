@@ -168,6 +168,7 @@ export const query = graphql `
             relationships {
               field_video {
                 field_media_oembed_video
+                name
               }
             }
           }  
