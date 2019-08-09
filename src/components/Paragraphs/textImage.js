@@ -16,7 +16,7 @@ const TextImage = (props) => {
           }
           {props.caption && <figcaption className="mx-auto max-w-2xlHalf mt-2 text-grey-mid italic text-center text-16">{props.caption}</figcaption>}
         </div>
-        <div className="px-3 md:w-1/2">
+        <div className="px-3 md:w-1/2 long-text">
           <div dangerouslySetInnerHTML={{ __html: props.text}} />
         </div>
       </div>

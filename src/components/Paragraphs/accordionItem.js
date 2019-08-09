@@ -30,7 +30,7 @@ class AccordionItem extends React.Component {
           </button>
         </div>
         <AnimateHeight duration={500} height={height} id={`accordion-${this.props.id}`} aria-hidden={String(shown)}>
-          <div className="accordion-text" dangerouslySetInnerHTML={{ __html: this.props.content}} />
+          <div className="accordion-text long-text" dangerouslySetInnerHTML={{ __html: this.props.content}} />
         </AnimateHeight>
       </div>
     )

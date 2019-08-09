@@ -55,6 +55,14 @@ a{
 		@apply text-green-dark;
 	}
 }
+.long-text{
+	a{
+		@apply underline;
+		&:hover,&:focus{
+			@aaply no-underline;
+		}
+	}
+}
 .gradient-ex{
 	min-height: 200px;
 }
@@ -689,8 +697,8 @@ input:focus + .resource-search-icon{
 		}
 	}
 }
-
 .video-holder{
 	@apply relative;
 	padding-bottom: 56.25%;
 }
+
