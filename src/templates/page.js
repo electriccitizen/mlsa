@@ -94,6 +94,7 @@ export const query = graphql `
             drupal_id
             field_header
             field_link {
+              title
               uri
             }
             relationships {
@@ -138,6 +139,7 @@ export const query = graphql `
             field_header
             field_image_placement
             field_link {
+              title
               uri
             }
             field_text {

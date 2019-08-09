@@ -40,6 +40,7 @@ class Page extends React.Component {
                     <Image
                       header={paragraphItem.field_header}
                       image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
+                      label={paragraphItem.field_link ? paragraphItem.field_link.title : ''}
                       alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
                       link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
                       caption={paragraphItem.relationships.field_single_image.field_caption}
@@ -59,6 +60,7 @@ class Page extends React.Component {
                       text={paragraphItem.field_text.processed}
                       image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
                       alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
+                      label={paragraphItem.field_link ? paragraphItem.field_link.title : ''}
                       link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
                       caption={paragraphItem.relationships.field_single_image.field_caption}
                       placement={paragraphItem.field_image_placement}
