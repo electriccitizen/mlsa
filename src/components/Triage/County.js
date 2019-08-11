@@ -42,19 +42,19 @@ export function County(props) {
   return (
     <>
       <select class="mb-8" name="county">
-      {
-        data.allTaxonomyTermCounty.edges.map(
-          (term, index) =>
-            (
-              <>
-              <option key={index} name="subscribe" value={term.node.name}>
+        {
+          data.allTaxonomyTermCounty.edges.map(
+            (term, index) =>
+              (
+                <>
+                  <option key={index} name="subscribe" value={term.node.name}>
 
-                {term.node.name}</option>
+                    {term.node.name}</option>
 
-              </>
-            )
-        )}
-    </select>
+                </>
+              )
+          )}
+      </select>
     </>
 
   );
