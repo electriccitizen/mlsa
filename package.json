@@ -28,12 +28,12 @@
     "react-instantsearch-dom": "^5.7.0",
     "react-popper": "^1.3.3",
     "react-responsive-modal": "^4.0.1",
+    "react-select-search": "^0.9.6",
     "react-simple-tooltip": "^2.6.0",
     "react-tippy": "^1.2.3",
+    "react-wizard-primitive": "^2.2.0",
     "styled-components": "^4.3.2",
     "styled-icons": "^8.1.0",
-    "react-wizard-primitive": "^2.2.0"
-    "react-wizard-primitive": "^2.2.0",
     "unstated-next": "^1.1.0"
   },
   "scripts": {

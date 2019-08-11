@@ -27,7 +27,6 @@ export function Category(props) {
     }
   `)
 
-
   const [checkedItems, setCheckedItems] = useLocalStorage('crime', '');
   const handleChange = event => {
     setCheckedItems({

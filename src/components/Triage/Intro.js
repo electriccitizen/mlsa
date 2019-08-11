@@ -10,7 +10,7 @@ const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
   );
 };
 
-export function Intro() {
+export function Intro(foo) {
  const data = useStaticQuery(graphql`
     query IntroQuery {
         allTaxonomyTermAudienceOptions {
@@ -24,10 +24,17 @@ export function Intro() {
         }
     }
   `)
+  function FormState () {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+  }
 
+
+  console.log(foo)
   const [checkedItems, setCheckedItems] = useLocalStorage('intro', '');
-
- const handleChange = event => {
+  const handleChange = event => {
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked
@@ -35,10 +42,9 @@ export function Intro() {
     console.log("checkedItems: ", checkedItems);
   };
 
-
-const [intro, setIntro] = useLocalStorage('intro', 'joebody');
- const [goo, setGoo] = useLocalStorage('goo', 'yo ma');
- //console.log(localStorage.getItem('intro'))
+  const [intro, setIntro] = useLocalStorage('intro', 'joebody');
+  const [goo, setGoo] = useLocalStorage('goo', 'yo ma');
+  //console.log(localStorage.getItem('intro'))
   return (
     <>
     <ul className="mb-8">
@@ -62,7 +68,7 @@ const [intro, setIntro] = useLocalStorage('intro', 'joebody');
         )}
       </ul>
 
-      {/*<a onClick={e => setCheckedItems('')}>Reset</a>*/}
+      <a onClick={e => setCheckedItems('')}>Reset</a>
 
       </>
   );
