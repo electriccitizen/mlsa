@@ -56,6 +56,12 @@ a{
 	}
 }
 .long-text{
+	.text-align-center{
+		@apply text-center;
+	}
+	.text-align-right{
+		@apply text-right;
+	}
 	a{
 		@apply underline;
 		&:hover,&:focus{
