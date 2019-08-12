@@ -13,6 +13,11 @@ const pageTemplate = (props) => {
       <SEO
         title={page.relationships.field_header.field_title}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        abstract={page.relationships.field_header.field_summary}
+        pageUrl={page.path.alias}
+        footerImage={page.relationships.field_prefooter_image.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.original.src}
+        changed={page.changed}
+        shortLink={`node/${page.drupal_internal__nid}`}
       />
       <Page
         info={page}
@@ -52,6 +57,9 @@ export const query = graphql `
                       fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true) {
                         ...GatsbyImageSharpFluid
                       }
+                      original {
+                        src
+                      }
                     }
                   }
                 }
@@ -63,6 +71,7 @@ export const query = graphql `
           drupal_id
           field_title
           field_subheader
+          field_summary
         }
         field_content {
           __typename
