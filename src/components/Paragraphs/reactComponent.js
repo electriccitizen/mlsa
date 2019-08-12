@@ -3,6 +3,7 @@ import ResourceLibrary from "../ResourceLibrary/ResourceLibrary";
 import HomeResources from "../Block/homeResources";
 import HomeFeatured from "../Block/homeFeatured";
 import HomeIntro from "../Block/homeIntro";
+import Contact from "../Forms/contact";
 
 const searchIndices = [
   { name: `Resources`, title: `Resources`, hitComp: `ResourceHit` },
@@ -16,6 +17,7 @@ const ReactComponent = (props) => {
       : String(props.content) === '286' ? <HomeResources />
       : String(props.content) === '287' ? <HomeFeatured />
       : String(props.content) === '288' ? <HomeIntro />
+      : String(props.content) === '299' ? <Contact />
       : 'Sorry, there is no valid component matching your selection.'
     	}
     </div>
