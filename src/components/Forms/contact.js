@@ -46,23 +46,23 @@ export default function Contact() {
           Don’t fill this out: <input hidden name="bot-field" onChange={handleChange} />
         </label>
       </div>
-      <div className="form-item form-text">
+      <div className="form-item form-text form-required">
         <label>
-          Name: 
+          Name 
         </label>
-        <input type="text" name="name" onChange={handleChange} />
+        <input type="text" name="name" required="required" onChange={handleChange} aria-required="true" />
+      </div>
+      <div className="form-item form-text form-required">
+        <label>
+          Email
+        </label>
+        <input type="email" name="email" required="required" onChange={handleChange} aria-required="true" />
       </div>
       <div className="form-item form-text">
         <label>
-          Email:
+          How can we help you? 
         </label>
-        <input type="email" name="email" onChange={handleChange} />
-      </div>
-      <div className="form-item form-text">
-        <label>
-          Message: 
-        </label>
-        <textarea name="message" onChange={handleChange} />
+        <textarea name="message" rows="5" column="60" onChange={handleChange} />
       </div>
       <div className="form-actions">
         <button className="btn" type="submit">Send</button>

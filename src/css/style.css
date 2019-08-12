@@ -265,6 +265,13 @@ a{
 			@apply border border-grey-dark w-full px-2 py-3half;
 		}
 	}
+	&.form-required{
+		label:after{
+			content: '*';
+			@apply text-red text-base ml-1 relative;
+			top: -4px;
+		}
+	}
 }
 
 /**
