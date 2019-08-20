@@ -44,7 +44,7 @@ h3,.h3{
 	@apply font-header text-23 font-bold mb-4;
 }
 h4,.h4{
-	@apply text-20 font-bold mb-8;
+	@apply text-20 font-bold mb-6;
 }
 p{
 	@apply mb-6;
@@ -53,6 +53,14 @@ a{
 	@apply text-blue;
 	&:hover,&:focus{
 		@apply text-green-dark;
+	}
+}
+.long-text{
+	a{
+		@apply underline;
+		&:hover,&:focus{
+			@aaply no-underline;
+		}
 	}
 }
 .gradient-ex{
@@ -143,8 +151,6 @@ a{
 	}
 }
 
-
-
 /* MAIN MENU LINKS */
 .main-link{
 	a{
@@ -225,6 +231,16 @@ a{
 		&.card-small{
 			@apply px-6;
 		}
+	}
+}
+
+.paragraph-item{
+	@apply mb-8;
+	h2.h3{
+		@apply mb-3 mx-auto text-center max-w-2xlHalf;
+	}
+	@media all and (min-width: theme(screens.lg)){
+		@apply mb-12;
 	}
 }
 
@@ -656,7 +672,6 @@ input:focus + .resource-search-icon{
 	}
 }
 
-
 /* RESOURCE PAGER */
 #pagination{
 	ul{
@@ -673,4 +688,17 @@ input:focus + .resource-search-icon{
 	}
 }
 
+/* PARAGRAPHS */
+.accordion-text{
+	*:last-child{
+		@apply mb-0;
+		*:last-child{
+			@apply mb-0;
+		}
+	}
+}
+.video-holder{
+	@apply relative;
+	padding-bottom: 56.25%;
+}
 

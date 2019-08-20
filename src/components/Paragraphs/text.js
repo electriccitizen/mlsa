@@ -3,8 +3,8 @@ import React from 'react';
 const Text = (props) => {
   return (
     <div>
-      <h2 className="h4">{props.header}</h2>
-      <div dangerouslySetInnerHTML={{ __html: props.content}} />
+      {props.header && <h2 className="h3">{props.header}</h2>}
+      <div className="mx-auto max-w-2xlHalf long-text" dangerouslySetInnerHTML={{ __html: props.content}} />
     </div>
   )
 };
