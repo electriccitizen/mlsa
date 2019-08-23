@@ -56,6 +56,12 @@ a{
 	}
 }
 .long-text{
+	.text-align-center{
+		@apply text-center;
+	}
+	.text-align-right{
+		@apply text-right;
+	}
 	a{
 		@apply underline;
 		&:hover,&:focus{
@@ -234,6 +240,7 @@ a{
 	}
 }
 
+/* PARAGRAPH ITEMS */
 .paragraph-item{
 	@apply mb-8;
 	h2.h3{
@@ -241,6 +248,29 @@ a{
 	}
 	@media all and (min-width: theme(screens.lg)){
 		@apply mb-12;
+	}
+}
+
+/* FORM ELEMENTS */
+.form-item{
+	@apply mb-6 font-header;
+	label{
+		@apply font-bold text-20 mb-2;
+	}
+	&.form-text{
+		input{
+			@apply border border-grey-dark w-full px-2 py-3half leading-none;
+		}
+		textarea{
+			@apply border border-grey-dark w-full px-2 py-3half;
+		}
+	}
+	&.form-required{
+		label:after{
+			content: '*';
+			@apply text-red text-base ml-1 relative;
+			top: -4px;
+		}
 	}
 }
 
