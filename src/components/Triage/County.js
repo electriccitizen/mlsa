@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import { createContainer } from "unstated-next"
 import useLocalStorage from '../../hooks/use-local-storage';
-
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
+const Option = ({ type = "option", index, term, node, name, checked = false, onChange }) => {
   console.log("Checkbox: ", name, checked);
   return (
-    <input type={type} name={name} checked={checked} onChange={onChange} />
+    <option key={index} name={name} value={term.node.name}>{term.node.name}</option>
   );
 };
 
 export function County(props) {
-  //const [crime, setCrime] = useState(false);
-  const [crime, setCrime] = useLocalStorage('crime', 'murder');
-
   const data = useStaticQuery(graphql`
     query CountyQuery {
         allTaxonomyTermCounty {
@@ -26,35 +22,39 @@ export function County(props) {
         }
     }
   `)
+  const [checkedItems4, setCheckedItems4] = useLocalStorage('county', '');
 
-
-  const [checkedItems, setCheckedItems] = useLocalStorage('crime', '');
   const handleChange = event => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked
-    });
-    console.log("checkedItems: ", checkedItems);
-  };
-  console.log(props)
 
-  //console.log(localStorage.getItem('crime'))
+    setCheckedItems4('')
+
+    setCheckedItems4({
+      ...checkedItems4,
+      [event.target.name]: event.target.value
+    });
+  };
   return (
     <>
-      <select class="mb-8" name="county">
+      <select onChange={handleChange}  class="mb-8" name="county">
         {
           data.allTaxonomyTermCounty.edges.map(
             (term, index) =>
               (
                 <>
-                  <option key={index} name="subscribe" value={term.node.name}>
-
-                    {term.node.name}</option>
+                  <Option
+                      name={term.node.name}
+                      value={checkedItems4[term.node.name]}
+                      key={index}
+                      term={term}
+                    />
 
                 </>
               )
           )}
       </select>
+
+      <a onClick={e => setCheckedItems4('')}>Reset</a>
+
     </>
 
   );

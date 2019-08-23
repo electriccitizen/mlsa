@@ -11,7 +11,6 @@ function FindHelpPage() {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
       <h1>Find Help</h1>
-
        <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
         <Triage />
       </section>
