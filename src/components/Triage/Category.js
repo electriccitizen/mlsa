@@ -27,13 +27,13 @@ export function Category(props) {
     }
   `)
 
-  const [checkedItems, setCheckedItems] = useLocalStorage('crime', '');
+  const [checkedItems3, setCheckedItems3] = useLocalStorage('category', '');
   const handleChange = event => {
-    setCheckedItems({
-      ...checkedItems,
+    setCheckedItems3({
+      ...checkedItems3,
       [event.target.name]: event.target.checked
     });
-    console.log("checkedItems: ", checkedItems);
+    console.log("checkedItems: ", checkedItems3);
   };
   console.log(props)
 
@@ -51,7 +51,7 @@ export function Category(props) {
                   <label>
                     <Checkbox
                       name={term.node.name}
-                      checked={checkedItems[term.node.name]}
+                      checked={checkedItems3[term.node.name]}
                       onChange={handleChange}
                     />
                     {term.node.name}
@@ -60,6 +60,8 @@ export function Category(props) {
               )
           )}
       </ul>
+
+      <a onClick={e => setCheckedItems3('')}>Reset</a>
     </>
 
   );
