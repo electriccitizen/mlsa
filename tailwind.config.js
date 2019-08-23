@@ -92,7 +92,8 @@ module.exports = {
         '0': '0'
       },
       maxWidth: {
-        'xxs': '18rem',  
+        'xxs': '18rem', 
+        '2xlHalf': '46rem', 
         '1080': '1080px',
         '1116': '1116px',
         '1143': '1143px',

@@ -46,7 +46,7 @@ function Header({ siteTitle }) {
           <MainMenu />
         </div>
 
-        <div className="w-full py-8 md:absolute md:py-6 md:px-20px md:left-0 md:top-0 md:w-auto cmax:pl-0">
+        <div className="w-full py-8 md:absolute md:py-6 md:px-20px md:left-0 md:top-0 md:w-auto md:z-20 cmax:pl-0">
           <Link to="/" className="block w-56 m-auto hover:opacity-75 focus:opacity-75">
             <Logo />
             <span className="visually-hidden">{siteTitle}</span>

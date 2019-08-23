@@ -75,15 +75,53 @@ export const query = graphql `
           __typename
           ... on paragraph__accordion_group {
             drupal_id
+            field_header
+            relationships {
+              field_accordions {
+                drupal_id
+                field_accordion_header
+                field_text {
+                  processed
+                }
+              }
+            }
           }
           ... on paragraph__button {
             drupal_id
+            field_header
+            field_buttons {
+              title
+              uri
+            }
           }
           ... on paragraph__horizontal_rule {
             drupal_id
           }
           ... on paragraph__image {
             drupal_id
+            field_header
+            field_link {
+              uri
+            }
+            relationships {
+              field_single_image {
+                field_caption
+                field_media_image {
+                  alt
+                }
+                relationships {
+                  field_media_image {
+                    localFile {
+                      childImageSharp{
+                        fluid(maxWidth: 1080, jpegProgressive: true) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
           ... on paragraph__react_component {
             drupal_id
@@ -104,9 +142,42 @@ export const query = graphql `
           }
           ... on paragraph__text_with_image {
             drupal_id
+            field_header
+            field_image_placement
+            field_link {
+              uri
+            }
+            field_text {
+              processed
+            }
+            relationships {
+              field_single_image {
+                field_caption
+                field_media_image {
+                  alt
+                }
+                relationships {
+                  field_media_image {
+                    localFile {
+                      childImageSharp{
+                        fluid(maxWidth: 760, jpegProgressive: true) {
+                          ...GatsbyImageSharpFluid
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
           ... on paragraph__video {
             drupal_id
+            relationships {
+              field_video {
+                field_media_oembed_video
+                name
+              }
+            }
           }  
         }
       }
