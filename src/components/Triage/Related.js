@@ -11,8 +11,6 @@ const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
 };
 
 export function Related(props) {
-  //const [crime, setCrime] = useState(false);
-  const [crime, setCrime] = useLocalStorage('crime', 'murder');
 
   const data = useStaticQuery(graphql`
     query RelatedQuery {
@@ -27,18 +25,15 @@ export function Related(props) {
     }
   `)
 
-
-  const [checkedItems, setCheckedItems] = useLocalStorage('crime', '');
+  const [checkedItems2, setCheckedItems2] = useLocalStorage('related', '');
   const handleChange = event => {
-    setCheckedItems({
-      ...checkedItems,
+    setCheckedItems2({
+      ...checkedItems2,
       [event.target.name]: event.target.checked
     });
-    console.log("checkedItems: ", checkedItems);
+    console.log("checkedItems: ", checkedItems2);
   };
-  console.log(props)
 
-  //console.log(localStorage.getItem('crime'))
   return (
     <>
       <ul class="mb-8">
@@ -48,11 +43,10 @@ export function Related(props) {
               (
                 <li key={index}>
                   {/*<input onChange={e => setIntro(e.target.value)} type="checkbox" name={term.node.name} value={intro} />*/}
-
                   <label>
                     <Checkbox
                       name={term.node.name}
-                      checked={checkedItems[term.node.name]}
+                      checked={checkedItems2[term.node.name]}
                       onChange={handleChange}
                     />
                     {term.node.name}
@@ -61,8 +55,9 @@ export function Related(props) {
               )
           )}
       </ul>
-    </>
 
+      <a onClick={e => setCheckedItems2('')}>Reset</a>
+    </>
   );
 }
 

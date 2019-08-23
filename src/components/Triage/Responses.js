@@ -14,11 +14,11 @@ const components = {
 
 export function Responses({component, props}) {
 
-  const foo = "iamsomething"
   const StepComponent = components[component];
   return (
     <div>
-     <StepComponent foo={foo} props={props}/>
+      {component}
+     <StepComponent props={props} />
     </div>
   );
 }
