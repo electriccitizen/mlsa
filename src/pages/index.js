@@ -12,6 +12,11 @@ const IndexPage = (props) => {
       <SEO
         title={page.relationships.field_header.field_title}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        abstract='Montana Crime Victim Help is an online resource that connects you with legal help and other supportive services on issues for victims of crime related to safety, housing, family, employment, finances, and more.'
+        pageUrl='/'
+        footerImage={page.relationships.field_prefooter_image.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.original.src}
+        changed={page.changed}
+        shortLink='/'
       />
       <Page
         info={page}
@@ -50,6 +55,9 @@ export const query = graphql `
                     childImageSharp {
                       fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true) {
                         ...GatsbyImageSharpFluid
+                      }
+                      original {
+                        src
                       }
                     }
                   }
