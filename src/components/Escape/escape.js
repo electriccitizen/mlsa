@@ -43,7 +43,7 @@ class Escape extends React.Component {
     if (typeof window !== `undefined`) {
       // obfustacate the back button when a user hits escape
       window.history.pushState(stateObj, "Google.com", "redirect")
-      window.location.href = 'https://www.google.com/search?source=hp&q=weather&oq=weather';
+      window.location.href = `https://www.google.com/search?source=hp&q=${this.props.search}&oq=${this.props.search}`;
     }
   }
 
@@ -64,10 +64,9 @@ class Escape extends React.Component {
           open={this.state.open}
           html={(
             <div className="text-left py-6">
-              <p className="text-black text-15"><strong className="block mb-1 text-16">SAFE BROWSING:</strong>Click Escape to quickly exit this site. For more internet safety information, click learn more below to visit our Safety Tips&nbsp;Page.
-              </p>
+              <div className="text-black text-15" dangerouslySetInnerHTML={{ __html: this.props.text}} />
               <button className="btn text-13 mr-3 mb-2 inline-block" onClick={() => {this.setIsOpen(false)}}>Got it</button>
-              <Link to="/safe-browsing" aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2" >Learn More</Link>
+              <Link to={this.props.linkurl} aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2" >Learn More</Link>
             </div>
           )}
         >
