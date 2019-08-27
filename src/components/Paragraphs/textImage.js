@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 const TextImage = (props) => {
   return (
     <div className="max-w-1080 mx-auto">
-      {props.header && <h2 className="h3">{props.header}</h2>}
+      {props.header && <h2 className="h3 widget-title">{props.header}</h2>}
       <div className="md:flex md:flex-row md:flex-wrap -mx-3">
         <div className={`px-3 mb-3 md:mb-0 md:w-1/2${String(props.placement) === 'right' ? ' md:order-2' : '' }`}>
           {props.link ?

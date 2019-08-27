@@ -243,7 +243,7 @@ a{
 /* PARAGRAPH ITEMS */
 .paragraph-item{
 	@apply mb-8;
-	h2.h3{
+	h2.h3.widget-title{
 		@apply mb-3 mx-auto text-center max-w-2xlHalf;
 	}
 	@media all and (min-width: theme(screens.lg)){

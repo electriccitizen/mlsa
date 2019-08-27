@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 const Image = (props) => {
   return (
     <div className="max-w-1080 mx-auto">
-      {props.header && <h2 className="h3">{props.header}</h2>}
+      {props.header && <h2 className="h3 widget-title">{props.header}</h2>}
       {props.link ?
         String(props.link).includes('entity') ? <Link className="block" to={props.link} aria-label={props.label}><Img fluid={props.image} atl={props.alt} /></Link>
           : <a className="block" href={props.link} target="_blank" rel="noopener noreferrer" aria-label={props.label}><Img fluid={props.image} atl={props.alt} /></a>
