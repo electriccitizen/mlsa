@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import { createContainer } from "unstated-next"
-import useLocalStorage from '../../hooks/use-local-storage';
+import useLocalStorage from '../../../hooks/use-local-storage';
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
   return (
@@ -27,7 +26,6 @@ export function Crime(props) {
   const handleChange = event => {
 
     setCheckedItems1('')
-
     setCheckedItems1({
       ...checkedItems1,
       [event.target.name]: event.target.checked
