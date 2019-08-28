@@ -3,6 +3,7 @@ import Layout from "../components/Layout/layout";
 import SEO from "../components/Layout/seo";
 import { Triage } from "../components/Triage/Triage"
 
+import  FindHelp  from "../components/FindHelp/FindHelp"
 function FindHelpPage() {
   return (
     <Layout>

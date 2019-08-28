@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import { createContainer } from "unstated-next"
-import useLocalStorage from '../../hooks/use-local-storage';
+import useLocalStorage from '../../../hooks/use-local-storage';
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
   console.log("Checkbox: ", name, checked);

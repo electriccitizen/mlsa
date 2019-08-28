@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import useLocalStorage from '../../hooks/use-local-storage';
+import useLocalStorage from '../../../hooks/use-local-storage';
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  console.log("Checkbox: ", name, checked);
   return (
     <input type={type} name={name} checked={checked} onChange={onChange} />
   );
@@ -28,7 +27,8 @@ export function Intro(foo) {
   const handleChange = event => {
     setCheckedItems({
       ...checkedItems,
-      [event.target.name]: event.target.checked
+      [event.target.name]: event.target.checked,
+      //['xxxxxx']: event.target.name,
     });
     console.log("checkedItems: ", checkedItems);
   };
@@ -54,6 +54,7 @@ export function Intro(foo) {
         )}
       </ul>
       <a onClick={e => setCheckedItems('')}>Reset</a>
+      <a onClick={e => window.localStorage.clear()}>Reset all</a>
       </>
   );
 }
