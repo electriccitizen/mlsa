@@ -33,7 +33,7 @@ export function Results(props) {
     console.log('no local storage')
   });
 
-  const search = responses.join(' AND ')
+  const search = responses.join(' OR ')
   console.log(search)
   const index = searchClient.initIndex('Resources');
 
@@ -73,8 +73,7 @@ export function Results(props) {
     <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
   </div>
       )}
-      <h2>Help is on the way:</h2>
-
+      <h2>Debug:</h2>
       INTRO: {window.localStorage.getItem('intro')}
       <hr />
       <hr />

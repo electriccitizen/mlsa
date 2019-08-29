@@ -25,7 +25,9 @@ export function Triage(props) {
   return (
     <div>
       {activeStepIndex+1 > totalSteps ?
+
         <Results />
+
         :
         <CustomSteps
           previousStep={previousStep}
@@ -34,7 +36,6 @@ export function Triage(props) {
           allQuestions={allQuestions}
           activeStepIndex={activeStepIndex}
           totalSteps={totalSteps} />
-
       }
       </div>
   );
