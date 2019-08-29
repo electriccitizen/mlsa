@@ -24,6 +24,7 @@ const pageTemplate = (props) => {
         header={page.relationships.field_header}
         content={page.relationships.field_content}
         prefooter={page.relationships.field_prefooter_image}
+        restricted={page.field_restricted}
       />
     </Layout>
   )
@@ -42,6 +43,7 @@ export const query = graphql `
       }
       created
       changed
+      field_restricted
       relationships {
         field_prefooter_image {
           id
