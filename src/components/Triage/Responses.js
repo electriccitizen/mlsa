@@ -4,6 +4,7 @@ import { Intro } from './Steps/Intro'
 import { County } from './Steps/County'
 import { Category } from './Steps/Category'
 import { Related } from './Steps/Related'
+
 const components = {
   intro: Intro,
   crime: Crime,
@@ -12,12 +13,9 @@ const components = {
   related: Related
 };
 
-export function Responses({component, props}) {
+export function Responses({component}) {
   const StepComponent = components[component];
   return (
-    <div>
-      Component name: {component}
-     <StepComponent props={props} />
-    </div>
+     <StepComponent  />
   );
 }
