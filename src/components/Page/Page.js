@@ -12,7 +12,7 @@ class Page extends React.Component {
 
   render() {
     return (
-      this.props.restricted ? <div className="text-center py-12">You must be logged in as an administrator to view this page</div> 
+      this.props.restricted ? <div className="text-center py-12">You must be logged in as an administrator to view this page.</div> 
         :
         <>
           <section className="max-w-1143 mx-auto px-4 py-8 md:px-7">
