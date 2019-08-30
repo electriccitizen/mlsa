@@ -41,13 +41,13 @@ export function Category(props) {
                 <li key={index}>
                   {/*<input onChange={e => setIntro(e.target.value)} type="checkbox" name={term.node.name} value={intro} />*/}
 
-                  <label>
+                  <label className="checkbox">
                     <Checkbox
                       name={term.node.name}
                       checked={checkedItems3[term.node.name]}
                       onChange={handleChange}
                     />
-                    {term.node.name}
+                    <span>{term.node.name}</span>
                   </label>
                 </li>
               )

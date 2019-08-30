@@ -42,8 +42,41 @@ export function County() {
     console.log(`Option setSelected:`, selected);
   };
 
+  const customStyles = {
+    control: (styles, state) => ({ 
+      ...styles, 
+      borderRadius: 0,
+      borderColor: state.isFocused ? '#979797' : '#979797',
+      boxShadow: state.isFocused ? '0 0 2px #1155cc' : 0,
+      '&:hover': {
+        borderColor: state.isFocused ? '#979797' : '#979797',
+      }
+    }),
+    dropdownIndicator: (styles, state) => ({ 
+      ...styles, 
+      color: '#1f2225',
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      color: state.isSelected ? '#1155cc' : '#1f2225',
+      backgroundColor: state.isSelected ? "#ffffff" : provided,
+      padding: '8px 20px',
+      ':hover':{
+        backgroundColor: '#eeeeee',
+      },
+      ':focus':{
+        backgroundColor: '#eeeeee',
+      }
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+      return { ...provided, opacity, transition };
+    }
+  }
+
   const CountySearch = () => (
-    <Select value={selected} onChange={handleChange} options={options} />
+    <Select className="max-w-xs mb-12 text-15" styles={customStyles} value={selected} onChange={handleChange} options={options} />
   )
 
   return (
