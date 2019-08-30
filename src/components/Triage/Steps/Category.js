@@ -33,14 +33,12 @@ export function Category(props) {
   };
 
   return (
-      <ul class="mb-8">
+      <ul className="mb-8">
         {
           data.allTaxonomyTermResourceCategory.edges.map(
             (term, index) =>
               (
                 <li key={index}>
-                  {/*<input onChange={e => setIntro(e.target.value)} type="checkbox" name={term.node.name} value={intro} />*/}
-
                   <label className="checkbox">
                     <Checkbox
                       name={term.node.name}

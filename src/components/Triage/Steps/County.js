@@ -39,7 +39,7 @@ export function County() {
       ...checkedItems4,
       [selectedOption.value]: selectedOption.value
     });
-    console.log(`Option setSelected:`, selected);
+    console.log(`Option setSelected:`, selectedOption);
   };
 
   const customStyles = {
@@ -80,9 +80,6 @@ export function County() {
   )
 
   return (
-    <>
      <CountySearch />
-    </>
-
   );
 }
