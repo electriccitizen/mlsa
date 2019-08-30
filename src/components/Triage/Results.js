@@ -27,33 +27,48 @@ export function Results(props) {
   const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
 
   const responses = []
+  const counties = []
 
-  currentResponses.map(([item,results]) => {
-    item !== 'algoliasearch-client-js' && item!=='intro' ?
-      Object.entries(JSON.parse(results)).map(([key, value]) => {
-
-          value === true ? responses.push(item+':"'+key+'"') : console.log(value)
-        return true
-      })
-    :
-    console.log('no local storage')
-    return null
-  });
-
-  const search = responses.join(' OR ')
-  const index = searchClient.initIndex('Resources');
 
   useEffect(() => {
+    currentResponses.map(([item, results]) => {
+      (item !== 'algoliasearch-client-js' && item !== 'intro' && item !== 'county') &&
+        Object.entries(JSON.parse(results)).map(([key, value]) => {
+          value === true ? responses.push(item + ':"' + key + '"') : console.log(value)
+          return true
+        })
+    });
+    //console.log(responses)
+
+    const county = window.localStorage.getItem('county')
+      console.log(Object.keys(JSON.parse(county)))
+      Object.keys(JSON.parse(county)).map((key) => {
+        counties.push('county:"' + key + '"')
+      })
+
+    let searchString = responses.join(' OR ')
+    console.log(counties)
+
+    //category:"Get a Hope Card (if you have an Order of Protection)" OR crime:"Sexual Violence or Assault"
+
+    searchString = searchString + ' AND (' + counties + ' OR county:Statewide)'
+
+    console.log(searchString)
+
+    const index = searchClient.initIndex('Resources');
+
     index.search({
       query: '',
-      filters: search
+      //filters: 'category:"Get a Hope Card (if you have an Order of Protection)"' // (single string)
+      filters: searchString
+
     },
     (err, { hits } = {}) => {
       if (err) throw err;
       setQueryResults(hits)
     }
   );
-  }, [index,search]);
+  }, []);
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
@@ -88,16 +103,15 @@ export function Results(props) {
 
 
 
-      {/*<h2>Debug:</h2>*/}
-      {/*INTRO: {window.localStorage.getItem('intro')}*/}
-      {/*<hr />*/}
-      {/*<hr />*/}
-      {/*RELATED: {window.localStorage.getItem('related')}*/}
-      {/*<hr />*/}
-      {/*CATEGORY: {window.localStorage.getItem('category')}*/}
-      {/*<hr />*/}
-      {/*COUNTY: {window.localStorage.getItem('county')}*/}
-      {/*<hr />*/}
+      <h2>Debug:</h2>
+      INTRO: {window.localStorage.getItem('intro')}
+      <hr />
+      RELATED: {window.localStorage.getItem('related')}
+      <hr />
+      CATEGORY: {window.localStorage.getItem('category')}
+      <hr />
+      COUNTY: {window.localStorage.getItem('county')}
+      <hr />
 
     </div>
   );
