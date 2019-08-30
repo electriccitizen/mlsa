@@ -16,44 +16,41 @@ function startOver() {
   }
 }
 
-export function Results(props) {
+export function Results() {
 
-  const searchClient = algoliasearch(
+  const [queryResults, setQueryResults] = useState('');
+
+  useEffect(() => {
+
+    const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
+    const responses = []
+    const counties = []
 
-  const [queryResults, setQueryResults] = useState('');
-  const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
-
-  const responses = []
-  const counties = []
-
-
-  useEffect(() => {
+    const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
     currentResponses.map(([item, results]) => {
       (item !== 'algoliasearch-client-js' && item !== 'intro' && item !== 'county') &&
         Object.entries(JSON.parse(results)).map(([key, value]) => {
           value === true ? responses.push(item + ':"' + key + '"') : console.log(value)
           return true
         })
+
+      return true
     });
-    //console.log(responses)
 
     const county = window.localStorage.getItem('county')
       console.log(Object.keys(JSON.parse(county)))
       Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
+        return true
       })
 
     let searchString = responses.join(' OR ')
     let countyString = counties.join(' OR ')
 
-    //category:"Get a Hope Card (if you have an Order of Protection)" OR crime:"Sexual Violence or Assault"
-
     searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
-
-    console.log(searchString)
 
     const index = searchClient.initIndex('Resources');
 
@@ -69,6 +66,7 @@ export function Results(props) {
     }
   );
   }, []);
+
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
@@ -100,18 +98,17 @@ export function Results(props) {
           Start over!
         </button>
       </div>
-
-
-
-      <h2>Debug:</h2>
-      INTRO: {window.localStorage.getItem('intro')}
-      <hr />
-      RELATED: {window.localStorage.getItem('related')}
-      <hr />
-      CATEGORY: {window.localStorage.getItem('category')}
-      <hr />
-      COUNTY: {window.localStorage.getItem('county')}
-      <hr />
+      {/*<h2>Debug:</h2>*/}
+      {/*INTRO: {window.localStorage.getItem('intro')}*/}
+      {/*<hr />*/}
+      {/*CRIME: {window.localStorage.getItem('crime')}*/}
+      {/*<hr />*/}
+      {/*RELATED: {window.localStorage.getItem('related')}*/}
+      {/*<hr />*/}
+      {/*CATEGORY: {window.localStorage.getItem('category')}*/}
+      {/*<hr />*/}
+      {/*COUNTY: {window.localStorage.getItem('county')}*/}
+      {/*<hr />*/}
 
     </div>
   );
