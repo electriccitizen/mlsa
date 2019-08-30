@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
 
@@ -25,23 +25,21 @@ export function Related(props) {
   `)
 
   const [checkedItems2, setCheckedItems2] = useLocalStorage('related', '');
+
   const handleChange = event => {
     setCheckedItems2({
       ...checkedItems2,
       [event.target.name]: event.target.checked
     });
-    console.log("checkedItems: ", checkedItems2);
   };
 
   return (
-    <>
       <ul class="mb-8">
         {
           data.allTaxonomyTermRelatedIssues.edges.map(
             (term, index) =>
               (
                 <li key={index}>
-                  {/*<input onChange={e => setIntro(e.target.value)} type="checkbox" name={term.node.name} value={intro} />*/}
                   <label>
                     <Checkbox
                       name={term.node.name}
@@ -54,12 +52,5 @@ export function Related(props) {
               )
           )}
       </ul>
-
-      <a onClick={e => setCheckedItems2('')}>Reset</a>
-    </>
   );
 }
-
-
-
-

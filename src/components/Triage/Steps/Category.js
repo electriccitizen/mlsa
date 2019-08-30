@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  console.log("Checkbox: ", name, checked);
   return (
     <input type={type} name={name} checked={checked} onChange={onChange} />
   );
 };
 
 export function Category(props) {
-  //const [crime, setCrime] = useState(false);
-  const [crime, setCrime] = useLocalStorage('crime', 'murder');
 
   const data = useStaticQuery(graphql`
     query CategoryQuery {
@@ -27,18 +24,15 @@ export function Category(props) {
   `)
 
   const [checkedItems3, setCheckedItems3] = useLocalStorage('category', '');
+
   const handleChange = event => {
     setCheckedItems3({
       ...checkedItems3,
       [event.target.name]: event.target.checked
     });
-    console.log("checkedItems: ", checkedItems3);
   };
-  console.log(props)
 
-  //console.log(localStorage.getItem('crime'))
   return (
-    <>
       <ul class="mb-8">
         {
           data.allTaxonomyTermResourceCategory.edges.map(
@@ -59,9 +53,5 @@ export function Category(props) {
               )
           )}
       </ul>
-
-      <a onClick={e => setCheckedItems3('')}>Reset</a>
-    </>
-
   );
 }
