@@ -40,13 +40,13 @@ export function Intro() {
           (term, index) =>
             (
               <li key={index}>
-                <label>
-                <Checkbox
-                  name={term.node.name}
-                  checked={checkedItems[term.node.name]}
-                  onChange={handleChange}
-                />
-                {term.node.name}
+                <label className="checkbox">
+                  <Checkbox
+                    name={term.node.name}
+                    checked={checkedItems[term.node.name]}
+                    onChange={handleChange}
+                  />
+                <span>{term.node.name}</span>
                 </label>
               </li>
             )
