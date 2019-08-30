@@ -41,8 +41,7 @@ export function Results() {
     });
 
     const county = window.localStorage.getItem('county')
-      console.log(Object.keys(JSON.parse(county)))
-      Object.keys(JSON.parse(county)).map((key) => {
+      county && Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
         return true
       })
@@ -56,9 +55,7 @@ export function Results() {
 
     index.search({
       query: '',
-      //filters: 'category:"Get a Hope Card (if you have an Order of Protection)"' // (single string)
       filters: searchString
-
     },
     (err, { hits } = {}) => {
       if (err) throw err;
@@ -70,7 +67,7 @@ export function Results() {
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
-      {Object.values(queryResults).map((hit) =>
+      {queryResults ? Object.values(queryResults).map((hit) =>
         <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
           <a className="resource-link" href={hit.url} >
           <span>
@@ -90,7 +87,10 @@ export function Results() {
         </a>
         <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
       </div>
-      )}
+      )
+      :
+      <div>Sorry, we could not find any results that matched your answers. Please try again!</div>
+      }
       <div className="w-full py-6 md:px-2">
         <button
           className="btn text-13 mr-3 mb-2 inline-block"
