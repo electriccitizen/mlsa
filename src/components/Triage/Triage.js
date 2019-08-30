@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import { useWizard } from "react-wizard-primitive";
-import { CustomSteps } from "./CustomSteps"
+import { Steps } from "./Steps"
 import { Results } from "./Results"
-export function Triage(props) {
-  const { nextStep, previousStep, activeStepIndex, getStep, initialStepIndex  } = useWizard();
+
+export function Triage() {
+
+  const { nextStep, previousStep, activeStepIndex, getStep,resetToStep } = useWizard();
 
   const data = useStaticQuery(graphql`
     query QuestionQuery {
@@ -19,24 +21,25 @@ export function Triage(props) {
       }
     }
   `)
+
   const totalSteps = data.allTaxonomyTermTriageQuestions.edges.length
   const allQuestions = data.allTaxonomyTermTriageQuestions.edges
 
   return (
-    <div>
+    <>
       {activeStepIndex+1 > totalSteps ?
-
         <Results />
-
         :
-        <CustomSteps
+        <Steps
           previousStep={previousStep}
           nextStep={nextStep}
           getStep={getStep}
           allQuestions={allQuestions}
           activeStepIndex={activeStepIndex}
-          totalSteps={totalSteps} />
+          totalSteps={totalSteps}
+          resetToStep={resetToStep}
+        />
       }
-      </div>
+    </>
   );
 }

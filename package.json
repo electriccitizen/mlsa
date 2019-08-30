@@ -31,6 +31,7 @@
     "react-select": "^3.0.4",
     "react-select-search": "^0.9.6",
     "react-simple-tooltip": "^2.6.0",
+    "react-stepper-horizontal": "^1.0.11",
     "react-tippy": "^1.2.3",
     "react-wizard-primitive": "^2.2.0",
     "styled-components": "^4.3.2",

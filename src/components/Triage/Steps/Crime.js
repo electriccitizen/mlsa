@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
 
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  return (
-    <input type={type} name={name} checked={checked} onChange={onChange} />
-  );
-};
-
-export function Crime(props) {
+export function Crime() {
   const data = useStaticQuery(graphql`
     query CrimeQuery {
         allTaxonomyTermCrime {
@@ -22,28 +16,28 @@ export function Crime(props) {
     }
   `)
 
+  const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
+    return (
+      <input type={type} name={name} checked={checked} onChange={onChange} />
+    );
+  };
+
   const [checkedItems1, setCheckedItems1] = useLocalStorage('crime', '');
   const handleChange = event => {
-
     setCheckedItems1('')
     setCheckedItems1({
       ...checkedItems1,
       [event.target.name]: event.target.checked
     });
-    console.log("checkedItems: ", checkedItems1);
   };
 
-  //console.log(localStorage.getItem('crime'))
   return (
-    <>
       <ul className="mb-8">
       {
         data.allTaxonomyTermCrime.edges.map(
           (term, index) =>
             (
               <li key={index}>
-              {/*<input onChange={e => setIntro(e.target.value)} type="checkbox" name={term.node.name} value={intro} />*/}
-
                 <label>
                 <Checkbox
                   name={term.node.name}
@@ -56,9 +50,5 @@ export function Crime(props) {
             )
         )}
       </ul>
-
-      <a onClick={e => setCheckedItems1('')}>Reset</a>
-      </>
-
   );
 }
