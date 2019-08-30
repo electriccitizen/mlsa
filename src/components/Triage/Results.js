@@ -47,11 +47,11 @@ export function Results(props) {
       })
 
     let searchString = responses.join(' OR ')
-    console.log(counties)
+    let countyString = counties.join(' OR ')
 
     //category:"Get a Hope Card (if you have an Order of Protection)" OR crime:"Sexual Violence or Assault"
 
-    searchString = searchString + ' AND (' + counties + ' OR county:Statewide)'
+    searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
 
     console.log(searchString)
 
