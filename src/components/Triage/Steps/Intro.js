@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
 
@@ -8,7 +8,7 @@ const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
   );
 };
 
-export function Intro(foo) {
+export function Intro() {
  const data = useStaticQuery(graphql`
     query IntroQuery {
         allTaxonomyTermAudienceOptions {
@@ -24,17 +24,16 @@ export function Intro(foo) {
   `)
 
   const [checkedItems, setCheckedItems] = useLocalStorage('intro', '');
+
   const handleChange = event => {
     setCheckedItems({
       ...checkedItems,
       [event.target.name]: event.target.checked,
-      //['xxxxxx']: event.target.name,
     });
     console.log("checkedItems: ", checkedItems);
   };
 
   return (
-    <>
     <ul className="mb-8">
       {
         data.allTaxonomyTermAudienceOptions.edges.map(
@@ -53,8 +52,5 @@ export function Intro(foo) {
             )
         )}
       </ul>
-      <a onClick={e => setCheckedItems('')}>Reset</a>
-      <a onClick={e => window.localStorage.clear()}>Reset all</a>
-      </>
   );
 }
