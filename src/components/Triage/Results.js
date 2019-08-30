@@ -56,9 +56,9 @@ export function Results(props) {
   }, [index,search]);
 
   return (
-    <>
+    <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
       {Object.values(queryResults).map((hit) =>
-        <div key={hit.title} className="text-center mb-8 md:text-left">
+        <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
           <a className="resource-link" href={hit.url} >
           <span>
     		    <span className="visually-hidden">{hit.icon[0]}</span>
@@ -78,12 +78,13 @@ export function Results(props) {
         <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
       </div>
       )}
-
-      <button
-        className="btn text-13 mr-3 mb-2 inline-block"
-        onClick={()=>{ startOver(); }}>
-        Start over!
-      </button>
+      <div className="w-full py-6 md:px-2">
+        <button
+          className="btn text-13 mr-3 mb-2 inline-block"
+          onClick={()=>{ startOver(); }}>
+          Start over!
+        </button>
+      </div>
 
 
 
@@ -98,6 +99,6 @@ export function Results(props) {
       {/*COUNTY: {window.localStorage.getItem('county')}*/}
       {/*<hr />*/}
 
-    </>
+    </div>
   );
 }

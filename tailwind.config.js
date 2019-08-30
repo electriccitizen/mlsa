@@ -72,11 +72,13 @@ module.exports = {
     }),
     extend: {
       width: {
+        '5half': '24px',
         '7': '1.75rem',
         '38': '9.5rem',
         '48': '48px',
       },
       height:{
+        '5half': '24px',
         '48': '48px',
       },
       screens: {

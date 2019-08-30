@@ -40,13 +40,13 @@ export function Related(props) {
             (term, index) =>
               (
                 <li key={index}>
-                  <label>
+                  <label className="checkbox">
                     <Checkbox
                       name={term.node.name}
                       checked={checkedItems2[term.node.name]}
                       onChange={handleChange}
                     />
-                    {term.node.name}
+                    <span>{term.node.name}</span>
                   </label>
                 </li>
               )
