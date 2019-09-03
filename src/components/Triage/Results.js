@@ -29,20 +29,24 @@ export function Results() {
     const responses = []
     const counties = []
 
+    console.log('init')
+
     const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
     currentResponses.map(([item, results]) => {
       (item !== 'algoliasearch-client-js' && item !== 'intro' && item !== 'county') &&
         Object.entries(JSON.parse(results)).map(([key, value]) => {
           value === true ? responses.push(item + ':"' + key + '"') : console.log(value)
+          console.log('hit map')
           return true
         })
-
+        console.log('response map')
       return true
     });
 
     const county = window.localStorage.getItem('county')
       county && Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
+        console.log('county query')
         return true
       })
 
@@ -59,11 +63,11 @@ export function Results() {
     },
     (err, { hits } = {}) => {
       if (err) throw err;
+      console.log('set query')
       setQueryResults(hits)
     }
   );
   }, []);
-
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
