@@ -63,7 +63,7 @@ export function Results() {
     },
     (err, { hits } = {}) => {
       if (err) throw err;
-      console.log('set query')
+      console.log('hits')
       setQueryResults(hits)
     }
   );
