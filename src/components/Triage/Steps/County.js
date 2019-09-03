@@ -39,7 +39,6 @@ export function County() {
       ...checkedItems4,
       [selectedOption.value]: selectedOption.value
     });
-    console.log(`Option setSelected:`, selectedOption);
   };
 
   const customStyles = {
