@@ -25,7 +25,7 @@ const Video = (props) => {
 
   return (
     <div className="max-w-1080 mx-auto">
-      {props.header && <h2 className="h3">{props.header}</h2>}
+      {props.header && <h2 className="h3 widget-title">{props.header}</h2>}
       <div>
         <VideoEmbed videoURL={videoSrc} videoName={props.name} />
       </div>

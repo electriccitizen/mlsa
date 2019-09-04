@@ -46,6 +46,12 @@ h3,.h3{
 h4,.h4{
 	@apply text-20 font-bold mb-6;
 }
+h5{
+	@apply font-bold mb-4;
+}
+h6{
+	@apply text-16 font-bold mb-3;
+}
 p{
 	@apply mb-6;
 }
@@ -66,6 +72,34 @@ a{
 		@apply underline;
 		&:hover,&:focus{
 			@aaply no-underline;
+		}
+	}
+	ul{
+		@apply mb-6;
+		li{
+			@apply mb-1;
+			&:before{
+				content: '•';
+				@apply mr-3;
+			}
+			ul{
+				@apply mt-2 mb-2 pl-5;
+			}
+			ol{
+				@apply list-decimal mt-2 mb-2 ml-5;
+			}
+		}
+	}
+	ol{
+		@apply list-decimal ml-4 mb-6;
+		li{
+			@apply mb-1;
+			ul{
+				@apply mt-2 mb-2;
+			}
+			ol{
+				@apply list-decimal mt-2 mb-2 ml-4;
+			}
 		}
 	}
 }
@@ -243,7 +277,7 @@ a{
 /* PARAGRAPH ITEMS */
 .paragraph-item{
 	@apply mb-8;
-	h2.h3{
+	h2.h3.widget-title{
 		@apply mb-3 mx-auto text-center max-w-2xlHalf;
 	}
 	@media all and (min-width: theme(screens.lg)){
