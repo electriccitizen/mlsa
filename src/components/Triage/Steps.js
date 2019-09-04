@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Responses } from "./Responses"
 import { Buttons } from "./Buttons"
 import { StepperWrapper } from "./Stepper"
@@ -25,15 +25,21 @@ export function Steps({allQuestions, getStep,activeStepIndex,totalSteps,previous
   return (
     <>
        {
-        allQuestions.map(
-        (question, index) =>
-        getStep({routeTitle: 'step-'+(index+1)}).isActive && (
-          <CustomStep nextStep={ nextStep } previousStep={previousStep} resetToStep={resetToStep} activeStepIndex={activeStepIndex} totalSteps={totalSteps} key={question.node.drupal_id} stepIndex={index} responses={question.node.field_responses} question={question.node.name} />
-        )
-        )}
-        { getStep({routeTitle: 'results'}).isActive && (
-          <ResultsWrapper />
-        )}
-      </>
+           allQuestions.map(
+             (question, index) =>
+               getStep({ routeTitle: 'step-' + (index + 1) }).isActive && (
+                 <CustomStep nextStep={nextStep} previousStep={previousStep} resetToStep={resetToStep}
+                             activeStepIndex={activeStepIndex} totalSteps={totalSteps} key={question.node.drupal_id}
+                             stepIndex={index} responses={question.node.field_responses} question={question.node.name}/>
+               )
+           )
+       }
+
+      {
+          getStep({ routeTitle: 'results' }).isActive && (
+            <ResultsWrapper/>
+          )
+      }
+    </>
   )
 }

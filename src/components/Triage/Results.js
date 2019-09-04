@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, } from 'react';
 import algoliasearch from "algoliasearch/lite";
 
 import Advocate from '../../images/advocate.svg';
@@ -24,8 +24,7 @@ export function Results() {
 
     const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY
-  )
+    process.env.GATSBY_ALGOLIA_SEARCH_KEY)
     const responses = []
     const counties = []
 
@@ -43,7 +42,7 @@ export function Results() {
       return true
     });
 
-    const county = window.localStorage.getItem('county')
+    const county = typeof window !== `undefined` && window.localStorage.getItem('county')
       county && Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
         console.log('county query')
@@ -66,7 +65,9 @@ export function Results() {
       setQueryResults(hits)
     }
   );
-  }, []);
+    console.log('clear local storage')
+    //localStorage.clear()
+  }, [queryResults]);
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
@@ -102,6 +103,7 @@ export function Results() {
           Start over!
         </button>
       </div>
+
       {/*<h2>Debug:</h2>*/}
       {/*INTRO: {window.localStorage.getItem('intro')}*/}
       {/*<hr />*/}
