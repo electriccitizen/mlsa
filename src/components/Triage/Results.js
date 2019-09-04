@@ -54,7 +54,7 @@ export function Results() {
     let countyString = counties.join(' OR ')
 
     searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
-
+    console.log(searchString)
     const index = searchClient.initIndex('Resources');
 
     index.search({
@@ -63,7 +63,6 @@ export function Results() {
     },
     (err, { hits } = {}) => {
       if (err) throw err;
-      console.log('hits')
       setQueryResults(hits)
     }
   );
@@ -71,7 +70,8 @@ export function Results() {
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
-      {queryResults ? Object.values(queryResults).map((hit) =>
+      {console.log(queryResults)}
+      {(Object.keys(queryResults).length !==0) ? Object.values(queryResults).map((hit) =>
         <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
           <a className="resource-link" href={hit.url} >
           <span>
@@ -117,3 +117,5 @@ export function Results() {
     </div>
   );
 }
+
+
