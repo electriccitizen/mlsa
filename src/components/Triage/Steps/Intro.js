@@ -30,7 +30,6 @@ export function Intro() {
       ...checkedItems,
       [event.target.name]: event.target.checked,
     });
-    console.log("checkedItems: ", checkedItems);
   };
 
   return (
