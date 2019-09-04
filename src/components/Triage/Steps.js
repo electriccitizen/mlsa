@@ -17,24 +17,22 @@ const CustomStep = ({ previousStep, nextStep, question, responses,resetToStep,ac
   </div>
 );
 
-const ResultsWrapper = ({ question }) => (
-  <div>
+const ResultsWrapper = () => (
     <Results />
-  </div>
 );
 
-export function Steps({allQuestions, getStep,activeStepIndex,totalSteps,previousStep, nextStep}) {
+export function Steps({allQuestions, getStep,activeStepIndex,totalSteps,previousStep, nextStep,resetToStep}) {
   return (
     <>
        {
         allQuestions.map(
         (question, index) =>
         getStep({routeTitle: 'step-'+(index+1)}).isActive && (
-          <CustomStep nextStep={ nextStep } previousStep={previousStep} activeStepIndex={activeStepIndex} totalSteps={totalSteps} key={question.node.drupal_id} stepIndex={index} responses={question.node.field_responses} question={question.node.name} />
+          <CustomStep nextStep={ nextStep } previousStep={previousStep} resetToStep={resetToStep} activeStepIndex={activeStepIndex} totalSteps={totalSteps} key={question.node.drupal_id} stepIndex={index} responses={question.node.field_responses} question={question.node.name} />
         )
         )}
         { getStep({routeTitle: 'results'}).isActive && (
-          <ResultsWrapper steps={totalSteps} key={'1234'} stepIndex={5} responses={null} question={"whooo are you?"} />
+          <ResultsWrapper />
         )}
       </>
   )
