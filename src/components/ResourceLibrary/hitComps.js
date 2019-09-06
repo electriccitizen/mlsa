@@ -27,6 +27,7 @@ export const ResourceHit = clickHandler => ({ hit }) => (
   	    <CustomHighlight attribute="title" hit={hit} />
       </h2>
     </a>
+    <div attribute="org" hit={hit}>{hit.org}</div>
     <div attribute="description" hit={hit} tagName="mark" dangerouslySetInnerHTML={{ __html: hit.description}} />
   </div>
 )
