@@ -23,11 +23,11 @@ export const ResourceHit = clickHandler => ({ hit }) => (
         : hit.icon[0] === 'info' ? <Info className="resource-icon" />
         : '' }
     	</span>
-    	<h2 className="h3 mb-4 text-blue underline">
+    	<h2 className="h3 mb-3 text-blue underline">
   	    <CustomHighlight attribute="title" hit={hit} />
       </h2>
     </a>
-    <div attribute="org" hit={hit}>{hit.org}</div>
+    <div attribute="org" hit={hit} className="text-16 italic mb-3 text-grey-dark">{hit.org}</div>
     <div attribute="description" hit={hit} tagName="mark" dangerouslySetInnerHTML={{ __html: hit.description}} />
   </div>
 )
