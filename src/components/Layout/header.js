@@ -18,6 +18,7 @@ function Header({ siteTitle }) {
         drupal_internal__id
         field_escape_link {
           uri
+          alias
         }
         field_headline {
           value
@@ -37,7 +38,7 @@ function Header({ siteTitle }) {
         <Escape 
           search={escape.blockContentEscape.field_search_terms} 
           text={escape.blockContentEscape.field_headline.value} 
-          linkurl={escape.blockContentEscape.field_escape_link.uri}
+          linkurl={escape.blockContentEscape.field_escape_link.alias}
         />
         <button className="border-grey-mid border-l-0 border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0 md:order-1">
           <TransIcon className="fill-current text-grey w-7 h-7" />

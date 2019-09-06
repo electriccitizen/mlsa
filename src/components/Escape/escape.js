@@ -66,7 +66,10 @@ class Escape extends React.Component {
             <div className="text-left py-6">
               <div className="text-black text-15" dangerouslySetInnerHTML={{ __html: this.props.text}} />
               <button className="btn text-13 mr-3 mb-2 inline-block" onClick={() => {this.setIsOpen(false)}}>Got it</button>
-              <Link to={this.props.linkurl} aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2" >Learn More</Link>
+              {String(this.props.linkurl).includes('http') ? <a href={this.props.linkurl} rel="noopener noreferrer" target="_blank" aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2">Learn More</a>
+                : String(this.props.linkurl) === '/user' ? <Link to="/" aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2">Learn More</Link>
+                : <Link to={this.props.linkurl} aria-label="Learn more about Safe Browsing" className="btn text-13 btn-alt inline-block mb-2">Learn More</Link>
+              }
             </div>
           )}
         >
