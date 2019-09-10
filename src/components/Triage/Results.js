@@ -29,7 +29,7 @@ export function Results(props) {
   const responses = []
 
   currentResponses.map(([item,results]) => {
-    item !== 'algoliasearch-client-js' && item!=='intro' ?
+    item !== 'algoliasearch-client-js' && item !== 'intro' ?
       Object.entries(JSON.parse(results)).map(([key, value]) => {
 
           value === true ? responses.push(item+':"'+key+'"') : console.log(value)
