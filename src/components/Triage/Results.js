@@ -71,7 +71,7 @@ export function Results(props) {
             : hit.icon[0] === 'info' ? <Info className="resource-icon" />
             : '' }
     	    </span>
-    	    <h2 className="h3 mb-4 text-blue underline">
+    	    <h2 className="h3 mb-4 text-blue underline force-left">
             {hit.title}
           </h2>
         </a>
