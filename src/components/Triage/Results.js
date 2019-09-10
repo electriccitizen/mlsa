@@ -12,7 +12,7 @@ import Info from '../../images/info.svg';
 function startOver() {
   localStorage.clear();
   if (typeof window !== `undefined`) {
-    window.location.replace("/triage");
+    window.location.replace("/find-help");
   }
 }
 
