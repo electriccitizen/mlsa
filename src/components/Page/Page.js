@@ -21,7 +21,7 @@ class Page extends React.Component {
               <div className="text-center">
                 <h1>{this.props.header.field_title}</h1>
                 <h2 className="mx-auto max-w-3xl">{this.props.header.field_subheader}</h2>
-              </div>
+             </div>
             }
             <div>
               {this.props.content.map((paragraphItem, index) => (
