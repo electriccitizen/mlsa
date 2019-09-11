@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Escape from '../Escape/escape';
@@ -8,9 +7,26 @@ import CloseIcon from '../../images/close-x.svg';
 import Logo from '../../images/logo.svg';
 import Helmet from "react-helmet";
 import MainMenu from '../Navigation/mainMenu';
+import { useStaticQuery, graphql, Link } from "gatsby";
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
+
+  const escape = useStaticQuery(graphql`
+    query escape {
+      blockContentEscape(drupal_internal__id: {eq: 8}) {
+        drupal_internal__id
+        field_escape_link {
+          uri
+          alias
+        }
+        field_headline {
+          value
+        }
+        field_search_terms
+      }
+    }
+  `)
 
   return (
     <>
@@ -19,7 +35,11 @@ function Header({ siteTitle }) {
     </Helmet>
     <header className="bg-pineWhite site-header">
       <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080">
-        <Escape />
+        <Escape 
+          search={escape.blockContentEscape.field_search_terms} 
+          text={escape.blockContentEscape.field_headline.value} 
+          linkurl={escape.blockContentEscape.field_escape_link.alias}
+        />
         <button className="border-grey-mid border-l-0 border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0 md:order-1">
           <TransIcon className="fill-current text-grey w-7 h-7" />
         </button>
