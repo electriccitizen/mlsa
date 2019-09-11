@@ -96,6 +96,7 @@ export const query = graphql `
             field_buttons {
               title
               uri
+              alias
             }
           }
           ... on paragraph__horizontal_rule {
@@ -107,6 +108,7 @@ export const query = graphql `
             field_link {
               title
               uri
+              alias
             }
             relationships {
               field_single_image {
@@ -152,6 +154,7 @@ export const query = graphql `
             field_link {
               title
               uri
+              alias
             }
             field_text {
               processed
