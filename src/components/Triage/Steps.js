@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Responses } from "./Responses"
 import { Buttons } from "./Buttons"
 import { StepperWrapper } from "./Stepper"
