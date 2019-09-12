@@ -308,6 +308,75 @@ a{
 	}
 }
 
+
+/* TRIAGE 
+--------------- */
+.stepper{
+	& > div > div > div{
+		a{
+			@apply font-header;
+			font-weight: 700 !important;
+		}
+		& > div{
+			@apply flex-col justify-center;
+			display: flex !important;
+			a{
+				@apply font-bold font-sans;
+			}
+		}
+	}
+}
+.triage-steps{
+	.checkbox,.radio{
+		@apply relative text-15 inline-block pl-8 mb-6;
+		-webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+		span:before{
+			@apply absolute z-20 border border-grey-mid cursor-pointer w-5half h-5half;
+			content: '';
+			top: -2px;
+			left: 0;
+		}
+		input{
+			@apply absolute opacity-0 cursor-pointer;
+			&:hover,&:focus{
+				+ span:before{
+					background: theme(colors.grey.light);
+				}
+			}
+			&:checked{
+				+ span:before{
+					background: theme(colors.green.default);
+				}
+				+ span:after{
+					@apply absolute z-30;
+					content: '';
+					left: 8px;
+					top: 1px;
+					width: 8px;
+					height: 17px;
+					border: solid white;
+					border-width: 0 3px 3px 0;
+					-webkit-transform: rotate(35deg);
+				  -ms-transform: rotate(35deg);
+				  transform: rotate(35deg);
+				}
+				&:hover,&:focus{
+					+ span:before{
+						background: theme(colors.green.dark);
+					}
+				}
+			}
+		}
+	}
+	.radio span:before{
+		border-radius: 50%;
+	}
+}
+
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
