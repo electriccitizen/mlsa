@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
 
 const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  console.log("Checkbox: ", name, checked);
   return (
     <input type={type} name={name} checked={checked} onChange={onChange} />
   );
@@ -34,7 +33,7 @@ export function Related(props) {
   };
 
   return (
-      <ul class="mb-8">
+      <ul className="mb-8">
         {
           data.allTaxonomyTermRelatedIssues.edges.map(
             (term, index) =>
