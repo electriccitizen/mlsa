@@ -30,21 +30,21 @@ export function Results() {
 
 
     const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
+    const responseSteps = ['crime','category','related']
+
     currentResponses.map(([item, results]) => {
-      (item !== 'algoliasearch-client-js' && item !== 'intro' && item !== 'county') &&
+        (responseSteps.includes(item)) &&
         Object.entries(JSON.parse(results)).map(([key, value]) => {
           value === true ? responses.push(item + ':"' + key + '"') : console.log(value)
-          console.log('hit map')
           return true
         })
-        console.log('response map')
       return true
     });
-
+  //
+  //   console.log('responses:' + responses)
     const county = typeof window !== `undefined` && window.localStorage.getItem('county')
       county && Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
-        console.log('county query')
         return true
       })
 
@@ -52,7 +52,6 @@ export function Results() {
     let countyString = counties.join(' OR ')
 
     searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
-    console.log(searchString)
     const index = searchClient.initIndex('Resources');
 
     index.search({
@@ -64,13 +63,11 @@ export function Results() {
       setQueryResults(hits)
     }
   );
-    console.log('clear local storage')
-    //localStorage.clear()
-  }, [queryResults]);
+    localStorage.clear()
+  }, []);
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
-      {console.log(queryResults)}
       {(Object.keys(queryResults).length !==0) ? Object.values(queryResults).map((hit) =>
         <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
           <a className="resource-link" href={hit.url} >
