@@ -21,7 +21,7 @@ class Page extends React.Component {
               <div className="text-center">
                 <h1>{this.props.header.field_title}</h1>
                 <h2 className="mx-auto max-w-3xl">{this.props.header.field_subheader}</h2>
-              </div>
+             </div>
             }
             <div>
               {this.props.content.map((paragraphItem, index) => (
@@ -44,7 +44,7 @@ class Page extends React.Component {
                         image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
                         label={paragraphItem.field_link ? paragraphItem.field_link.title : ''}
                         alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
-                        link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
+                        link={paragraphItem.field_link ? paragraphItem.field_link.alias : ''}
                         caption={paragraphItem.relationships.field_single_image.field_caption}
                       />
                     : paragraphItem.__typename === 'paragraph__react_component' ?
@@ -63,7 +63,7 @@ class Page extends React.Component {
                         image={paragraphItem.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid}
                         alt={paragraphItem.relationships.field_single_image.field_media_image.alt}
                         label={paragraphItem.field_link ? paragraphItem.field_link.title : ''}
-                        link={paragraphItem.field_link ? paragraphItem.field_link.uri : ''}
+                        link={paragraphItem.field_link ? paragraphItem.field_link.alias : ''}
                         caption={paragraphItem.relationships.field_single_image.field_caption}
                         placement={paragraphItem.field_image_placement}
                       />

@@ -28,20 +28,6 @@ export function Triage() {
   return (
     <>
       <h2 className="text-center">Use our online help tool to find the resources that best apply to you</h2>
-      {/*{activeStepIndex+1 > totalSteps ?*/}
-      {/*  <Results />*/}
-      {/*  :*/}
-      {/*  <Steps*/}
-      {/*    previousStep={previousStep}*/}
-      {/*    nextStep={nextStep}*/}
-      {/*    getStep={getStep}*/}
-      {/*    allQuestions={allQuestions}*/}
-      {/*    activeStepIndex={activeStepIndex}*/}
-      {/*    totalSteps={totalSteps}*/}
-      {/*    resetToStep={resetToStep}*/}
-      {/*  />*/}
-      {/*}*/}
-
         <Steps
           previousStep={previousStep}
           nextStep={nextStep}

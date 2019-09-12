@@ -12,7 +12,7 @@ import Info from '../../images/info.svg';
 function startOver() {
   localStorage.clear();
   if (typeof window !== `undefined`) {
-    window.location.replace("/triage");
+    window.location.replace("/find-help");
   }
 }
 
@@ -28,7 +28,6 @@ export function Results() {
     const responses = []
     const counties = []
 
-    console.log('init')
 
     const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
     currentResponses.map(([item, results]) => {
@@ -86,7 +85,7 @@ export function Results() {
             : hit.icon[0] === 'info' ? <Info className="resource-icon" />
             : '' }
     	    </span>
-    	    <h2 className="h3 mb-4 text-blue underline">
+    	    <h2 className="h3 mb-4 text-blue underline force-left">
             {hit.title}
           </h2>
         </a>
