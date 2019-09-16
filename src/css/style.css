@@ -145,7 +145,7 @@ a{
 .btn{
 	@apply bg-blue text-white tracking-wide uppercase px-6 py-4 font-header font-bold;
 	&:hover,&:focus{
-		@apply bg-grey-dark text-white;
+		@apply bg-green-dark text-white;
 	}
 	&.btn-alt{
 		@apply bg-green-dark;
@@ -182,7 +182,7 @@ a{
 		}
 		&:hover,&:focus{
 			&:before{
-				border-left-color: theme(colors.grey.dark);
+				border-left-color: theme(colors.green.dark);
 			}
 		}
 	}
@@ -709,7 +709,7 @@ input:focus + .resource-search-icon{
 .filter-group-list{
 	@apply overflow-hidden;
 	& > div{
-		@apply border border-grey-mid bg-white p-3 mb-6 overflow-y-scroll;
+		@apply border border-grey-mid bg-white p-3 mb-6 h-full overflow-y-scroll;
 		max-height: 250px;
 	}
 	&:not(.noscroll) > div{
