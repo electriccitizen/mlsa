@@ -86,15 +86,16 @@ export function Results() {
             {hit.title}
           </h2>
         </a>
+        <div attribute="org" hit={hit} className="text-16 italic mb-3 text-grey-dark">{hit.org}</div>
         <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
       </div>
       )
       :
-      <div>Sorry, we could not find any results that matched your answers. Please try again!</div>
+      <div className="text-center w-full">Sorry, we could not find any results that matched your answers. Please try again!</div>
       }
-      <div className="w-full py-6 md:px-2">
+      <div className="w-full py-6 text-center">
         <button
-          className="btn text-13 mr-3 mb-2 inline-block"
+          className="btn"
           onClick={()=>{ startOver(); }}>
           Start over!
         </button>
