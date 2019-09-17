@@ -95,6 +95,24 @@ export const query = graphql `
               alias
             }
           }
+          ... on paragraph__files {
+            drupal_id
+            field_header
+            relationships {
+              field_files {
+                drupal_id
+                relationships{
+                  field_media_file{
+                    localFile{
+                      url
+                      name
+                      extension
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on paragraph__horizontal_rule {
             drupal_id
           }

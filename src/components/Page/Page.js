@@ -1,6 +1,7 @@
 import React from 'react';
 import Accordions from '../Paragraphs/accordions';
 import Button from '../Paragraphs/button';
+import File from '../Paragraphs/file';
 import Image from '../Paragraphs/image';
 import Text from '../Paragraphs/text';
 import TextImage from '../Paragraphs/textImage';
@@ -35,6 +36,11 @@ class Page extends React.Component {
                       <Button
                         header={paragraphItem.field_header}
                         content={paragraphItem.field_buttons}
+                      />
+                    : paragraphItem.__typename === 'paragraph__files' ?
+                      <File
+                        header={paragraphItem.field_header}
+                        content={paragraphItem.relationships.field_files}
                       />
                     : paragraphItem.__typename === 'paragraph__horizontal_rule' ?
                       <hr className="border-t border-mid-grey mx-auto max-w-2xlHalf" />
