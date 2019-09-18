@@ -83,6 +83,12 @@ class Page extends React.Component {
             <div className="prefooter-wrapper">
               {this.props.prefooter.relationships ? <Img fluid={this.props.prefooter.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid} alt={this.props.prefooter.relationships.field_single_image.field_media_image.alt} /> : ''}
             </div>
+            <div className="relative max-w-1080 m-auto">
+              <div className="livechat-wrapper">
+                <div data-id="VT9L8lXulJx" className="livechat_button"><a href="https://www.livechatinc.com/customer-service/?utm_source=chat_button&utm_medium=referral&utm_campaign=lc_7515341">LiveChat</a></div>
+                <div className="pt-3">LiveHelp Online</div>
+              </div>
+            </div>
           </section>
         </>
     )
