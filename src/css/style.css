@@ -395,12 +395,12 @@ a{
 	.livechat_button{
 		@apply m-auto rounded-full;
 		width: 108px;
+		height: 108px;
 		box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.18);
-		a{
-			text-indent: -9000px;
-		}
+		overflow: hidden;
 		img{
-			@apply w-full;
+			width: 108px;
+			height: 108px;
 		}
 	}
 }
