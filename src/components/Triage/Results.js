@@ -70,6 +70,7 @@ export function Results() {
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
       {(Object.keys(queryResults).length !==0) ? Object.values(queryResults).map((hit) =>
         <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
+          {hit.county}
           {String(hit.alias).includes('http') ?  
           <a className="resource-link" href={hit.url} target="_blank" rel="noopener noreferrer">
             <span>
