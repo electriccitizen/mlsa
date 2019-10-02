@@ -11,6 +11,7 @@ const resourceQuery = `{
         }
         field_resource_url {
           url: uri
+          alias: alias
         }
         relationships {
           crime: field_crime {
@@ -56,8 +57,9 @@ const flatten = arr =>
             type: relationships.type ? relationships.type.map(typeObj => typeObj.name) : null,
             icon: relationships.type ? relationships.type.map(iconObj => iconObj.field_icon) : null,
             org: relationships.org ? relationships.org.name : null,
+            alias: field_resource_url.alias ? field_resource_url.alias : null,
+            url: field_resource_url.url ? field_resource_url.url : null,
             ...field_description,
-            ...field_resource_url,
             ...rest
           }
         )
