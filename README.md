@@ -48,7 +48,11 @@ share my login with anybody who wants to monitor builds.
 
 Once your work has been through code review, QA, and client review it can be merged into master via
 pull request. This will automatically trigger a new build on Netlify and your work will be 
-merged into the production site. 
+merged into the production site. READ THE NEXT SECTION.
+
+## KEEP PREVIEW IN SYNC
+
+In order to prevent builds for the preview--mlsa.netlify.com site from failing (or looking weird), the preview branch MUST always be kept in sync with the master branch. To do this simply merge master into preview every time you push to master.
 
 ## Format and lint
 * `npm run analyze` - See what ESLint and Prettier can fix
