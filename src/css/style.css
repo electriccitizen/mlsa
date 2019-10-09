@@ -469,11 +469,42 @@ a{
 	}
 }
 
-/* TRANSLATE BUTTON */
+/* TRANSLATE BUTTON && HELPER */
 .trans-button{
 	padding: 12.5px 20px 12.5px 20px;
 	@media all and (min-width: theme(screens.md)){
 		padding: 9px 20px 4px;
+	}
+}
+.trans-arrow:after{
+	@apply absolute z-50 block w-0 h-0;
+	content: '';
+	top: 125%;
+	left: -webkit-calc(50% - 7px);
+	left: -moz-calc(50% - 7px);
+	left: -0-calc(50% - 7px);
+	left: calc(50% - 7px);
+	-webkit-transform: rotate(0.05deg);
+	-moz-transform: scale(1.1);
+	transform: rotate(0.05deg);
+	border-bottom: 7px solid theme(colors.white.default);
+	border-left: 7px double transparent;
+	border-right: 7px double transparent;
+}
+.trans-help{
+	@apply absolute z-50 bg-white;
+	top: 125%;
+	margin-top: 7px;
+	left: -126px;
+	box-shadow: 0 4px 20px 4px rgba(0,20,60,.1),0 4px 80px -8px rgba(0,20,60,.2);
+	border-radius: 4px;
+	font-size: .95rem;
+	padding: .4rem .8rem;
+	width: 300px;
+	@media screen and (min-width: theme(screens.md)){
+		left: auto;
+		right: -170px;
+		width: 420px;
 	}
 }
 
