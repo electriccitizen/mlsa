@@ -1,15 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
-
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  return (
-    <input type={type} name={name} checked={checked} onChange={onChange} />
-  );
-};
+import Radio from '../../Forms/radio';
 
 export function Intro() {
- const data = useStaticQuery(graphql`
+
+  const data = useStaticQuery(graphql`
     query IntroQuery {
         allTaxonomyTermAudienceOptions {
           edges {
@@ -27,8 +23,7 @@ export function Intro() {
 
   const handleChange = event => {
     setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
+      [event.target.name]: event.target.checked
     });
   };
 
@@ -39,8 +34,8 @@ export function Intro() {
           (term, index) =>
             (
               <li key={index}>
-                <label className="checkbox">
-                  <Checkbox
+                <label className="radio">
+                  <Radio
                     name={term.node.name}
                     checked={checkedItems[term.node.name]}
                     onChange={handleChange}
