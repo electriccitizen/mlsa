@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import TransIcon from '../../images/g-translate.svg';
 import SelectElement from '../Forms/select'
+import CloseX from '../../images/close-x.svg';
 
 const TranslationPopup = () => {
 
@@ -48,7 +49,6 @@ const TranslationPopup = () => {
   const handleClick = () => {
     setHelp(help === false ? true : false)
   };
-
   // Select Change handler
   const handleChange = selectedOption => {
     setSelected(selectedOption)
@@ -63,6 +63,9 @@ const TranslationPopup = () => {
       </button>
       {help &&
         <div key={translationBlock.blockContentTranslatedBlock.drupal_internal__id} id={ `block-${translationBlock.blockContentTranslatedBlock.drupal_internal__id}`} className="trans-help">
+          <button className="absolute top-0 right-0 p-1 hover:opacity-50" onClick={handleClick}>
+            <CloseX />
+          </button>
           <SelectElement classes="max-w-xs mt-4" name="languages" selected={selected} options={languages} placeholder="Select Preferred Language" onChange={handleChange}/>
           {selected.value === 101 ? englishText
             : selected !== '' ? translationBlock.blockContentTranslatedBlock.relationships.field_translations.map((trans, index) =>(
