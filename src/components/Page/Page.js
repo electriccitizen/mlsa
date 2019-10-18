@@ -12,6 +12,14 @@ import Img from 'gatsby-image';
 class Page extends React.Component {
 
   render() {
+    let randImages = [
+      <Img fluid={this.props.randOne} alt="A rancher with mountains in the background"/>,
+      <Img fluid={this.props.randTwo} alt="Cloudy sky over Montana mountains" />,
+      <Img fluid={this.props.randThree} alt="A close up of wheat stalks in the sun" />,
+      <Img fluid={this.props.randFour} alt="landscape photo of Glacier National Park" />,
+      <Img fluid={this.props.randFive} alt="A river winding through a mountain prairie in the sun" />
+    ];
+    let randomFeature = randImages[Math.floor(Math.random()*randImages.length)];
     return (
       this.props.restricted ? <div className="text-center py-12">You must be logged in as an administrator to view this page.</div> 
         :
@@ -87,7 +95,10 @@ class Page extends React.Component {
           </section>
           <section className="max-w-2280 mx-auto">
             <div className="prefooter-wrapper">
-              {this.props.prefooter.relationships ? <Img fluid={this.props.prefooter.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid} alt={this.props.prefooter.relationships.field_single_image.field_media_image.alt} /> : ''}
+              {this.props.prefooter ? 
+                <Img fluid={this.props.prefooter.relationships.field_single_image.relationships.field_media_image.localFile.childImageSharp.fluid} alt={this.props.prefooter.relationships.field_single_image.field_media_image.alt} /> 
+                : randomFeature
+              }
             </div>
           </section>
         </>

@@ -45,21 +45,35 @@ const HomeFeatured = () => {
           }
         }
       }
-      imageOne: file(relativePath: { eq: "big-sky-sunset.jpg" }) {
+      imageOne: file(relativePath: { eq: "big-sky-sunset-featured.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      imageTwo: file(relativePath: { eq: "montana-landscape.jpg" }) {
+      imageTwo: file(relativePath: { eq: "montana-landscape-featured.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      imageThree: file(relativePath: { eq: "wheat.jpg" }) {
+      imageThree: file(relativePath: { eq: "wheat-featured.jpg" }) {
+        childImageSharp {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageFour: file(relativePath: { eq: "glacier-np-featured.jpg" }) {
+        childImageSharp {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageFive: file(relativePath: { eq: "sunny-mountain-river-featured.jpg" }) {
         childImageSharp {
           fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
             ...GatsbyImageSharpFluid
@@ -70,9 +84,11 @@ const HomeFeatured = () => {
   `)
 
   let randImages = [
-    <Img fluid={featured.imageOne.childImageSharp.fluid} alt="Trees in the winter"/>,
-    <Img fluid={featured.imageTwo.childImageSharp.fluid} alt="Train Bridge over river in the sunset" />,
-    <Img fluid={featured.imageThree.childImageSharp.fluid} alt="River in the mountains" />,
+    <Img fluid={featured.imageOne.childImageSharp.fluid} alt="Sunset sky over Montana"/>,
+    <Img fluid={featured.imageTwo.childImageSharp.fluid} alt="Cloudy sky over Montana mountains" />,
+    <Img fluid={featured.imageThree.childImageSharp.fluid} alt="A close up of wheat stalks in the sun" />,
+    <Img fluid={featured.imageFour.childImageSharp.fluid} alt="landscape photo of Glacier National Park" />,
+    <Img fluid={featured.imageFive.childImageSharp.fluid} alt="A river winding through a mountain prairie in the sun" />
   ];
   let randomFeature = randImages[Math.floor(Math.random()*randImages.length)];
 
