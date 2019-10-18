@@ -47,11 +47,10 @@ export function Results() {
         counties.push('county:"' + key + '"')
         return true
       })
-
+    
     let searchString = responses.join(' OR ')
-    let countyString = counties.join(' OR ')
-
-    searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
+    let countyString = counties && counties.length ? counties.join(' OR ') : 'county:"Statewide"'
+    searchString = searchString + ' AND (' + countyString + ')'
     const index = searchClient.initIndex('Resources');
 
     index.search({
