@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 
 const Image = (props) => {
   return (
+    props.image && 
     <div className="max-w-1080 mx-auto">
       {props.header && <h2 className="h3 widget-title">{props.header}</h2>}
       {props.link && props.image ?
