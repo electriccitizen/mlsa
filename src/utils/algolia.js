@@ -13,6 +13,7 @@ const resourceQuery = `{
           url: uri
           alias: alias
         }
+        internal: field_internal_resource
         relationships {
           crime: field_crime {
             name
@@ -46,7 +47,7 @@ const settings = { attributesToSnippet: [
 
 const flatten = arr =>
   arr.map(
-    ( { node: { title, relationships, field_resource_url, field_description, ...rest }}) =>
+    ( { node: { title, relationships, field_resource_url, field_description, field_internal_resource, ...rest }}) =>
         (
           {
             title,
@@ -60,6 +61,7 @@ const flatten = arr =>
             alias: field_resource_url.alias ? field_resource_url.alias : null,
             url: field_resource_url.url ? field_resource_url.url : null,
             ...field_description,
+            ...field_internal_resource,
             ...rest
           }
         )
