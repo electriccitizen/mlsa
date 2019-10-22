@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Escape from '../Escape/escape';
-import TransIcon from '../../images/g-translate.svg';
+import TranslationPopup from '../Block/translationPopup';
 import HamburgerIcon from '../../images/hamburger.svg';
 import CloseIcon from '../../images/close-x.svg';
 import Logo from '../../images/logo.svg';
@@ -40,9 +40,7 @@ function Header({ siteTitle }) {
           text={escape.blockContentEscape.field_headline.value} 
           linkurl={escape.blockContentEscape.field_escape_link.alias}
         />
-        <button className="border-grey-mid border-l-0 border-b border-r trans-button hover:opacity-75 focus:opacity-75 md:border-0 md:order-1">
-          <TransIcon className="fill-current text-grey w-7 h-7" />
-        </button>
+        <TranslationPopup />
           
         <div className="md:hidden m-menu-toggle border-b border-grey-mid flex flex-auto justify-center xs:justify-end">
           <button
