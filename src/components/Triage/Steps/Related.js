@@ -1,12 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import useLocalStorage from '../../../hooks/use-local-storage';
-
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-  return (
-    <input type={type} name={name} checked={checked} onChange={onChange} />
-  );
-};
+import Checkbox from '../../Forms/checkbox';
 
 export function Related(props) {
 

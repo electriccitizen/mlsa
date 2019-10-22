@@ -47,11 +47,10 @@ export function Results() {
         counties.push('county:"' + key + '"')
         return true
       })
-
+    
     let searchString = responses.join(' OR ')
-    let countyString = counties.join(' OR ')
-
-    searchString = searchString + ' AND ((' + countyString + ') OR county:Statewide)'
+    let countyString = counties && counties.length ? counties.join(' OR ') : 'county:"Statewide"'
+    searchString = searchString + ' AND (' + countyString + ')'
     const index = searchClient.initIndex('Resources');
 
     index.search({
@@ -68,64 +67,127 @@ export function Results() {
 
   return (
     <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
-      {(Object.keys(queryResults).length !==0) ? Object.values(queryResults).map((hit) =>
-        <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
-          {String(hit.alias).includes('http') ?  
-          <a className="resource-link" href={hit.url} target="_blank" rel="noopener noreferrer">
-            <span>
-              <span className="visually-hidden">{hit.icon[0]}</span>
-            {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
-            : hit.icon[0] === 'database' ? <Database className="resource-icon" />
-            : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
-            : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
-            : hit.icon[0] === 'search' ? <Form className="resource-icon" />
-            : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
-            : hit.icon[0] === 'info' ? <Info className="resource-icon" />
-            : '' }
-            </span>
-            <h2 className="h3 mb-4 text-blue underline force-left">
-              {hit.title}
-            </h2>
-          </a>
-        : String(hit.alias) === '/user' ?
-          <Link className="resource-link" to={hit.alias}>
-            <span>
-              <span className="visually-hidden">{hit.icon[0]}</span>
-            {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
-            : hit.icon[0] === 'database' ? <Database className="resource-icon" />
-            : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
-            : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
-            : hit.icon[0] === 'search' ? <Form className="resource-icon" />
-            : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
-            : hit.icon[0] === 'info' ? <Info className="resource-icon" />
-            : '' }
-            </span>
-            <h2 className="h3 mb-4 text-blue underline force-left">
-              {hit.title}
-            </h2>
-          </Link>
-        : 
-          <Link className="resource-link" to={hit.alias}>
-            <span>
-              <span className="visually-hidden">{hit.icon[0]}</span>
-            {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
-            : hit.icon[0] === 'database' ? <Database className="resource-icon" />
-            : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
-            : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
-            : hit.icon[0] === 'search' ? <Form className="resource-icon" />
-            : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
-            : hit.icon[0] === 'info' ? <Info className="resource-icon" />
-            : '' }
-            </span>
-            <h2 className="h3 mb-4 text-blue underline force-left">
-              {hit.title}
-            </h2>
-          </Link>
-        }
-        <div attribute="org" hit={hit} className="text-16 italic mb-3 text-grey-dark">{hit.org}</div>
-        <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
-      </div>
-      )
+      {(Object.keys(queryResults).length !==0) ? [
+        Object.values(queryResults).map((hit) => {
+          return String(hit.county) !== 'Statewide' ?
+          <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
+            {String(hit.alias).includes('http') ?  
+              <a className="resource-link" href={hit.url} target="_blank" rel="noopener noreferrer">
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </a>
+            : String(hit.alias) === '/user' ?
+              <Link className="resource-link" to={hit.alias}>
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </Link>
+            : 
+              <Link className="resource-link" to={hit.alias}>
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </Link>
+            }
+          <div attribute="org" hit={hit} className="text-16 italic mb-3 text-grey-dark">{hit.org}</div>
+          <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
+        </div>
+        : ''
+      }),
+      Object.values(queryResults).map((hit) => {
+        return String(hit.county) === 'Statewide' ?
+          <div key={hit.title} className="text-center mb-8 pb-8 border-b border-grey-midAlt md:text-left md:border-b-0 md:pb-0 md:px-2 md:w-1/3">
+            {String(hit.alias).includes('http') ?  
+              <a className="resource-link" href={hit.url} target="_blank" rel="noopener noreferrer">
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </a>
+            : String(hit.alias) === '/user' ?
+              <Link className="resource-link" to={hit.alias}>
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </Link>
+            : 
+              <Link className="resource-link" to={hit.alias}>
+                <span>
+                  <span className="visually-hidden">{hit.icon[0]}</span>
+                {hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
+                : hit.icon[0] === 'database' ? <Database className="resource-icon" />
+                : hit.icon[0] === 'learn' ? <Learn className="resource-icon" />
+                : hit.icon[0] === 'question' ? <Question className="resource-icon q-icon" />
+                : hit.icon[0] === 'search' ? <Form className="resource-icon" />
+                : hit.icon[0] === 'toolbox' ? <Toolbox className="resource-icon" />
+                : hit.icon[0] === 'info' ? <Info className="resource-icon" />
+                : '' }
+                </span>
+                <h2 className="h3 mb-4 text-blue underline force-left">
+                  {hit.title}
+                </h2>
+              </Link>
+            }
+            <div attribute="org" hit={hit} className="text-16 italic mb-3 text-grey-dark">{hit.org}</div>
+            <div attribute="description" hit={hit}  dangerouslySetInnerHTML={{ __html: hit.description}} />
+          </div>
+        : ''
+      })]
       :
       <div className="text-center w-full">Sorry, we could not find any results that matched your answers. Please try again!</div>
       }
