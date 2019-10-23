@@ -1,6 +1,7 @@
 import React, { useState, useEffect, } from 'react';
 import algoliasearch from "algoliasearch/lite";
 import ResultHit from './resultHit';
+import ResultCounter from './resultCounter';
 
 function startOver() {
   localStorage.clear();
@@ -59,10 +60,38 @@ export function Results() {
   }, []);
 
   return (
-    <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
-      {(Object.keys(queryResults).length !==0) ? [
+    <div>
+      {Object.keys(queryResults).length !==0 ? <ResultCounter classes="" counter={Object.keys(queryResults).length} /> : ''} 
+      <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
+        {(Object.keys(queryResults).length !==0) ? [
+          Object.values(queryResults).map((hit) => {
+            return String(hit.internal) === 'true' ?
+              <ResultHit
+                title={hit.title}
+                alias={hit.alias}
+                url={hit.url}
+                icon={hit.icon[0]}
+                hit={hit}
+                org={hit.org}
+                description={hit.description}
+              />
+            : ''
+          }),
+          Object.values(queryResults).map((hit) => {
+            return String(hit.county) !== 'Statewide' && String(hit.internal) !== 'true' ?
+              <ResultHit
+                title={hit.title}
+                alias={hit.alias}
+                url={hit.url}
+                icon={hit.icon[0]}
+                hit={hit}
+                org={hit.org}
+                description={hit.description}
+              />
+          : ''
+        }),
         Object.values(queryResults).map((hit) => {
-          return String(hit.internal) === 'true' ?
+          return String(hit.county) === 'Statewide' && String(hit.internal) !== 'true' ?
             <ResultHit
               title={hit.title}
               alias={hit.alias}
@@ -73,56 +102,31 @@ export function Results() {
               description={hit.description}
             />
           : ''
-        }),
-        Object.values(queryResults).map((hit) => {
-          return String(hit.county) !== 'Statewide' && String(hit.internal) !== 'true' ?
-            <ResultHit
-              title={hit.title}
-              alias={hit.alias}
-              url={hit.url}
-              icon={hit.icon[0]}
-              hit={hit}
-              org={hit.org}
-              description={hit.description}
-            />
-        : ''
-      }),
-      Object.values(queryResults).map((hit) => {
-        return String(hit.county) === 'Statewide' && String(hit.internal) !== 'true' ?
-          <ResultHit
-            title={hit.title}
-            alias={hit.alias}
-            url={hit.url}
-            icon={hit.icon[0]}
-            hit={hit}
-            org={hit.org}
-            description={hit.description}
-          />
-        : ''
-      })]
-      :
-      <div className="text-center w-full">Sorry, we could not find any results that matched your answers. Please try again!</div>
-      }
-      <div className="w-full py-6 text-center">
-        <button
-          className="btn"
-          onClick={()=>{ startOver(); }}>
-          Start over!
-        </button>
+        })]
+        :
+        <div className="text-center w-full">Sorry, we could not find any results that matched your answers. Please try again!</div>
+        }
+        <div className="w-full py-6 text-center">
+          <button
+            className="btn"
+            onClick={()=>{ startOver(); }}>
+            Start over!
+          </button>
+        </div>
+
+        {/*<h2>Debug:</h2>*/}
+        {/*INTRO: {window.localStorage.getItem('intro')}*/}
+        {/*<hr />*/}
+        {/*CRIME: {window.localStorage.getItem('crime')}*/}
+        {/*<hr />*/}
+        {/*RELATED: {window.localStorage.getItem('related')}*/}
+        {/*<hr />*/}
+        {/*CATEGORY: {window.localStorage.getItem('category')}*/}
+        {/*<hr />*/}
+        {/*COUNTY: {window.localStorage.getItem('county')}*/}
+        {/*<hr />*/}
+
       </div>
-
-      {/*<h2>Debug:</h2>*/}
-      {/*INTRO: {window.localStorage.getItem('intro')}*/}
-      {/*<hr />*/}
-      {/*CRIME: {window.localStorage.getItem('crime')}*/}
-      {/*<hr />*/}
-      {/*RELATED: {window.localStorage.getItem('related')}*/}
-      {/*<hr />*/}
-      {/*CATEGORY: {window.localStorage.getItem('category')}*/}
-      {/*<hr />*/}
-      {/*COUNTY: {window.localStorage.getItem('county')}*/}
-      {/*<hr />*/}
-
     </div>
   );
 }

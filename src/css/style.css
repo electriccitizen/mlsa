@@ -415,6 +415,8 @@ a{
 	}
 }
 
+
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -918,3 +920,4 @@ input:focus + .resource-search-icon{
 		column-gap: theme(spacing.8);
 	}
 }
+
