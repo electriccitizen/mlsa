@@ -13,7 +13,7 @@ import Info from '../../images/info.svg';
 export const ResourceHit = clickHandler => ({ hit }) => (
   <div className="text-center mb-8 md:text-left">
   {String(hit.alias).includes('http') ?  
-		<a className="resource-link" href={hit.url} onClick={clickHandler} target="_blank" rel="noopener noreferrer">
+		<a className="resource-link" href={hit.url} onClick={clickHandler} rel="noopener noreferrer">
 			<span>
 				<span className="visually-hidden">{hit.icon[0]}</span>
 			{hit.icon[0] === 'advocate' ? <Advocate className="resource-icon" />
