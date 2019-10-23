@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from 'react';
+import qs from 'qs';
+import { history } from '../Utils/routerHistory'
 import {
   InstantSearch,
   Index,
@@ -22,15 +24,42 @@ const Results = connectStateResults(
 )
 
 const Count = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) => 
+  ({ searchState: state, searchResults: res, children }) =>
    res && res.nbHits > 0 ? <ResultCounter counter={res && res.nbHits} classes=" md:ml-8" /> : ''
 )
 
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
+const urlToSearchState = ({ search }) => qs.parse(search.slice(1));
+
+const searchStateToUrl = ( searchState ) =>
+  searchState ? `${createURL(searchState)}` : '';
+
+const createURL = state => `?${qs.stringify(state)}`;
+
+const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
+
   const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
+
+  const DEBOUNCE_TIME = 700
+  const [searchState, setSearchState] = useState(urlToSearchState(location));
+  const [debouncedSetState, setDebouncedSetState] = useState(null);
+
+  const onSearchStateChange = updatedSearchState => {
+    clearTimeout(debouncedSetState);
+    setDebouncedSetState(
+      setTimeout(() => {
+        console.log('state change')
+        let foo = searchStateToUrl(updatedSearchState)
+        console.log(foo)
+        navigate(searchStateToUrl(updatedSearchState), updatedSearchState);
+      }, DEBOUNCE_TIME)
+    );
+    setSearchState(updatedSearchState);
+  };
+
   return (
     <>
       <InstantSearch
@@ -74,20 +103,26 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
                 last: '»',
                 page(currentRefinement) {
                     return currentRefinement;
-                    },
-                ariaPrevious: 'Previous page',
-                ariaNext: 'Next page',
-                ariaFirst: 'First page',
-                ariaLast: 'Last page',
-                ariaPage(currentRefinement) {
-                  return `Page ${currentRefinement}`;
+                  },
+                  ariaPrevious: 'Previous page',
+                  ariaNext: 'Next page',
+                  ariaFirst: 'First page',
+                  ariaLast: 'Last page',
+                  ariaPage(currentRefinement) {
+                    return `Page ${currentRefinement}`;
                   },
                 }}
               />
+            </div>
           </div>
         </div>
-      </div>
       </InstantSearch>
     </>
   )
 }
+
+export default props => (
+    <Location>
+    {locationProps => <ResourceLibrary {...locationProps} {...props} />}
+    </Location>
+);
