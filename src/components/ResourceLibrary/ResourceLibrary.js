@@ -14,10 +14,16 @@ import { Pagination } from 'react-instantsearch-dom';
 import Input from "./input";
 import * as hitComps from "./hitComps";
 import FilterToggle from './filterToggle';
+import ResultCounter from '../Triage/resultCounter';
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     res && res.nbHits > 0 ? children : <div className="mb-4 md:px-2 lg:px-4">No results for '{state.query}'</div>
+)
+
+const Count = connectStateResults(
+  ({ searchState: state, searchResults: res, children }) => 
+   res && res.nbHits > 0 ? <ResultCounter counter={res && res.nbHits} classes=" md:ml-8" /> : ''
 )
 
 export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
@@ -47,6 +53,7 @@ export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
         <FilterToggle />
         <div className="md:w-2/3 lg:w-3/4">
           <ScrollTo>
+            <Count />
             <div className="results-list md:pl-4">
               {indices.map(({ name, title, hitComp }) => (
                 <Index key={name} indexName={name}>
