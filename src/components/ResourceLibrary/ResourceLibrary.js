@@ -80,6 +80,7 @@ const ResourceLibrary = ({ location, indices }) => {
         <div className={`md:flex md:flex-row mb-6`}>
           <FilterToggle />
           <div className="md:w-2/3 lg:w-3/4">
+            <Count />
               <div className="results-list md:pl-4">
                 {indices.map(({ name, hitComp }) => (
                   <Index key={name} indexName={name}>
