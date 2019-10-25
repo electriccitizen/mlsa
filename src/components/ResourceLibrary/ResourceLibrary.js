@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import qs from 'qs';
-import { history } from '../Utils/routerHistory'
 import {
   InstantSearch,
   Index,
@@ -16,9 +15,12 @@ import { Pagination } from 'react-instantsearch-dom';
 import Input from "./input";
 import * as hitComps from "./hitComps";
 import FilterToggle from './filterToggle';
-import { Location, navigate, LocationProvider, Router } from "@reach/router"
+import { Location, navigate, createMemorySource, createHistory, LocationProvider, Router } from "@reach/router"
 
-
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
@@ -32,12 +34,7 @@ const searchStateToUrl = ( searchState ) =>
 
 const createURL = state => `?${qs.stringify(state)}`;
 
-const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
-
-  const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY
-  )
+const ResourceLibrary = ({ location, indices }) => {
 
   const DEBOUNCE_TIME = 700
   const [searchState, setSearchState] = useState(urlToSearchState(location));
@@ -47,9 +44,6 @@ const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
     clearTimeout(debouncedSetState);
     setDebouncedSetState(
       setTimeout(() => {
-        console.log('state change')
-        let foo = searchStateToUrl(updatedSearchState)
-        console.log(foo)
         navigate(searchStateToUrl(updatedSearchState), updatedSearchState);
       }, DEBOUNCE_TIME)
     );
@@ -65,10 +59,11 @@ const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
-        <div>
+
+        <ScrollTo>
           <Input />
-        </div>
-        <div className="clearfix">
+
+          <div className="clearfix">
           <div className="current-refinements">
             <CurrentRefinements />
             <div className="clear-filters">
@@ -79,17 +74,15 @@ const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
         <div className={`md:flex md:flex-row mb-6`}>
           <FilterToggle />
           <div className="md:w-2/3 lg:w-3/4">
-            <ScrollTo>
               <div className="results-list md:pl-4">
-                {indices.map(({ name, title, hitComp }) => (
+                {indices.map(({ name, hitComp }) => (
                   <Index key={name} indexName={name}>
                     <Results>
-                      <Hits hitComponent={hitComps[hitComp]()} />
+                      <Hits  hitComponent={hitComps[hitComp]()}  />
                     </Results>
                   </Index>
                 ))}
               </div>
-            </ScrollTo>
             <div id="pagination" className="border-t border-mid-grey pt-4 px-4 md:mx-4 lg:mx-8">
               <Pagination
                 padding={5}
@@ -113,13 +106,15 @@ const ResourceLibrary = ({ location, indices, collapse, hitsAsGrid }) => {
             </div>
           </div>
         </div>
+
+        </ScrollTo>
       </InstantSearch>
     </>
   )
 }
 
-export default props => (
-    <Location>
-    {locationProps => <ResourceLibrary {...locationProps} {...props} />}
-    </Location>
+export default wrapper => (
+  <Location>
+    {locationProps => <ResourceLibrary {...locationProps} {...wrapper} />}
+  </Location>
 );
