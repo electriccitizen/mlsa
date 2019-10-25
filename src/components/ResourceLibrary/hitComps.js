@@ -5,7 +5,7 @@ import ResultHitContent from '../Triage/resultHitContent';
 
 export const ResourceHit = clickHandler => ({ hit }) => (
   <div className="text-center mb-8 md:text-left">
-	  {String(hit.alias).includes('http') ?  
+	  {String(hit.alias).includes('http') ?
 			<a className="resource-link" href={hit.url} onClick={clickHandler} target="_blank" rel="noopener noreferrer">
 				<ResultHitContent icon={hit.icon[0]} highlight='yes' hit={hit} />
 			</a>
@@ -13,7 +13,7 @@ export const ResourceHit = clickHandler => ({ hit }) => (
 			<Link className="resource-link" to={hit.alias} onClick={clickHandler}>
 				<ResultHitContent icon={hit.icon[0]} highlight='yes' hit={hit} />
 			</Link>
-		: 
+		:
 			<Link className="resource-link" to={hit.alias} onClick={clickHandler}>
 				<ResultHitContent icon={hit.icon[0]} highlight='yes' hit={hit} />
 			</Link>
