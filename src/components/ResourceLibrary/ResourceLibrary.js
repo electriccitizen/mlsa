@@ -16,7 +16,7 @@ import Input from "./input";
 import * as hitComps from "./hitComps";
 import FilterToggle from './filterToggle';
 import ResultCounter from '../Triage/resultCounter';
-import { Location, navigate, createMemorySource, createHistory, LocationProvider, Router } from "@reach/router"
+import { Location, navigate } from "@reach/router"
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -33,7 +33,6 @@ const Count = connectStateResults(
    res && res.nbHits > 0 ? <ResultCounter counter={res && res.nbHits} classes=" md:ml-8" /> : ''
 )
 
-export default function ResourceLibrary({ indices, collapse, hitsAsGrid }) {
 const urlToSearchState = ({ search }) => qs.parse(search.slice(1));
 
 const searchStateToUrl = ( searchState ) =>
