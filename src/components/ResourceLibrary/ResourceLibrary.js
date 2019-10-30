@@ -65,10 +65,8 @@ const ResourceLibrary = ({ location, indices }) => {
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
-
         <ScrollTo>
           <Input />
-
           <div className="clearfix">
           <div className="current-refinements">
             <CurrentRefinements />

@@ -6,8 +6,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
