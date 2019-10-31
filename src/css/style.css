@@ -890,6 +890,9 @@ input:focus + .resource-search-icon{
 			span{
 				@apply opacity-50;
 			}
+			.ais-Pagination-link--selected{
+				@apply bg-blue text-white;
+			}
 		}
 	}
 }
