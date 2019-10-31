@@ -891,7 +891,7 @@ input:focus + .resource-search-icon{
 				@apply opacity-50;
 			}
 			.ais-Pagination-link--selected{
-				@apply bg-blue-dark text-white;
+				@apply bg-blue text-white;
 			}
 		}
 	}
