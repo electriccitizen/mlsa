@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import qs from 'qs';
+import styled from 'styled-components';
 import {
   InstantSearch,
   Index,
@@ -44,7 +45,6 @@ const ResourceLibrary = ({ location, indices }) => {
   const DEBOUNCE_TIME = 400
   const [searchState, setSearchState] = useState(urlToSearchState(location));
   const [debouncedSetState, setDebouncedSetState] = useState(null);
-
   if (typeof window !== `undefined`) {
     window.addEventListener('keydown', function (e) {
       if (e.keyIdentifier === 'U+000A' || e.keyIdentifier === 'Enter' || e.keyCode === 13) {
@@ -65,6 +65,12 @@ const ResourceLibrary = ({ location, indices }) => {
     );
     setSearchState(updatedSearchState);
   };
+
+  const StyledPagination = styled(Pagination)`
+    color: palevioletred;
+    font-weight: bold;
+  `;
+
 
   return (
     <>
@@ -98,6 +104,7 @@ const ResourceLibrary = ({ location, indices }) => {
                 ))}
               </div>
             <div id="pagination" className="border-t border-mid-grey pt-4 px-4 md:mx-4 lg:mx-8">
+              <div className="ais-Pagination-link--selected"></div>
               <Pagination
                 padding={5}
                 translations={{
