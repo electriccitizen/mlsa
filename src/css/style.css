@@ -922,5 +922,6 @@ input:focus + .resource-search-icon{
 }
 
 .ais-Pagination-link--selected {
-	background: purple;
+	background: #15c;
+    color: #fff!important;
 }

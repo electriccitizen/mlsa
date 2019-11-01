@@ -66,12 +66,6 @@ const ResourceLibrary = ({ location, indices }) => {
     setSearchState(updatedSearchState);
   };
 
-  const StyledPagination = styled(Pagination)`
-    color: palevioletred;
-    font-weight: bold;
-  `;
-
-
   return (
     <>
       <InstantSearch
