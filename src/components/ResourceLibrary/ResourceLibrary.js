@@ -23,6 +23,8 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY
 )
 
+
+
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     res && res.nbHits > 0 ? children : <div className="mb-4 md:px-2 lg:px-4">No results for '{state.query}'</div>
@@ -42,10 +44,11 @@ const createURL = state => `?${qs.stringify(state)}`;
 
 const ResourceLibrary = ({ location, indices }) => {
 
-  const DEBOUNCE_TIME = 700
+  const DEBOUNCE_TIME = 400
   const [searchState, setSearchState] = useState(urlToSearchState(location));
   const [debouncedSetState, setDebouncedSetState] = useState(null);
 
+  window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
   const onSearchStateChange = updatedSearchState => {
     clearTimeout(debouncedSetState);
     setDebouncedSetState(

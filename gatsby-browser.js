@@ -15,7 +15,10 @@ exports.onRouteUpdate = ({ location }) => {
 exports.shouldUpdateScroll = ({
                                 routerProps: { location },
                               }) => {
-    if (location.pathname === '/resource-library' && location.search) {
+    console.log(location)
+  console.log(location.search.indexOf('refinementList'))
+
+    if (location.pathname === '/resource-library' && location.search && (location.search.indexOf('refinementList') !== -1)) {
       let element = document.querySelector("#searchbox");
       element.scrollIntoView()
       return false
