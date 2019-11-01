@@ -22,8 +22,6 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY
 )
 
-
-
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
     res && res.nbHits > 0 ? children : <div className="mb-4 md:px-2 lg:px-4">No results for '{state.query}'</div>

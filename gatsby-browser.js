@@ -16,7 +16,12 @@ exports.shouldUpdateScroll = ({
                                 routerProps: { location },
                               }) => {
 
-    if (location.pathname === '/resource-library' && location.search && (location.search.indexOf('refinementList') !== -1)) {
+    if (location.pathname === '/resource-library'
+        && location.search
+        && (location.search.indexOf('refinementList') !== -1
+        || location.search.indexOf('page') !== -1)
+    )
+    {
       const id = 'searchbox';
       const yOffset = -40;
       const element = document.getElementById(id);
