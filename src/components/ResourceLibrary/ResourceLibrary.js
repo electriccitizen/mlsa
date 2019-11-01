@@ -48,8 +48,18 @@ const ResourceLibrary = ({ location, indices }) => {
   const [searchState, setSearchState] = useState(urlToSearchState(location));
   const [debouncedSetState, setDebouncedSetState] = useState(null);
 
-  window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
-  const onSearchStateChange = updatedSearchState => {
+  if (typeof window !== `undefined`) {
+    window.addEventListener('keydown', function (e) {
+      if (e.keyIdentifier === 'U+000A' || e.keyIdentifier === 'Enter' || e.keyCode === 13) {
+        if (e.target.nodeName === 'INPUT' && e.target.type === 'text') {
+          e.preventDefault();
+          return false;
+        }
+      }
+    }, true);
+  }
+
+    const onSearchStateChange = updatedSearchState => {
     clearTimeout(debouncedSetState);
     setDebouncedSetState(
       setTimeout(() => {
