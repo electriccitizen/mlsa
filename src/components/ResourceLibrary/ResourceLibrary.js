@@ -5,7 +5,6 @@ import {
   Index,
   Hits,
   connectStateResults,
-  ScrollTo,
 } from "react-instantsearch-dom"
 
 import { ClearRefinements } from 'react-instantsearch-dom';
@@ -78,7 +77,6 @@ const ResourceLibrary = ({ location, indices }) => {
         onSearchStateChange={onSearchStateChange}
         createURL={createURL}
       >
-        <ScrollTo scrollOn="refinementList">
           <Input />
           <div className="clearfix">
           <div className="current-refinements">
@@ -124,8 +122,6 @@ const ResourceLibrary = ({ location, indices }) => {
             </div>
           </div>
         </div>
-
-        </ScrollTo>
       </InstantSearch>
     </>
   )
