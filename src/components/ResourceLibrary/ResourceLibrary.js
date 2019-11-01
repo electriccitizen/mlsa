@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import qs from 'qs';
-import styled from 'styled-components';
 import {
   InstantSearch,
   Index,
