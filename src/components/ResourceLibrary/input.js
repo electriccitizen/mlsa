@@ -3,7 +3,7 @@ import { connectSearchBox } from "react-instantsearch-dom";
 import SearchIcon from '../../images/search-toggle.svg';
 
 export default connectSearchBox(({ refine, ...rest }) => (
-  <form className="form-item form-text relative m-auto max-w-xs mb-4 lg:mb-12">
+  <form id="searchform" className="form-item form-text relative m-auto max-w-xs mb-4 lg:mb-12">
     <label className="visually-hidden" htmlFor="searchbox">Search</label>
     <input
       type="text"

@@ -17,10 +17,14 @@ exports.shouldUpdateScroll = ({
                               }) => {
 
     if (location.pathname === '/resource-library' && location.search && (location.search.indexOf('refinementList') !== -1)) {
-      let element = document.querySelector("#searchbox");
-      element.scrollIntoView({behavior: "smooth"})
+      const id = 'searchbox';
+      const yOffset = -40;
+      const element = document.getElementById(id);
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
       return false
     }
+
     if (location.pathname === '/find-help' && location.hash !== '#step-1') {
       let element = document.querySelector("#stepper");
       element.scrollIntoView({behavior: "smooth"})

@@ -921,3 +921,6 @@ input:focus + .resource-search-icon{
 	}
 }
 
+.ais-Pagination-link--selected {
+	background: purple;
+}
