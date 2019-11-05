@@ -30,7 +30,7 @@ exports.shouldUpdateScroll = ({
       return false
     }
 
-    if (location.pathname === '/find-help' && location.hash !== '#step-1') {
+    if (location.pathname === '/find-help' && (location.hash !== '#step-1' && location.hash !== '#results')) {
       let element = document.querySelector("#stepper");
       element.scrollIntoView({behavior: "smooth"})
       return false

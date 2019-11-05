@@ -13,6 +13,7 @@ function startOver() {
 export function Results() {
 
   const [queryResults, setQueryResults] = useState('');
+  const [totalHits, setTotalHits] = useState('');
 
   useEffect(() => {
 
@@ -21,7 +22,6 @@ export function Results() {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY)
     const responses = []
     const counties = []
-
 
     const currentResponses = typeof window !== `undefined` && Object.entries(window.localStorage)
     const responseSteps = ['crime','category','related']
@@ -34,34 +34,55 @@ export function Results() {
         })
       return true
     });
-  //
-  //   console.log('responses:' + responses)
+
     const county = typeof window !== `undefined` && window.localStorage.getItem('county')
       county && Object.keys(JSON.parse(county)).map((key) => {
         counties.push('county:"' + key + '"')
         return true
       })
-    
-    let searchString = responses.join(' OR ')
-    let countyString = counties && counties.length ? counties.join(' OR ') : 'county:"Statewide"'
-    searchString = searchString + ' AND (' + countyString + ')'
+
+    let searchRefinements = ''
+    let countyRefinements = ''
+
+    if (responses.length) {
+      searchRefinements = responses.join(' OR ')
+    }
+
+    console.log(counties)
+
+    if (counties.length) {
+      countyRefinements = counties.join( ' OR ') + ' OR county:"Statewide"'
+    } else {
+      countyRefinements = 'county:"Statewide"'
+    }
+
+    console.log(searchRefinements)
+    let searchString = ''
+    if (searchRefinements) {
+      searchString = searchRefinements + ' AND (' + countyRefinements + ')'
+    } else {
+      searchString = countyRefinements
+    }
+
     const index = searchClient.initIndex('Resources');
 
     index.search({
       query: '',
+      hitsPerPage: 100,
+      page: 0,
       filters: searchString
     },
-    (err, { hits } = {}) => {
+    (err, { hits,nbHits } = {}) => {
       if (err) throw err;
       setQueryResults(hits)
+      setTotalHits(nbHits)
     }
   );
     localStorage.clear()
   }, []);
-
   return (
     <div>
-      {Object.keys(queryResults).length !==0 ? <ResultCounter classes="" counter={Object.keys(queryResults).length} /> : ''} 
+      {Object.keys(queryResults).length !==0 ? <ResultCounter classes="" counter={totalHits} /> : ''}
       <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
         {(Object.keys(queryResults).length !==0) ? [
           Object.values(queryResults).map((hit) => {
@@ -74,35 +95,21 @@ export function Results() {
                 hit={hit}
                 org={hit.org}
                 description={hit.description}
+                key={hit.objectID}
               />
-            : ''
-          }),
-          Object.values(queryResults).map((hit) => {
-            return String(hit.county) !== 'Statewide' && String(hit.internal) !== 'true' ?
+            :
               <ResultHit
-                title={hit.title}
-                alias={hit.alias}
-                url={hit.url}
-                icon={hit.icon[0]}
-                hit={hit}
-                org={hit.org}
-                description={hit.description}
-              />
-          : ''
-        }),
-        Object.values(queryResults).map((hit) => {
-          return String(hit.county) === 'Statewide' && String(hit.internal) !== 'true' ?
-            <ResultHit
-              title={hit.title}
-              alias={hit.alias}
-              url={hit.url}
-              icon={hit.icon[0]}
-              hit={hit}
-              org={hit.org}
-              description={hit.description}
+            title={hit.title}
+            alias={hit.alias}
+            url={hit.url}
+            icon={hit.icon[0]}
+            hit={hit}
+            org={hit.org}
+            description={hit.description}
+            key={hit.objectID}
             />
-          : ''
-        })]
+        })
+        ]
         :
         <div className="text-center w-full">Sorry, we could not find any results that matched your answers. Please try again!</div>
         }
