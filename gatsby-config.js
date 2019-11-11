@@ -79,6 +79,13 @@ module.exports = {
           include: /images/
         }
       }
+    },
+    // GOOGLE ANALYTICS
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-151582273-1",
+      },
     }
   ]
 };
