@@ -406,7 +406,7 @@ a{
 	}
 	@media screen and (device-aspect-ratio: 9/16) {
 	  input[type="text"]{ 
-	  	font-size: 1fpx !important; 
+	  	font-size: 16px !important; 
 	  }
 	}
 }
