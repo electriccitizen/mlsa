@@ -24,7 +24,7 @@ export function Buttons({previousStep, nextStep, activeStepIndex,totalSteps,rese
             {activeStepIndex === 0 ? 'START' : activeStepIndex + 1 === totalSteps ? 'SUBMIT' : 'NEXT'}
           </button>
           }
-          {(activeStepIndex !== 0 && activeStepIndex !== totalSteps) && <button className="w-full mb-4 text-20 text-left font-bold text-blue hover:text-green focus:text-green sm:w-auto" onClick={startOver}>Start over?</button> }
+          {(activeStepIndex !== 0 && activeStepIndex !== totalSteps) && <button className="w-full mb-4 text-20 text-left font-bold text-blue hover:text-green-dark focus:text-green-dark hover:underline focus:underline sm:w-auto" onClick={startOver}>Start over?</button> }
             </div>
   )
 }

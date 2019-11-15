@@ -18,7 +18,7 @@ function Layout({ children, location }) {
       render={data => (
         <div className="overflow-x-hidden">
           <Header siteTitle={data.site.siteMetadata.title} />
-            <main>
+            <main id="mainContent">
               {children}
             </main>
           <Footer />
