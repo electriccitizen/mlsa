@@ -207,9 +207,15 @@ a{
 	a{
 		@apply border-b border-grey-mid text-black block px-6 py-4 tracking-wide leading-none text-20;
 		&:hover,&:focus{
-			@apply bg-white-blue;
+			@apply bg-white-blue text-green-dark;
 		}
 		&.active{
+			@apply text-blue;
+			&:hover,&:focus{
+				@apply text-green-dark;
+			}
+		}
+		&[aria-current="page"]{
 			@apply text-blue;
 			&:hover,&:focus{
 				@apply text-green-dark;
@@ -223,7 +229,7 @@ a{
 		a{
 			@apply border-0 px-3 relative;
 			&:hover,&:focus{
-				@apply bg-transparent text-green-dark;
+				@apply bg-transparent text-green-dark underline;
 			}
 		}
 		&:not(:last-child) a{
@@ -257,6 +263,14 @@ a{
 		display: inline-block;
 		padding: 0 10px 0 9px;
 		color: theme(colors.black.default);
+	}
+	a{
+		&[aria-current="page"]{
+			@apply text-black;
+			&:hover,&:focus{
+				@apply text-green-dark;
+			}
+		}
 	}
 }
 
@@ -344,7 +358,7 @@ a{
 }
 .triage-steps{
 	.checkbox,.radio{
-		@apply relative text-15 inline-block pl-8 mb-6;
+		@apply relative inline-block pl-8 mb-6;
 		-webkit-user-select: none;
 	  -moz-user-select: none;
 	  -ms-user-select: none;

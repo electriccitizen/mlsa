@@ -82,7 +82,7 @@ export function Results() {
   }, []);
   return (
     <div>
-      {Object.keys(queryResults).length !==0 ? <ResultCounter classes="" counter={totalHits} /> : ''}
+      {Object.keys(queryResults).length !==0 ? <ResultCounter classes=" text-center" counter={totalHits} /> : ''}
       <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
         {(Object.keys(queryResults).length !==0) ? [
           Object.values(queryResults).map((hit) => {

@@ -12,7 +12,7 @@ const ResultHitContent = (props) => {
   return (
     <>
       <span>
-        <span className="visually-hidden">{props.icon}</span>
+        <span className="visually-hidden">{props.icon === 'database' ? 'web-page' : props.icon}</span>
         {props.icon === 'advocate' ? <Advocate className="resource-icon" />
         : props.icon === 'database' ? <Database className="resource-icon" />
         : props.icon === 'learn' ? <Learn className="resource-icon" />

@@ -8,7 +8,6 @@ import Logo from '../../images/logo.svg';
 import Helmet from "react-helmet";
 import MainMenu from '../Navigation/mainMenu';
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { navigate } from "@reach/router"
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false);
@@ -35,8 +34,8 @@ function Header({ siteTitle }) {
       <link href="https://use.typekit.net" rel="preconnect" crossorigin />
     </Helmet>
     <header className="bg-pineWhite site-header">
-      <button onClick={() => navigate('#mainNavigation')} className="visually-hidden focusable">Skip to main navigation</button>
-      <button onClick={() => navigate('#mainContent')} className="visually-hidden focusable">Skip to main content</button>
+      <a href="#mainNavigation" className="visually-hidden focusable">Skip to main navigation</a>
+      <a href="#mainConten" className="visually-hidden focusable">Skip to main content</a>
       <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080">
         <Escape 
           search={escape.blockContentEscape.field_search_terms} 
