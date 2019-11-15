@@ -404,11 +404,12 @@ a{
 	.radio span:before{
 		border-radius: 50%;
 	}
-	@media screen and (device-aspect-ratio: 9/16) {
-	  input[type="text"]{ 
-	  	font-size: 16px !important; 
-	  }
-	}
+}
+
+@media screen and (device-aspect-ratio: 9/16) {
+  input[type="text"]{ 
+  	font-size: 16px !important; 
+  }
 }
 
 .livechat-wrapper{
@@ -784,7 +785,7 @@ input:focus + .resource-search-icon{
 	}
 }
 .filter-group-toggle{
-	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-extrabold;
+	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-bold;
 	&:after{
 		@apply block absolute right-0 w-0 h-0;
 		content: '';
