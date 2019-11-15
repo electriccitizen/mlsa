@@ -14,7 +14,7 @@ export function Buttons({previousStep, nextStep, activeStepIndex,totalSteps,rese
               className="btn text-13 w-38 mr-3 mb-4 inline-block leading-0 sm:w-40"
               disabled={activeStepIndex === 0} onClick={previousStep}>
               PREVIOUS
-            </button>
+            </button>)
           }
           {activeStepIndex !== totalSteps &&
           <button
