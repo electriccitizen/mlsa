@@ -27,7 +27,7 @@ const Partners = () => {
                         drupal_internal__fid
                         localFile {
                           childImageSharp {
-                            fluid(maxWidth: 200, jpegProgressive: true) {
+                            fluid(maxWidth: 200, jpegProgressive: true, quality: 100) {
                               ...GatsbyImageSharpFluid
                             }
                           }

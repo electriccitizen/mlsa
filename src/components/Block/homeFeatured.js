@@ -29,7 +29,7 @@ const HomeFeatured = () => {
                           field_media_image {
                             localFile {
                               childImageSharp {
-                                fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+                                fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
                                   ...GatsbyImageSharpFluid
                                 }
                               }
@@ -47,35 +47,35 @@ const HomeFeatured = () => {
       }
       imageOne: file(relativePath: { eq: "big-sky-sunset-featured.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       imageTwo: file(relativePath: { eq: "montana-landscape-featured.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       imageThree: file(relativePath: { eq: "wheat-featured.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       imageFour: file(relativePath: { eq: "glacier-np-featured.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       imageFive: file(relativePath: { eq: "sunny-mountain-river-featured.jpg" }) {
         childImageSharp {
-          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER) {
+          fluid(maxHeight: 350, maxWidth: 210, jpegProgressive: true, fit: COVER, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

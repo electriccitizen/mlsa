@@ -53,7 +53,7 @@ export const query = graphql `
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true) {
+                      fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true, quality: 100) {
                         ...GatsbyImageSharpFluid
                       }
                       original {
