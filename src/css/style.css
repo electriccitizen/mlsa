@@ -371,12 +371,6 @@ a{
 		}
 		input{
 			@apply absolute opacity-0 cursor-pointer;
-			font-size: 100%;
-			@media screen and (device-aspect-ratio: 9/16) {
-		    &input[type="text"]{ 
-		    	font-size: 1fpx !important; 
-		    }
-			}
 			&:hover,&:focus{
 				+ span:before{
 					background: theme(colors.grey.light);
@@ -409,6 +403,11 @@ a{
 	}
 	.radio span:before{
 		border-radius: 50%;
+	}
+	@media screen and (device-aspect-ratio: 9/16) {
+	  input[type="text"]{ 
+	  	font-size: 1fpx !important; 
+	  }
 	}
 }
 
