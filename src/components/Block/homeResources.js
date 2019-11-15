@@ -40,7 +40,7 @@ const HomeResources = () => {
           <ul className="flex flex-row flex-wrap justify-center max-w-xxs m-auto md:-mb-8 xxl:max-w-xs">
             {resources.allTaxonomyTermResourceTypes.edges.map(({ node }) => (
               <li className={`block w-1/3 mb-8 flex flex-col justify-center h-16 ${node.field_icon}`} key={node.id}>
-                <span className="visually-hidden">{node.field_icon}</span>
+                <span className="visually-hidden">{String(node.field_icon) === 'database' ? 'web-page': node.field_icon}</span>
                 {String(node.field_icon) === 'advocate' ? <Advocate className="home-resource-icon" />
                 : String(node.field_icon) === 'database' ? <Database className="home-resource-icon" />
                 : String(node.field_icon) === 'learn' ? <Learn className="home-resource-icon" />

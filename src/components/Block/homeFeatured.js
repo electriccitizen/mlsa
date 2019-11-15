@@ -105,7 +105,7 @@ const HomeFeatured = () => {
                 }
               </div>
               <div className="card-text card-small">
-                <h2 className="h3 leading-tight font-extrabold"><a className="underline hover:no-underline focus:no-underline" href={fContent.path.alias}>{fContent.relationships.field_header.field_title}</a></h2>
+                <h2 className="h3 leading-tight font-extrabold"><a className="hover:underline focus:underline" href={fContent.path.alias}>{fContent.relationships.field_header.field_title}</a></h2>
                 <p className="mb-0">{fContent.relationships.field_header.field_summary}</p>
               </div>
             </div>

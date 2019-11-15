@@ -34,6 +34,8 @@ function Header({ siteTitle }) {
       <link href="https://use.typekit.net" rel="preconnect" crossorigin />
     </Helmet>
     <header className="bg-pineWhite site-header">
+      <a href="#mainNavigation" className="visually-hidden focusable">Skip to main navigation</a>
+      <a href="#mainConten" className="visually-hidden focusable">Skip to main content</a>
       <div className="flex flex-row flex-wrap relative content-start md:justify-end m-auto max-w-1080">
         <Escape 
           search={escape.blockContentEscape.field_search_terms} 

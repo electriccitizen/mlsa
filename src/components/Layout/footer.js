@@ -44,7 +44,7 @@ function Footer() {
               />
             ))}
           </div>
-          <div className="md:w-1/2 md:pl-6 lg:pl-16">
+          <div className="md:w-1/2 md:pl-6 lg:pl-16 text-16">
             {basic.allBlockContentBasic.edges.map(({ node }) => (
               node.drupal_internal__id === 2 &&
               <BasicBlock

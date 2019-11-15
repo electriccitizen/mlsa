@@ -29,7 +29,7 @@ const Results = connectStateResults(
 
 const Count = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-   res && res.nbHits > 0 ? <ResultCounter counter={res && res.nbHits} classes=" md:ml-8" /> : ''
+   res && res.nbHits > 0 ? <ResultCounter counter={res && res.nbHits} classes=" text-center md:ml-8 md:text-left md:border-b md:border-grey-mid" /> : ''
 )
 
 const urlToSearchState = ({ search }) => qs.parse(search.slice(1));

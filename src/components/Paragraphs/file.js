@@ -12,7 +12,7 @@ const File = (props) => {
       <div className={props.content.length > 3 ? 'cs-multi-col' : 'single-col'}>
         {props.content.map((fileItem, index) => (
           <div key={fileItem.drupal_id}>
-            <a className="file-link" href={fileItem.relationships.field_media_file.localFile.url} target="_blank" rel="noopener noreferrer">
+            <a className="file-link hover:underline focus:underline" href={fileItem.relationships.field_media_file.localFile.url} target="_blank" rel="noopener noreferrer">
               <span>
               {String(fileItem.relationships.field_media_file.localFile.extension) === 'pdf' ? <PDF />
                 : String(fileItem.relationships.field_media_file.localFile.extension) === 'docx' ? <Word />
