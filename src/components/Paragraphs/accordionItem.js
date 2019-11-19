@@ -25,7 +25,7 @@ class AccordionItem extends React.Component {
     return (
       <div className="pb-4">
         <div>
-          <button className="block h4 text-blue hover:text-green-dark hover:underline focus:text-green-dark focus:underline mb-2" onClick={this.toggle.bind(this)} aria-controls={`accordion-${this.props.id}`} aria-expanded={String(shown)}>
+          <button className="block h4 text-blue underline hover:text-green-dark hover:no-underline focus:text-green-dark focus:no-underline mb-2" onClick={this.toggle.bind(this)} aria-controls={`accordion-${this.props.id}`} aria-expanded={String(shown)}>
             {this.props.header}
           </button>
         </div>
