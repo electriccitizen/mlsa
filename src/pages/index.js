@@ -53,7 +53,7 @@ export const query = graphql `
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true) {
+                      fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true, quality: 65) {
                         ...GatsbyImageSharpFluid
                       }
                       original {
@@ -133,7 +133,7 @@ export const query = graphql `
                   field_media_image {
                     localFile {
                       childImageSharp{
-                        fluid(maxWidth: 1080, jpegProgressive: true) {
+                        fluid(maxWidth: 1080, jpegProgressive: true, quality: 65) {
                           ...GatsbyImageSharpFluid
                         }
                       }
@@ -181,7 +181,7 @@ export const query = graphql `
                   field_media_image {
                     localFile {
                       childImageSharp{
-                        fluid(maxWidth: 760, jpegProgressive: true) {
+                        fluid(maxWidth: 760, jpegProgressive: true, quality: 65) {
                           ...GatsbyImageSharpFluid
                         }
                       }

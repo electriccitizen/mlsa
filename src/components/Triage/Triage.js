@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import { useWizard } from "react-wizard-primitive";
-import { Steps } from "./Steps"
+import { Steps } from "./Steps";
 
 export function Triage() {
 

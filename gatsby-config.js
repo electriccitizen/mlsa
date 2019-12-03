@@ -1,3 +1,4 @@
+
 const queries = require("./src/utils/algolia")
 require("dotenv").config()
 
@@ -52,7 +53,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#757575`,
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`
+        icon: `src/images/favicon.svg`
       }
     },
     `gatsby-plugin-postcss`,
@@ -78,6 +79,13 @@ module.exports = {
           include: /images/
         }
       }
+    },
+    // GOOGLE ANALYTICS
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-151582273-1",
+      },
     }
   ]
 };

@@ -71,7 +71,7 @@ a{
 	a{
 		@apply underline;
 		&:hover,&:focus{
-			@aaply no-underline;
+			@apply no-underline;
 		}
 	}
 	ul{
@@ -115,7 +115,18 @@ a{
 	top: 0;
 	font-size: 1px;
 	opacity: .1;
+	&.focusable:focus,&.focusable:active{
+		position: static !important;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+    font-size: 18px;
+    opacity: 1;
+    padding: 5px 10px;
+	}
 }
+
 
 .md-ml-wipe{
 	@media all and (min-width: theme(screens.md)){
@@ -196,9 +207,15 @@ a{
 	a{
 		@apply border-b border-grey-mid text-black block px-6 py-4 tracking-wide leading-none text-20;
 		&:hover,&:focus{
-			@apply bg-white-blue;
+			@apply bg-white-blue text-green-dark;
 		}
 		&.active{
+			@apply text-blue;
+			&:hover,&:focus{
+				@apply text-green-dark;
+			}
+		}
+		&[aria-current="page"]{
 			@apply text-blue;
 			&:hover,&:focus{
 				@apply text-green-dark;
@@ -212,7 +229,7 @@ a{
 		a{
 			@apply border-0 px-3 relative;
 			&:hover,&:focus{
-				@apply bg-transparent text-green-dark;
+				@apply bg-transparent text-green-dark underline;
 			}
 		}
 		&:not(:last-child) a{
@@ -246,6 +263,14 @@ a{
 		display: inline-block;
 		padding: 0 10px 0 9px;
 		color: theme(colors.black.default);
+	}
+	a{
+		&[aria-current="page"]{
+			@apply text-black;
+			&:hover,&:focus{
+				@apply text-green-dark;
+			}
+		}
 	}
 }
 
@@ -333,7 +358,7 @@ a{
 }
 .triage-steps{
 	.checkbox,.radio{
-		@apply relative text-15 inline-block pl-8 mb-6;
+		@apply relative inline-block pl-8 mb-6;
 		-webkit-user-select: none;
 	  -moz-user-select: none;
 	  -ms-user-select: none;
@@ -381,6 +406,12 @@ a{
 	}
 }
 
+@media screen and (device-aspect-ratio: 9/16) {
+  input[type="text"]{ 
+  	font-size: 16px !important; 
+  }
+}
+
 .livechat-wrapper{
 	@apply absolute z-10 text-center;
 	top: -30px;
@@ -414,6 +445,8 @@ a{
 		}
 	}
 }
+
+
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -752,7 +785,7 @@ input:focus + .resource-search-icon{
 	}
 }
 .filter-group-toggle{
-	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-extrabold;
+	@apply relative pb-2 border-b border-grey-mid text-left w-full text-20 font-bold;
 	&:after{
 		@apply block absolute right-0 w-0 h-0;
 		content: '';
@@ -853,12 +886,15 @@ input:focus + .resource-search-icon{
 	& > span{
 		@apply mb-3half h-16 inline-block;
 	}
+	h2{
+		@apply no-underline;
+	}
 	&:hover,&:focus{
 		.resource-icon{
 			@apply opacity-50;
 		}
 		h2{
-			@apply text-green-dark no-underline;
+			@apply text-green-dark underline;
 		}
 	}
 	.resource-icon{
@@ -884,6 +920,11 @@ input:focus + .resource-search-icon{
 			}
 			span{
 				@apply opacity-50;
+			}
+			a{
+				&:hover,&:focus{
+					@apply bg-green border-green text-white;
+				}
 			}
 		}
 	}
@@ -917,4 +958,9 @@ input:focus + .resource-search-icon{
 		-moz-column-gap: theme(spacing.8);
 		column-gap: theme(spacing.8);
 	}
+}
+
+.ais-Pagination-link--selected {
+	background: #15c;
+    color: #fff!important;
 }

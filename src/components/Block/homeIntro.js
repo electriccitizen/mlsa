@@ -24,7 +24,7 @@ const HomeIntro = () => {
                   field_media_image {
                     localFile {
                       childImageSharp {
-                        fluid(maxWidth: 542, maxHeight: 466, jpegProgressive: true) {
+                        fluid(maxWidth: 542, maxHeight: 466, jpegProgressive: true, quality: 90) {
                           ...GatsbyImageSharpFluid
                         }
                       }

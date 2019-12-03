@@ -5,7 +5,7 @@ import { StepperWrapper } from "./Stepper"
 import { Results } from "./Results"
 
 const CustomStep = ({ previousStep, nextStep, question, responses,resetToStep,activeStepIndex,totalSteps }) => (
-  <div className="mx-auto max-w-2xlHalf md:border md:border-grey-mid md:mY-12">
+  <div id="stepper" className="mx-auto max-w-2xlHalf md:border md:border-grey-mid md:mY-12">
       <div className="hidden md:block mb-12 stepper">
         <StepperWrapper active={activeStepIndex} total={totalSteps} />
       </div>
