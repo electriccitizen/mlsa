@@ -824,7 +824,7 @@ input:focus + .resource-search-icon{
 	}
 
 	label{
-		@apply text-16 inline-block mb-1half text-grey-darker cursor-pointer;
+		@apply text-16 inline-block mb-2 text-grey-darker cursor-pointer;
 		input{
 			@apply absolute opacity-0;
 			&:checked{
