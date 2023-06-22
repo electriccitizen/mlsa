@@ -82,11 +82,5 @@ module.exports = {
       }
     },
     // GOOGLE ANALYTICS
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-151582273-1",
-      },
-    }
   ]
 };
