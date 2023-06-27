@@ -19,6 +19,8 @@ export function Intro() {
     }
   `)
 
+  console.log(data)
+
   const [checkedItems, setCheckedItems] = useLocalStorage('intro', '');
 
   const handleChange = event => {

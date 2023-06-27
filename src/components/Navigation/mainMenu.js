@@ -6,20 +6,22 @@ const MainMenu = () => {
 
 
   const mMenu = useStaticQuery(graphql`
-    query mainMenu {
-      allTaxonomyTermMainMenu(sort: {fields: weight, order: ASC}) {
-        edges {
-          node {
-            id
-            name
-            field_alias
-            field_menu_link {
-              uri
-            }
-          }
+query mainMenu {
+  allTaxonomyTermMainMenu(sort: {weight: ASC}) {
+    edges {
+      node {
+        id
+        name
+        field_alias
+        field_menu_link {
+          uri
         }
       }
     }
+  }
+}
+
+    
   `)
 
 

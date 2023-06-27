@@ -7,16 +7,17 @@ export function County() {
 
   // Select list data
   const data = useStaticQuery(graphql`
-    query CountyQuery2 {
-        allTaxonomyTermCounty(sort: {fields: name, order: ASC}) {
-          edges {
-            node {
-              drupal_id
-              name
-            }
-          }
-        }
+query CountyQuery2 {
+  allTaxonomyTermCounty(sort: {name: ASC}) {
+    edges {
+      node {
+        drupal_id
+        name
+      }
     }
+  }
+}
+
   `)
 
   //Select list options

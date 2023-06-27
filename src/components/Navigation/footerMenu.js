@@ -6,20 +6,21 @@ import { useStaticQuery, graphql } from "gatsby";
 const FooterMenu = () => {
 
   const fMenu = useStaticQuery(graphql`
-    query footerMenu {
-      allTaxonomyTermFooterMenu(sort: {fields: weight, order: ASC}) {
-        edges {
-          node {
-            id
-            name
-            field_alias
-            field_menu_link {
-              uri
-            }
-          }
+query footerMenu {
+  allTaxonomyTermFooterMenu(sort: {weight: ASC}) {
+    edges {
+      node {
+        id
+        name
+        field_alias
+        field_menu_link {
+          uri
         }
       }
     }
+  }
+}
+
   `)
 
   return (
