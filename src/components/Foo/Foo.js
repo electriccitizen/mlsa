@@ -16,8 +16,8 @@ class Foo extends React.Component {
     super(props);
       this.state = { results: ['foo','bar']}
       const searchClient = algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+        process.env.ALGOLIA_APP_ID,
+        process.env.ALGOLIA_SEARCH_KEY
       )
     let foobar = []
     const index = searchClient.initIndex('Resources');
