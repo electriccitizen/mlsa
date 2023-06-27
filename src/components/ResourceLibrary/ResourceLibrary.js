@@ -18,8 +18,9 @@ import ResultCounter from '../Triage/resultCounter';
 import { Location, navigate } from "@reach/router"
 
 const searchClient = algoliasearch(
-  process.env.ALGOLIA_APP_ID,
-  process.env.ALGOLIA_SEARCH_KEY
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+process.env.GATSBY_ALGOLIA_INDEX_NAME,
 )
 
 const Results = connectStateResults(

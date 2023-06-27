@@ -18,8 +18,9 @@ export function Results() {
   useEffect(() => {
 
     const searchClient = algoliasearch(
-    process.env.ALGOLIA_APP_ID,
-    process.env.ALGOLIA_ADMIN_KEY)
+    process.env.GATSBY_ALGOLIA_APP_ID,
+        process.env.GATSBY_ALGOLIA_INDEX_NAME,
+    process.env.GATSBY_ALGOLIA_ADMIN_KEY)
     const responses = []
     const counties = []
 

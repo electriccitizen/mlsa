@@ -2,6 +2,7 @@ const resourceQuery = `{
   resources: allNodeResource {
     edges {
       node {
+      id
         drupal_id
         changed
         status
