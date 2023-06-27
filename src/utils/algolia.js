@@ -2,7 +2,7 @@ const resourceQuery = `{
   resources: allNodeResource {
     edges {
       node {
-      id
+        id
         drupal_id
         changed
         status
@@ -14,7 +14,11 @@ const resourceQuery = `{
           url: uri
           alias: alias
         }
-        internal: field_internal_resource
+        internal_resource: field_internal_resource
+        internal {
+          # querying internal.contentDigest is required
+          contentDigest
+        }
         relationships {
           crime: field_crime {
             name

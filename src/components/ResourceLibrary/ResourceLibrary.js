@@ -125,8 +125,9 @@ const ResourceLibrary = ({ location, indices }) => {
   )
 }
 
-export default wrapper => (
+const WrapperComponent = wrapper => (
   <Location>
     {locationProps => <ResourceLibrary {...locationProps} {...wrapper} />}
   </Location>
 );
+export default WrapperComponent;

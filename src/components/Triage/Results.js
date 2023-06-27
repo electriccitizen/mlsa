@@ -86,7 +86,7 @@ export function Results() {
       <div className="md:flex md:flex-row md:flex-wrap md:-mx-2">
         {(Object.keys(queryResults).length !==0) ? [
           Object.values(queryResults).map((hit) => {
-            return String(hit.internal) === 'true' ?
+            return String(hit.internal_resource) === 'true' ?
               <ResultHit
                 title={hit.title}
                 alias={hit.alias}
