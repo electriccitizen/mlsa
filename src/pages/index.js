@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from 'gatsby';
 import Layout from "../components/Layout/layout";
-import SEO from "../components/Layout/seo";
+import Seo from "../components/Layout/seo";
 import Page from '../components/Page/Page';
 
 const IndexPage = (props) => {
@@ -9,7 +9,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={page.relationships.field_header.field_title}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         abstract='Montana Crime Victim Help is an online resource that connects you with legal help and other supportive services on issues for victims of crime related to safety, housing, family, employment, finances, and more.'

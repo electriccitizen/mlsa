@@ -3,14 +3,14 @@ import { graphql } from 'gatsby';
 //import moment from 'moment'
 import Layout from '../components/Layout/layout';
 import Page from '../components/Page/Page';
-import SEO from "../components/Layout/seo";
+import Seo from "../components/Layout/seo";
 
 const pageTemplate = (props) => {
   const { nodePage: page } = props.data;
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={page.relationships.field_header.field_title}
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         abstract={page.relationships.field_header.field_summary}

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout/layout";
-import SEO from "../components/Layout/seo";
+import Seo from "../components/Layout/seo";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -18,7 +18,7 @@ function NotFoundPage() {
 }`)
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <Seo title="404: Not found" />
       <div className="px-4 py-8 md:px-7">
         <h1>Page not found!</h1>
         <h2 className="text-center">Looks like you've taken a wrong turn.</h2>
