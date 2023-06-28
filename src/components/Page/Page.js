@@ -11,7 +11,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 class Page extends React.Component {
   render() {
-    console.log(this.props)
     let randImages = [
       <GatsbyImage
         image={this.props.randOne}

@@ -48,7 +48,6 @@ const HomeIntro = () => {
       </div>
       <div className="intro-image-wrapper">
         <div className="intro-image-inner">
-            {console.log(node.relationships.field_image.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData)}
             <GatsbyImage
             image={node.relationships.field_image.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
             className="intro-image"
