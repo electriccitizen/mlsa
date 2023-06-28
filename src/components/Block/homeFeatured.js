@@ -116,7 +116,7 @@ const HomeFeatured = () => {
       alt="A river winding through a mountain prairie in the sun" />
   ];
   const randomFeature = randImages[Math.floor(Math.random()*randImages.length)];
-  // console.log(randomFeature)
+   console.log(randomFeature)
   return featured.allBlockContentHomepageFeaturedContent.edges.map(({ node }) => (
 
     <div className="flex flex-row flex-wrap justify-center -mx-4 md:justify-start cmax:-mx-10" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
@@ -127,18 +127,15 @@ const HomeFeatured = () => {
           <div className="border border-grey-mid flex flex-row items-stretch">
             <div className="">
               {/*{console.log(fContent.relationships.field_header.relationships.field_featured_image.field_media_image.alt)}*/}
-              {fContent.relationships.field_header.relationships.field_featured_image &&
-                <>
-                  {/*{ console.log('IMAGE: ' + fContent.relationships.field_header.relationships.field_featured_image) }*/}
-
+              {fContent.relationships.field_header.relationships.field_featured_image  ?
                   <GatsbyImage
                   image={fContent.relationships.field_header.relationships.field_featured_image.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
                   // alt={fContent.relationships.field_header.relationships.field_featured_image.alt}
                   alt={fContent.relationships.field_header.relationships.field_featured_image.field_media_image.alt}
                   layout="contstrained"
 
-                />
-                </>
+                />:
+                   randomFeature
               }
             </div>
             <div className="card-text card-small">

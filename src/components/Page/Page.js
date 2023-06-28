@@ -10,8 +10,8 @@ import ReactComponent from '../Paragraphs/reactComponent';
 import { GatsbyImage } from "gatsby-plugin-image";
 
 class Page extends React.Component {
-
   render() {
+    console.log(this.props)
     let randImages = [
       <GatsbyImage
         image={this.props.randOne}
@@ -25,7 +25,7 @@ class Page extends React.Component {
         image={this.props.randFive}
         alt="A river winding through a mountain prairie in the sun" />
     ];
-    let randomFeature = randImages[Math.floor(Math.random()*randImages.length)];
+    let randomFeature =  randImages[Math.floor(Math.random()*randImages.length)];
     return this.props.restricted ? <div className="text-center py-12">You must be logged in as an administrator to view this page.</div> 
       :
       <>
