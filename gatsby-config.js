@@ -3,6 +3,7 @@ const queries = require("./src/utils/algolia")
 require("dotenv").config()
 
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     title: `MT Crime Victim Help`,
     siteUrl: `https://www.mtcrimevictimhelp.org`,
@@ -34,8 +35,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-         baseUrl: 'http://dev-mtcv.pantheonsite.io/',
-        // baseUrl: 'http://mtcv.docksal.site/',
+         // baseUrl: 'http://dev-mtcv.pantheonsite.io/',
+         baseUrl: 'http://mtcv.docksal.site/',
         apiBase: 'jsonapi', // endpoint of Drupal server
       },
     },

@@ -30,22 +30,103 @@ const IndexPage = (props) => {
 
 export default IndexPage;
 
-export const query = graphql `
-  query indexPage {
-    nodePage(drupal_internal__nid: {eq: 21}) {
-      drupal_id
-      drupal_internal__nid
-      title
-      path {
-        alias
+export const query = graphql `query indexPage {
+  nodePage(drupal_internal__nid: {eq: 21}) {
+    drupal_id
+    drupal_internal__nid
+    title
+    path {
+      alias
+    }
+    created
+    changed
+    relationships {
+      field_prefooter_image {
+        id
+        relationships {
+          field_single_image {
+            field_media_image {
+              alt
+            }
+            relationships {
+              field_media_image {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 65
+                      transformOptions: {fit: COVER}
+                      layout: FULL_WIDTH
+                    )
+                    original {
+                      src
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      created
-      changed
-      relationships {
-        field_prefooter_image {
-          id
+      field_header {
+        drupal_id
+        field_title
+        field_subheader
+      }
+      field_content {
+        __typename
+        ... on paragraph__accordion_group {
+          drupal_id
+          field_header
+          relationships {
+            field_accordions {
+              drupal_id
+              field_accordion_header
+              field_text {
+                processed
+              }
+            }
+          }
+        }
+        ... on paragraph__button {
+          drupal_id
+          field_header
+          field_buttons {
+            title
+            uri
+            alias
+          }
+        }
+        ... on paragraph__files {
+          drupal_id
+          field_header
+          relationships {
+            field_files {
+              drupal_id
+              relationships {
+                field_media_file {
+                  localFile {
+                    url
+                    name
+                    extension
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on paragraph__horizontal_rule {
+          drupal_id
+        }
+        ... on paragraph__image {
+          drupal_id
+          field_header
+          field_link {
+            uri
+            alias
+          }
           relationships {
             field_single_image {
+              field_caption
               field_media_image {
                 alt
               }
@@ -53,12 +134,7 @@ export const query = graphql `
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(fit: COVER, maxWidth: 2280, jpegProgressive: true, quality: 65) {
-                        ...GatsbyImageSharpFluid
-                      }
-                      original {
-                        src
-                      }
+                      gatsbyImageData( quality: 65, layout: FULL_WIDTH)
                     }
                   }
                 }
@@ -66,142 +142,66 @@ export const query = graphql `
             }
           }
         }
-        field_header {
+        ... on paragraph__react_component {
           drupal_id
-          field_title
-          field_subheader
+          drupal_internal__id
+          relationships {
+            field_components {
+              drupal_internal__tid
+              id
+            }
+          }
         }
-        field_content {
-          __typename
-          ... on paragraph__accordion_group {
-            drupal_id
-            field_header
-            relationships {
-              field_accordions {
-                drupal_id
-                field_accordion_header
-                field_text {
-                  processed
-                }
+        ... on paragraph__text {
+          drupal_id
+          field_header
+          field_text {
+            processed
+          }
+        }
+        ... on paragraph__text_with_image {
+          drupal_id
+          field_header
+          field_image_placement
+          field_link {
+            uri
+            alias
+          }
+          field_text {
+            processed
+          }
+          relationships {
+            field_single_image {
+              field_caption
+              field_media_image {
+                alt
               }
-            }
-          }
-          ... on paragraph__button {
-            drupal_id
-            field_header
-            field_buttons {
-              title
-              uri
-              alias
-            }
-          }
-          ... on paragraph__files {
-            drupal_id
-            field_header
-            relationships {
-              field_files {
-                drupal_id
-                relationships{
-                  field_media_file{
-                    localFile{
-                      url
-                      name
-                      extension
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on paragraph__horizontal_rule {
-            drupal_id
-          }
-          ... on paragraph__image {
-            drupal_id
-            field_header
-            field_link {
-              uri
-              alias
-            }
-            relationships {
-              field_single_image {
-                field_caption
+              relationships {
                 field_media_image {
-                  alt
-                }
-                relationships {
-                  field_media_image {
-                    localFile {
-                      childImageSharp{
-                        fluid(maxWidth: 1080, jpegProgressive: true, quality: 65) {
-                          ...GatsbyImageSharpFluid
-                        }
-                      }
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(
+                        width: 760
+                        quality: 65
+                        layout: CONSTRAINED
+                      )
                     }
                   }
                 }
               }
             }
           }
-          ... on paragraph__react_component {
-            drupal_id
-            drupal_internal__id
-            relationships {
-              field_components {
-                drupal_internal__tid
-                id
-              }
+        }
+        ... on paragraph__video {
+          drupal_id
+          relationships {
+            field_video {
+              field_media_oembed_video
+              name
             }
           }
-          ...on paragraph__text {
-            drupal_id
-            field_header
-            field_text {
-              processed
-            }
-          }
-          ... on paragraph__text_with_image {
-            drupal_id
-            field_header
-            field_image_placement
-            field_link {
-              uri
-              alias
-            }
-            field_text {
-              processed
-            }
-            relationships {
-              field_single_image {
-                field_caption
-                field_media_image {
-                  alt
-                }
-                relationships {
-                  field_media_image {
-                    localFile {
-                      childImageSharp{
-                        fluid(maxWidth: 760, jpegProgressive: true, quality: 65) {
-                          ...GatsbyImageSharpFluid
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on paragraph__video {
-            drupal_id
-            relationships {
-              field_video {
-                field_media_oembed_video
-                name
-              }
-            }
-          }  
         }
       }
     }
   }
-`;
+}`;
