@@ -116,7 +116,6 @@ const HomeFeatured = () => {
       alt="A river winding through a mountain prairie in the sun" />
   ];
   const randomFeature = randImages[Math.floor(Math.random()*randImages.length)];
-   console.log(randomFeature)
   return featured.allBlockContentHomepageFeaturedContent.edges.map(({ node }) => (
 
     <div className="flex flex-row flex-wrap justify-center -mx-4 md:justify-start cmax:-mx-10" id={ `block-${node.drupal_internal__id}`} key={node.drupal_internal__id}>
