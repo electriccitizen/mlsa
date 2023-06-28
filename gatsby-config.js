@@ -35,8 +35,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-         // baseUrl: 'http://dev-mtcv.pantheonsite.io/',
-         baseUrl: 'http://mtcv.docksal.site/',
+         baseUrl: 'http://dev-mtcv.pantheonsite.io/',
+         // baseUrl: 'http://mtcv.docksal.site/',
         apiBase: 'jsonapi', // endpoint of Drupal server
       },
     },
