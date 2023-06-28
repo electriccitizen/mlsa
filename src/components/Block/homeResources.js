@@ -11,26 +11,30 @@ const HomeResources = () => {
 
   const resources = useStaticQuery(graphql`
     query resources {
-      allTaxonomyTermResourceTypes(sort: {fields: weight, order: ASC}, filter: {drupal_internal__tid: {ne: 273}}) {
-        edges {
-          node {
-            id
-            field_icon
-          }
-        }
+  allTaxonomyTermResourceTypes(
+    sort: {weight: ASC}
+    filter: {drupal_internal__tid: {ne: 273}}
+  ) {
+    edges {
+      node {
+        id
+        field_icon
       }
-      allBlockContentHomepageResources(filter: {drupal_internal__id: {eq: 7}}) {
-        edges {
-          node {
-            drupal_internal__id
-            info
-            body {
-              processed
-            }
-          }
+    }
+  }
+  allBlockContentHomepageResources(filter: {drupal_internal__id: {eq: 7}}) {
+    edges {
+      node {
+        drupal_internal__id
+        info
+        body {
+          processed
         }
       }
     }
+  }
+}
+
   `)
 
   return (

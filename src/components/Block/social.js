@@ -9,7 +9,9 @@ const Social = () => {
 
   const social = useStaticQuery(graphql`
     query Social {
-      allBlockContentSocialMediaLinks(filter: {drupal_internal__id: {eq: 3}}, sort: {fields: field_social_links, order: ASC}) {
+      allBlockContentSocialMediaLinks(
+      filter: {drupal_internal__id: {eq: 3}}
+      ) {
         edges {
           node {
             id

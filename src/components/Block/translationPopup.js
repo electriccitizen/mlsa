@@ -14,19 +14,20 @@ const TranslationPopup = () => {
           processed
         }
         relationships {
-          field_translations {
-            field_text {
-              processed
+      field_translations {
+        field_text {
+          processed
+        }
+        relationships {
+          field_language {
+            ... on taxonomy_term__translation_languages {
+              id
+              name
             }
-            relationships {
-              field_language {
-                name
-                drupal_internal__tid
-              }
-            }
-            id
           }
         }
+      }
+    }
       }
     }
   `)

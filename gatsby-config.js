@@ -3,6 +3,7 @@ const queries = require("./src/utils/algolia")
 require("dotenv").config()
 
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     title: `MT Crime Victim Help`,
     siteUrl: `https://www.mtcrimevictimhelp.org`,
@@ -15,13 +16,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-image`,
 
     // ALGOLIA
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
         queries,
         chunkSize: 1000, // default: 1000
         routing: true,
@@ -32,8 +35,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-        baseUrl: 'http://dev-mtcv.pantheonsite.io/',
-        //baseUrl: 'http://mtcv.docksal/',
+         baseUrl: 'http://dev-mtcv.pantheonsite.io/',
+         // baseUrl: 'http://mtcv.docksal.site/',
         apiBase: 'jsonapi', // endpoint of Drupal server
       },
     },
@@ -81,12 +84,29 @@ module.exports = {
         }
       }
     },
-    // GOOGLE ANALYTICS
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "UA-151582273-1",
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "UA-151582273-1", // Google Analytics / GA
+            "G-HP0BH69LJ3"
+          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        // gtagConfig: {
+        //   optimize_id: "OPT_CONTAINER_ID",
+        //   anonymize_ip: true,
+        //   cookie_expires: 0,
+        // },
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+        },
       },
-    }
+    },
   ]
 };
