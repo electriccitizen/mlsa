@@ -52,7 +52,7 @@ const settings = { attributesToSnippet: [
 
 const flatten = arr =>
   arr.map(
-    ( { node: { title, relationships, field_resource_url, field_description, field_internal_resource, ...rest }}) =>
+    ( { node: {id,drupal_id, title, relationships, field_resource_url, field_description, field_internal_resource, ...rest }}) =>
         (
           {
             objectID: id || drupal_id,
