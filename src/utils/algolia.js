@@ -55,6 +55,7 @@ const flatten = arr =>
     ( { node: { title, relationships, field_resource_url, field_description, field_internal_resource, ...rest }}) =>
         (
           {
+            objectID: id || drupal_id,
             title,
             crime: relationships.crime ? relationships.crime.map(crimeObj => crimeObj.name) : null,
             issue: relationships.issue ? relationships.issue.map(issueObj => issueObj.name) : null,
