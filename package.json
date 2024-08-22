@@ -6,7 +6,7 @@
     "algoliasearch": "^3.33.0",
     "babel-plugin-styled-components": "^2.1.4",
     "dotenv": "^8.6.0",
-    "gatsby": "^5.11.0",
+    "gatsby": "^5.13.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-google-gtag": "^5.11.0",
