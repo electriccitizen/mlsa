@@ -33,6 +33,7 @@
     "react-styled-components": "^0.1.11",
     "react-tippy": "^1.4.0",
     "react-wizard-primitive": "^2.5.0",
+    "sharp": "^0.33.5",
     "styled-components": "^5.3.11",
     "styled-icons": "^10.47.0",
     "unstated-next": "^1.1.0"
