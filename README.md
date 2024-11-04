@@ -9,6 +9,8 @@ git clone git@github.com:electriccitizen/mlsa.git
 
 cd mlsa
 
+npm install 
+
 gatsby develop
 ```
 
